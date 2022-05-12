@@ -29,8 +29,9 @@ $text       = get_field('project_line') ?: 'Your project line here...';
 $hover_text = get_field('project_hover_text') ?: 'Your hover text here...'; ?>
 
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
-    <a href="<?php the_permalink( ) ?>">
-        <?php echo $text; ?><br>
-        <?php echo $hover_text; ?>
+    <a class="project-line" href="<?php the_permalink( ) ?>">
+        <?php echo $text; ?>
     </a>
+    <div class="project-hover"><?php echo $hover_text; ?></div>
+    
 </div>

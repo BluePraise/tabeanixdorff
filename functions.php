@@ -71,12 +71,13 @@ function tn_nav() {
     );
 }
 
-function register_gogo_menu() {
+function register_tn_menu() {
     register_nav_menus( array( // Using array to specify more menus if needed
         'header-menu'  => esc_html( 'Header Menu', 'tn' ), // Main Navigation
         'extra-menu'   => esc_html( 'Extra Menu', 'tn' ) //
     ) );
 }
+add_action('init', 'register_tn_menu');
 
 function wpb_remove_version() {
     return '';

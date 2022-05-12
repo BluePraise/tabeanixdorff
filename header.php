@@ -34,6 +34,10 @@
 
 <body <?php body_class(); ?>>
     <header>
-        This is where the header will be
+        <div class="container">
+            
+            <a href="<?php echo site_url( ); ?>">Tabea Nixdorff</a>
+        </div>
+        
     </header>
-    <main>
+    <main class="container">
