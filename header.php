@@ -22,21 +22,35 @@
     
     <?php wp_head(); ?>
 
-    <script>
-        // conditionizr.com
-        // configure environment tests
-        conditionizr.config({
-            assets: "<?php echo get_template_directory_uri(); ?>",
-            tests: {}
-        });
-    </script>
 </head>
 
 <body <?php body_class(); ?>>
     <header>
         <div class="container">
-            
-            <a href="<?php echo site_url( ); ?>">Tabea Nixdorff</a>
+            <nav>
+                <ul class="main-menu">
+                    <li class="main-menu__item">
+                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Tabea Nixdorff</a>
+                        <ul class="submenu">
+                            <li class=""><a href="#">artist's statement</a></li>
+                            <li><a href="#">bio / CV</a></li>
+                        </ul>
+                    </li>
+                    <li class="main-menu__item">
+                        <a href="/">Texture</a>
+                    </li>
+                    <li class="main-menu__item">
+                        <a href="/"> <?php get_search_form( array( 'aria_label' => __( 'search', 'tabeanixdorff' ),));
+            ?></a>
+                       
+                    </li>
+                    <li class="main-menu__item">
+                        <a href="/">Sorting Thread</a>
+                    </li>
+                </ul>
+                
+            </div>
+
         </div>
         
     </header>
