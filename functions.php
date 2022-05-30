@@ -21,6 +21,12 @@ function tn_dequeue_style() {
 }
 add_action('wp_enqueue_scripts', 'tn_dequeue_style', 999);
 
+function my_remove_searchwp_live_search_theme_css() {
+    wp_dequeue_style( 'searchwp-live-search' );
+}
+
+// add_action( 'wp_enqueue_scripts', 'my_remove_searchwp_live_search_theme_css', 20 );
+
 add_action('acf/init', 'tn_acf_init_block_types');
 
 function tn_acf_init_block_types() {
@@ -48,7 +54,7 @@ add_theme_support( 'post-thumbnails' );
 
 function tn_styles_scripts() {
 	wp_register_style( 'tn_style', get_template_directory_uri() . '/style.css');
-	wp_register_script( 'tn_script', get_template_directory_uri() . '/script.js');
+	wp_register_script( 'tn_script', get_template_directory_uri() . '/script.js','','',true);
 	wp_enqueue_style('tn_style');
 	wp_enqueue_script('tn_script');
 }
@@ -115,3 +121,49 @@ remove_action( 'wp_head', 'wlwmanifest_link' ); // Display the link to the Windo
 remove_action( 'wp_head', 'wp_generator' ); // Display the XHTML generator that is generated on the wp_head hook, WP version
 remove_action( 'wp_head', 'rel_canonical' );
 remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
+
+// wp search
+function my_searchwp_live_search_configs( $configs ) {
+    // override some defaults
+    $configs['default'] = array(
+        'engine' => 'default',                      // search engine to use (if SearchWP is available)
+        'input' => array(
+            'delay'     => 400,                 // wait 500ms before triggering a search
+            'min_chars' => 5,                   // wait for at least 3 characters before triggering a search
+        ),
+        'parent_el' => 'body',                      // selector of the parent element for the results container
+        'results' => array(
+            'position'  => 'bottom',            // where to position the results (bottom|top)
+            'width'     => 'auto',              // whether the width should automatically match the input (auto|css)
+            'offset'    => array(
+                'x' => 0,                   // x offset (in pixels)
+                'y' => 5                    // y offset (in pixels)
+            ),
+        ),
+        'spinner' => array( // Powered by http://spin.js.org/
+            'lines'     => 13,                                 // The number of lines to draw
+            'length'    => 38,                                 // The length of each line
+            'width'     => 17,                                 // The line thickness
+            'radius'    => 45,                                 // The radius of the inner circle
+            'scale'     => 1,                                  // Scales overall size of the spinner
+            'corners'   => 1,                                  // Corner roundness (0..1)
+            'color'     => '#ffffff',                          // CSS color or array of colors
+            'fadeColor' => 'transparent',                      // CSS color or array of colors
+            'speed'     => 1,                                  // Rounds per second
+            'rotate'    => 0,                                  // The rotation offset
+            'animation' => 'searchwp-spinner-line-fade-quick', // The CSS animation name for the lines
+            'direction' => 1,                                  // 1: clockwise, -1: counterclockwise
+            'zIndex'    => 2e9,                                // The z-index (defaults to 2000000000)
+            'className' => 'spinner',                          // The CSS class to assign to the spinner
+            'top'       => '50%',                              // Top position relative to parent
+            'left'      => '50%',                              // Left position relative to parent
+            'shadow'    => '0 0 1px transparent',              // Box-shadow for the lines
+            'position'  => 'absolute'                          // Element positioning
+        ),
+    );
+
+    
+    return $configs;
+}
+
+// add_filter( 'searchwp_live_search_configs', 'my_searchwp_live_search_configs' );

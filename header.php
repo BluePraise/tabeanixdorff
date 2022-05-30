@@ -40,8 +40,7 @@
                         <a href="/">Texture</a>
                     </li>
                     <li class="main-menu__item">
-                        <a href="/"> <?php get_search_form( array( 'aria_label' => __( 'search', 'tabeanixdorff' ),));
-            ?></a>
+                        <a class="js-search-toggle" href="#">Searching</a>
                        
                     </li>
                     <li class="main-menu__item">
@@ -50,8 +49,11 @@
                 </ul>
                 
             </div>
-
+                 <div class="search-container">
+    <?php get_search_form( 
+        array( 'aria_label' => __( '', 'tabeanixdorff' ),
+    ));
+    ?></div>
         </div>
-        
     </header>
     <main class="container">
