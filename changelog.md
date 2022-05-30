@@ -13,3 +13,6 @@
 - Most of styling has been copied from the correct PDF
 - Added menu 
 
+### 2022-05-30
+- Added simple search functionality
+- Added url to make search result clickable
