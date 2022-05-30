@@ -40,9 +40,7 @@
                         <a href="/">Texture</a>
                     </li>
                     <li class="main-menu__item">
-                        <a href="/"> <?php get_search_form( array( 'aria_label' => __( 'search', 'tabeanixdorff' ),));
-            ?></a>
-                       
+                       Searching
                     </li>
                     <li class="main-menu__item">
                         <a href="/">Sorting Thread</a>
@@ -54,4 +52,9 @@
         </div>
         
     </header>
-    <main class="container">
+       
+    <div class="form-control">
+        <span class="screen-reader-text"><?php _e( 'Searching', 'tabeanixdorff' ); // phpcs:ignore: WordPress.Security.EscapeOutput.UnsafePrintingFunction -- core trusts translations ?></span>
+        <input type="search" id="<?php echo esc_attr( $tabeanixdorff_unique_id ); ?>" class="search-field js-search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'tabeanixdorff' ); ?>" value="<?php //echo //get_search_query(); ?>" name="s" />
+    </div>  
+    <main class="main-container">
