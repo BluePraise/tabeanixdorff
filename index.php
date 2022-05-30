@@ -1,13 +1,16 @@
 <?php 
 	get_header(); 
 
-	if (have_posts()):
-  	while (have_posts()) : the_post(); ?>
+	if (have_posts()): ?>
+		<div class="projects">
+  	<?php while (have_posts()) : the_post(); ?>
   		
-    	<?php the_content();?>
+    		<?php the_content();?>
+    	
   	<?php endwhile;
 	else:
-		echo 'no projects right now';
-	endif;
+		echo 'no projects right now'; ?>
+	</div>
+	<?php endif;
 	get_footer();
 ?>

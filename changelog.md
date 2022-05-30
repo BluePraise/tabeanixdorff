@@ -16,3 +16,4 @@
 ### 2022-05-30
 - Added simple search functionality
 - Added url to make search result clickable
+- Changed Markup on index.php to help with result view

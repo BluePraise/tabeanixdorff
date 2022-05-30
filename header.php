@@ -40,21 +40,17 @@
                         <a href="/">Texture</a>
                     </li>
                     <li class="main-menu__item">
-                       Searching
+                        <span class="screen-reader-text"><?php _e( 'Searching', 'tabeanixdorff' ); // phpcs:ignore: WordPress.Security.EscapeOutput.UnsafePrintingFunction -- core trusts translations ?></span>
                     </li>
                     <li class="main-menu__item">
                         <a href="/">Sorting Thread</a>
                     </li>
-                </ul>
-                
+                </ul>     
             </div>
 
-        </div>
-        
-    </header>
-       
-    <div class="form-control">
-        <span class="screen-reader-text"><?php _e( 'Searching', 'tabeanixdorff' ); // phpcs:ignore: WordPress.Security.EscapeOutput.UnsafePrintingFunction -- core trusts translations ?></span>
-        <input type="search" id="<?php echo esc_attr( $tabeanixdorff_unique_id ); ?>" class="search-field js-search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'tabeanixdorff' ); ?>" value="<?php //echo //get_search_query(); ?>" name="s" />
-    </div>  
+    </header> 
     <main class="main-container">
+        <div class="form-control">
+            <input type="search" id="<?php echo esc_attr( $tabeanixdorff_unique_id ); ?>" class="search-field js-search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'tabeanixdorff' ); ?>" value="<?php //echo //get_search_query(); ?>" name="s" />
+        </div>     
+        <div class="result-container"></div>

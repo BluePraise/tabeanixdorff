@@ -10,12 +10,12 @@ const renderThreads = function (threads, filters) {
     })
     
     // empty main container
-    document.querySelector('.main-container').innerHTML = ''
+    document.querySelector('.projects').innerHTML = ''
     
     filteredThreads.forEach(function (thread) {
         const threadDiv = document.createElement('div')
         threadDiv.classList.add('project');
-        document.querySelector('.main-container').appendChild(threadDiv)
+        document.querySelector('.projects').appendChild(threadDiv)
         document.querySelector('.project').appendChild(thread)
     })
 }
