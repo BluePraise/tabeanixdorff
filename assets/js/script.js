@@ -5,7 +5,6 @@ const filters = {
 
 const renderThreads = function (threads, filters) {
     const filteredThreads = threads.filter(function (thread) {
-        // console.log(thread)
         return thread.textContent.toLowerCase().includes(filters.searchText.toLowerCase())
     })
     

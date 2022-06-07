@@ -21,6 +21,22 @@ function tn_dequeue_style() {
 }
 add_action('wp_enqueue_scripts', 'tn_dequeue_style', 999);
 
+/**
+ * Gutenberg scripts and styles
+ * @link https://www.billerickson.net/block-styles-in-gutenberg/
+ */
+function tn_gutenberg_scripts() {
+
+    wp_enqueue_script(
+        'tn-editor', 
+        get_stylesheet_directory_uri() . '/assets/js/editor.js', 
+        array( 'wp-blocks', 'wp-dom' ), 
+        filemtime( get_stylesheet_directory() . '/assets/js/editor.js' ),
+        true
+    );
+}
+add_action( 'enqueue_block_editor_assets', 'tn_gutenberg_scripts' );
+
 add_action('acf/init', 'tn_acf_init_block_types');
 
 function tn_acf_init_block_types() {
@@ -28,6 +44,7 @@ function tn_acf_init_block_types() {
     // Check function exists.
     if( function_exists('acf_register_block_type') ) {
 
+        
         // register a project block.
         acf_register_block_type(array(
             'name'              => 'project',
@@ -38,7 +55,21 @@ function tn_acf_init_block_types() {
             'icon'              => 'admin-comments',
             'is_preview'        => true,
             'keywords'          => array( 'portfolio', 'quote' ),
-            'post_types'		=> array('post')
+            'post_types'        => array('post')
+        ));
+
+        // register a column block.
+        acf_register_block_type(array(
+            'name'              => 'columns_5050',
+            'title'             => __('Columns evenly distributed'),
+            'description'       => __('Two columns evenly distributed'),
+            'render_template'   => 'template-parts/blocks/columns.php',
+            'enqueue_style'     => get_template_directory_uri() . '/template-parts/blocks/columns.css',
+            'category'          => 'formatting',
+            'icon'              => 'dashicons-columns',
+            'is_preview'        => true,
+            'keywords'          => array( 'portfolio', 'quote' ),
+            'post_types'        => array('post', 'page')
         ));
     }
 }
@@ -48,7 +79,7 @@ add_theme_support( 'post-thumbnails' );
 
 function tn_styles_scripts() {
 	wp_register_style( 'tn_style', get_template_directory_uri() . '/style.css');
-	wp_register_script( 'tn_script', get_template_directory_uri() . '/script.js','','',true);
+	wp_register_script( 'tn_script', get_template_directory_uri() . 'js/script.js','','',true);
 	wp_enqueue_style('tn_style');
 	wp_enqueue_script('tn_script');
 }

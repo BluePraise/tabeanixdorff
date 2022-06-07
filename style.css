@@ -2,10 +2,18 @@
 Theme Name: Tabea Nixdorff 2022 - Portfolio
 Author: Magalie Chetrit
 Version: 0.2
+Template: twentytwentytwo;
 */
 
 body {
 	font-size:  xx-large;
+}
+
+/* Shared Typografie  */
+h1.project-detail-title,
+.project-line {
+	font-size:  32px;
+	font-weight: normal;
 }
 
 .container,
@@ -85,14 +93,20 @@ input.search-field {
 	border-bottom: 1px transparent solid !important;
 }
 
+
+
 /* projects */
 .project-line {
 	display:  block;
+	margin: 8px 0;
 }
 .project-hover { display: none; }
 /* todo:  if you hover over .project-line show project-hover maybe with js?*/
-/*.project-line:hover { display: block; }*/
 
+.project-detail-meta-info {
+	font-weight: bolder;
+    font-size: smaller;
+}
 /* helpers */
 .hide {
 	display: none;
