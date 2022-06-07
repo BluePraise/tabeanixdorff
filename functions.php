@@ -58,19 +58,6 @@ function tn_acf_init_block_types() {
             'post_types'        => array('post')
         ));
 
-        // register a column block.
-        acf_register_block_type(array(
-            'name'              => 'columns_5050',
-            'title'             => __('Columns evenly distributed'),
-            'description'       => __('Two columns evenly distributed'),
-            'render_template'   => 'template-parts/blocks/columns.php',
-            'enqueue_style'     => get_template_directory_uri() . '/template-parts/blocks/columns.css',
-            'category'          => 'formatting',
-            'icon'              => 'dashicons-columns',
-            'is_preview'        => true,
-            'keywords'          => array( 'portfolio', 'quote' ),
-            'post_types'        => array('post', 'page')
-        ));
     }
 }
 

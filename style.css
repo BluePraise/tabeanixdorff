@@ -111,3 +111,8 @@ input.search-field {
 .hide {
 	display: none;
 }
+
+/* Gutenberg Block overrides */
+.project-additional-info.wp-container-3 {
+	align-items: initial !important;
+}

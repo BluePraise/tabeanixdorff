@@ -25,7 +25,7 @@ My aim is to make this the most streamlined - slimmed WP theme ever.
 ### June 2022 - V0.2
  
 - Moved js folder to assets folder 
-- Registered a new acf block to add columns in project (columns_5050)
 - Single: now has improved markup
 - Index: now has improved markup
+- Decided to do overrides on Gutenberg blocks until I understand them better
 
