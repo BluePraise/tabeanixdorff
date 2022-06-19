@@ -20,13 +20,10 @@ const renderThreads = function (threads, filters) {
 }
 
 // renderThreads(threads, filters)
-
-document.querySelector('.js-search-field').addEventListener('input', function(e) {
-    filters.searchText = e.target.value
-        setTimeout(
-            renderThreads(threads, filters),
-        400
-        )
-        
-    
-})
+const searchField = document.querySelector('.js-search-field')
+if (searchField) {
+    searchField.addEventListener('input', function(e) {
+        filters.searchText = e.target.value
+            setTimeout(renderThreads(threads, filters), 400)
+    })
+}

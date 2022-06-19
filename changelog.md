@@ -17,3 +17,16 @@
 - Added simple search functionality
 - Added url to make search result clickable
 - Changed Markup on index.php to help with result view
+- Added a conditional to the projects block for single view
+- Navigation: improved positioning on hover
+
+### 2022-06-07
+- Moved js folder to assets folder 
+- Single: now has improved markup
+- Index: now has improved markup
+- Decided to do overrides on Gutenberg blocks until I understand them
+- Added Flexslider for image slider
+
+### 2022-06-19
+- Flexslider is now functioning
+- Styling of the slider

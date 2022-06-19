@@ -19,13 +19,11 @@ My aim is to make this the most streamlined - slimmed WP theme ever.
 
 - Uses ACF Blocks to render templates - V0.1
 - Custom search filter added - V0.1
-- Added a conditional to the projects block for single view
-- Navigation: improved positioning on hover
 
 ### June 2022 - V0.2
+- Single styling
+- Added flexslider
+- Flexslider is an ACF block
  
-- Moved js folder to assets folder 
-- Single: now has improved markup
-- Index: now has improved markup
-- Decided to do overrides on Gutenberg blocks until I understand them better
+
 

@@ -13,31 +13,11 @@ function tn_dequeue_style() {
         wp_deregister_style('dashicons-css');
         wp_dequeue_style('wp-block-library-theme');
 	    wp_deregister_style('wp-block-library-theme');
-        wp_dequeue_style('storefront-gutenberg-blocks');
-	    wp_deregister_style('storefront-gutenberg-blocks');
         wp_dequeue_style('wp-block-library');
 	    wp_deregister_style('wp-block-library');
     }
 }
-add_action('wp_enqueue_scripts', 'tn_dequeue_style', 999);
-
-/**
- * Gutenberg scripts and styles
- * @link https://www.billerickson.net/block-styles-in-gutenberg/
- */
-function tn_gutenberg_scripts() {
-
-    wp_enqueue_script(
-        'tn-editor', 
-        get_stylesheet_directory_uri() . '/assets/js/editor.js', 
-        array( 'wp-blocks', 'wp-dom' ), 
-        filemtime( get_stylesheet_directory() . '/assets/js/editor.js' ),
-        true
-    );
-}
-add_action( 'enqueue_block_editor_assets', 'tn_gutenberg_scripts' );
-
-add_action('acf/init', 'tn_acf_init_block_types');
+add_action('wp_enqueue_scripts', 'tn_dequeue_style', 10);
 
 function tn_acf_init_block_types() {
 
@@ -45,7 +25,7 @@ function tn_acf_init_block_types() {
     if( function_exists('acf_register_block_type') ) {
 
         
-        // register a project block.
+        // register project block.
         acf_register_block_type(array(
             'name'              => 'project',
             'title'             => __('Portfolio Project'),
@@ -58,17 +38,52 @@ function tn_acf_init_block_types() {
             'post_types'        => array('post')
         ));
 
+        // register gallery block.
+        acf_register_block_type(array(
+            'name'              => 'imageslider',
+            'title'             => __('Image Slider'),
+            'description'       => __('A custom image slider.'),
+            'render_template'   => 'template-parts/blocks/slider/slider.php',
+            'enqueue_style'     => get_template_directory_uri() . '/template-parts/blocks/slider/slider.css',
+            'enqueue_script'    => get_template_directory_uri() . '/template-parts/blocks/slider/slider.js', array('tn_slider'), '', true,
+            'category'          => 'formatting',
+            'icon'              => 'dashicons-images-alt2',
+            'is_preview'        => true,
+            'keywords'          => array( 'image', 'slider' ),
+            'post_types'        => array('post', 'page')
+        ));
     }
 }
+add_action('acf/init', 'tn_acf_init_block_types', 20);
 
 add_theme_support( 'post-thumbnails' );
+
+add_action( 'wp_head', 'check_jquery' );
+// add_action( 'admin_head', 'check_jquery' );
+function check_jquery() {
+
+    global $wp_scripts;
+
+    foreach ( $wp_scripts->registered as $wp_script ) {
+        $handles[] = $wp_script->handle; 
+    }
+
+    if(  in_array( 'jquery', $handles ) ) :
+        echo 'jquery has been loaded';
+    else :
+        echo 'jquery has been removed';
+    endif;
+}
 
 
 function tn_styles_scripts() {
 	wp_register_style( 'tn_style', get_template_directory_uri() . '/style.css');
-	wp_register_script( 'tn_script', get_template_directory_uri() . 'js/script.js','','',true);
+    wp_enqueue_script("jquery");
+	wp_register_script( 'tn_script', get_template_directory_uri() . '/assets/js/script.js', array(), '1.0.0', true);
+    wp_register_script( 'tn_slider', get_template_directory_uri() . '/assets/js/flexslider.js', array('jquery'), '1.0.0', true);
 	wp_enqueue_style('tn_style');
 	wp_enqueue_script('tn_script');
+    wp_enqueue_script('tn_slider');
 }
 
 add_action( 'wp_enqueue_scripts', 'tn_styles_scripts' );
