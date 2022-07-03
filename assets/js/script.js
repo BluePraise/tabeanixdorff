@@ -17,7 +17,7 @@ const renderThreads = function (threads, filters) {
         document.querySelector('.projects').appendChild(threadDiv)
         document.querySelector('.project').appendChild(thread)
     })
-}
+}   
 
 // renderThreads(threads, filters)
 const searchField = document.querySelector('.js-search-field')

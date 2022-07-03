@@ -19,6 +19,9 @@ h1.project-detail-title,
 .main-container {
 	margin: 0 60px;
 }
+.main-container {
+	max-width: 83rem;
+}
 a {
 	color:  black;
 	text-decoration: none;
@@ -27,13 +30,13 @@ a {
 header {
 	position: fixed;
 	width: 100%;
-	background-color: white;
 }
 header ul {
 	list-style: none;
 	margin:  0;
 	padding:  0;
 }
+
 header ul li a: hover {
 	text-decoration: none;
 } 
@@ -43,14 +46,16 @@ header ul li a: hover {
 }
 .main-menu__item > a {
 	display:  inline-block;
+	width: 100%;
 	line-height: 29px;
 	color:  black;
 	border-bottom:  1px solid;
 	position: relative;
+	padding: 2px 5px;
+	background-color: white;
 }
 .submenu {
-	background-color: white;
-	position: absolute;
+	
 	display: none;
 	margin-left: 30px;
     padding-top: 20px;
@@ -108,10 +113,7 @@ input.search-field {
 }
 /* helpers */
 .hide {
-	display: none;
-}
-.flex-container {
-	display:  flex;
+	display: none !important;
 }
 
 /* Gutenberg Block overrides */
@@ -120,15 +122,43 @@ input.search-field {
 }
 
 /*custom flexslider styling*/
+.flex-container {
+	display:  flex;
+	align-content: flex-end;
+	margin-top: 100px;
+}
+.inline-slider {
+	transition: all .2s ease-in-out;
+}
+.grow {
+	position: relative;
+	z-index: 1;
+	display:  block;
+}
 .flexslider {
 	max-width: 60%;
+}
+.grow .flexslider {
+	max-width: 60vw;
+	position:  absolute;
+	bottom:  0;
+	left:  0;
+	z-index: 2;
 }
 .flexslider .slides {
 	margin:  0;
 	padding:  0;
 }
+.flexslider .slides .slide a {
+	display:  block;
+}
 .flexslider .slides figure {
   margin:  0;
+}
+.custom-navigation-container {
+		display: inline-flex;
+		background-color: #fff;
+		align-content: flex-end;
 }
 .custom-navigation {
 	display:  inline-flex;
@@ -140,4 +170,25 @@ input.search-field {
 }
 .custom-navigation a.flex-next {
 	margin-left:  15px;
+}
+
+.grow .custom-navigation-container {
+	
+	position: absolute;
+	z-index:  2;
+	bottom: -50px;
+	right: 0;
+	width:  100%;
+}
+.custom-navigation-container .close {
+	display:  none;
+}
+.grow .custom-navigation-container .close {
+	display: block;
+	margin-left: 20px;
+}
+
+.project-additional-info {
+	position: relative;
+	z-index:  0;
 }
