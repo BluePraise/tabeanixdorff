@@ -27,3 +27,10 @@ if (searchField) {
             setTimeout(renderThreads(threads, filters), 400)
     })
 }
+
+// fetch inline-image by part of it's classname
+// add a new classname so user doesn't have to do it.
+const inlineImages = document.querySelectorAll("img[class^='wp-image-']");
+inlineImages.forEach(function (inlineImage){
+    inlineImage.classList.add('inline-image');
+}) 

@@ -131,6 +131,21 @@ function tn_unique_id( $prefix = '' ) {
 	}
 	return $prefix . (string) ++$id_counter;
 }
+// Add images sizes.
+function custom_theme_setup() {
+    add_image_size( 'sliver-size', 100 , 50, true );
+}
+add_action( 'after_setup_theme', 'custom_theme_setup' );
+ 
+// Make custom sizes selectable from WordPress admin.
+function custom_image_sizes( $size_names ) {
+    $new_sizes = array(
+        'sliver-size' => __( 'Sliver Size' ),
+    );
+    return array_merge( $size_names, $new_sizes );
+}
+add_filter( 'image_size_names_choose', 'custom_image_sizes' );
+
 
 function wpb_remove_version() {
     return '';
