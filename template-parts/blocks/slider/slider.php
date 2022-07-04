@@ -25,7 +25,7 @@ if( !empty($block['align']) ) {
 }
 
 // Load values and assign defaults.
-$hover_text = get_field('project_hover_text', $post_id)); 
+$hover_text = get_field('project_hover_text'); 
 $year       = get_field('project_year') ?: 'The year of a project'; 
 
 // Check rows exists.

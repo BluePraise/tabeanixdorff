@@ -12,11 +12,22 @@ jQuery(document).ready(function($){
 
   $('a.gallery').colorbox({
       rel:'gal',
-      current: '{current} of {total}',
-      maxWidth: '60%',
-      maxHeight: 'auto',
+      current: '',
+      maxWidth: 'auto',
+      maxHeight: '90%',
       slideshow: false,
-      fixed: true
+      previous: "<",
+      next: ">",
+      bottom: 10,
+      left: 60,
+      onOpen: function() {
+        $('.flex-container').addClass('fade');
+        $('body').css('overflow', 'hidden');
+      },
+      onCleanup: function() {
+        $('.flex-container').removeClass('fade');
+        $('body').css('overflow', 'initial');
+      }
   });
  
   $('.slide-image').on('click', function(e) {
@@ -26,17 +37,6 @@ jQuery(document).ready(function($){
       $(document).find('.close').removeClass('hide');
   });
 
-  $('.close').on('click', function(e){
-    e.preventDefault();
-    $(document).find('.inline-slider').removeClass('grow');
-  });
-
-  if ( !$('.close').hasClass('hide') && !$('.inline-slider').hasClass('grow')) {
-    $('.close').addClass('hide');
-  }
-  else {
-    
-  }
    
 });
 

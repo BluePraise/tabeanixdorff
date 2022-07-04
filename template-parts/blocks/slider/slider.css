@@ -342,3 +342,15 @@ html[xmlns] .flexslider .slides {
 .cboxIE #cboxMiddleRight {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);
 }
+
+#cboxPrevious, #cboxNext {
+  position: absolute;
+  bottom:  0;
+}
+#cboxNext {
+  left:  20px;
+}
+
+.fade {
+  opacity:  0;
+}
