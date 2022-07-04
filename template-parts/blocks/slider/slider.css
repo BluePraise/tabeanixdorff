@@ -305,16 +305,15 @@ html[xmlns] .flexslider .slides {
     #cboxTopCenter{height:21px; background:url(images/border.png) 0 0 repeat-x;}
     #cboxBottomCenter{height:21px; background:url(images/border.png) 0 -29px repeat-x;}*/
     #cboxContent{background:#fff; overflow:hidden;}
-        .cboxIframe{background:#fff;}
-        #cboxError{padding:50px; border:1px solid #ccc;}
-        #cboxLoadedContent{margin-bottom:28px;}
-        #cboxTitle{position:absolute; bottom:4px; left:0; text-align:center; width:100%; color:#949494;}
-        #cboxCurrent{position:absolute; bottom:4px; left:58px; color:#949494;}
+    .cboxIframe{background:#fff;}
+    #cboxError{padding:50px; border:1px solid #ccc;}
+    #cboxTitle{position:absolute; bottom:4px; left:0; text-align:center; width:100%; color:#949494;}
+    /*#cboxCurrent{position:absolute; bottom:4px; left:58px; color:#949494;}*/
         /*#cboxLoadingOverlay{background:url(images/loading_background.png) no-repeat center center;}*/
         /*#cboxLoadingGraphic{background:url(images/loading.gif) no-repeat center center;}*/
 
-        /* these elements are buttons, and may need to have additional styles reset to avoid unwanted base styles */
-        #cboxPrevious, #cboxNext, #cboxSlideshow, #cboxClose {border:0; padding:0; margin:0; overflow:visible; width:auto; background:none; }
+  /* these elements are buttons, and may need to have additional styles reset to avoid unwanted base styles */
+  #cboxPrevious, #cboxNext, #cboxSlideshow, #cboxClose {border:0; padding:0; margin:0; overflow:visible; width:auto; background:none; }
         
         /* avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
         #cboxPrevious:active, #cboxNext:active, #cboxSlideshow:active, #cboxClose:active {outline:0;}
@@ -342,15 +341,20 @@ html[xmlns] .flexslider .slides {
 .cboxIE #cboxMiddleRight {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);
 }
-
-#cboxPrevious, #cboxNext {
+#cboxPrevious, #cboxNext, #cboxClose {
+  font-size: xx-large;
+}
+.cboxCaption {
+  background-color: white;
   position: absolute;
   bottom:  0;
+  width:  100%;
 }
 #cboxNext {
   left:  20px;
 }
 
-.fade {
-  opacity:  0;
+/*turn off any other #cboxClose that may exist*/
+#cboxClose:not(.cloned) {
+  display: none;
 }

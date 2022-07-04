@@ -8,6 +8,7 @@
  * @param   bool $is_preview True during AJAX preview.
  * @param   (int|string) $post_id The post ID this block is saved to.
  */
+global $post;
 
 // Create id attribute allowing for custom "anchor" value.
 $id = 'slider-' . $block['id'];
@@ -24,36 +25,30 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 }
 
-// Load values and assign defaults.
-$hover_text = get_field('project_hover_text'); 
-$year       = get_field('project_year') ?: 'The year of a project'; 
 
 // Check rows exists.
+
 if( have_rows('images') ): ?>
+
     <div class="flex-container">
         <div class="flexslider">
             <ul class="slides">
                 <?php // Loop through rows.
                 while( have_rows('images') ) : the_row(); 
-
+                    
                     $image          = get_sub_field('flexslider_image'); 
                     $image_caption  = get_sub_field('flexslider_caption'); 
-
                 ?>
+                <script>
+                   // dynamically load captions and pass it on to jQuery 
+                   var $caption = '<?php echo($image_caption); ?>';
+                </script>
+
             	<li class="slide item">
-                    <a class="gallery" href="<?php echo $image; ?>">
+                    <a class="gallery" href="<?php echo $image; ?>" data-caption="<?= $image_caption; ?>">
                         <figure>
                             <img class="slide-image" src="<?php echo $image; ?>" />
                         </figure>
-                        <?php if($image_caption): ?>
-                            <figcaption>
-                                <?php echo $image_caption; ?>
-                            </figcaption>
-                        <?php else: ?>
-                            <figcaption>
-                                <?php echo $hover_text; ?>
-                            </figcaption>
-                        <?php endif; ?> 
                     </a>
                 </li>
                 <?php endwhile; ?>

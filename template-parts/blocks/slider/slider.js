@@ -13,31 +13,32 @@ jQuery(document).ready(function($){
   $('a.gallery').colorbox({
       rel:'gal',
       current: '',
-      maxWidth: 'auto',
+      maxWidth: '90%',
       maxHeight: '90%',
       slideshow: false,
+      current: $caption,
       previous: "<",
       next: ">",
-      bottom: 10,
+      close: "×",
+      bottom: 40,
       left: 60,
+      scrolling: false,
       onOpen: function() {
         $('.flex-container').addClass('fade');
-        $('body').css('overflow', 'hidden');
+        // $('body').css('overflow', 'hidden');
+        $('#cboxPrevious, #cboxNext, #cboxCurrent').wrapAll("<div class='d-flex cboxCaption' />");
+      },
+      onLoad: function() {
+        $('#cboxClose').addClass('cloned').appendTo('.d-flex');
+
       },
       onCleanup: function() {
         $('.flex-container').removeClass('fade');
-        $('body').css('overflow', 'initial');
+        // $('body').css('overflow', 'initial');
       }
   });
- 
-  $('.slide-image').on('click', function(e) {
-      e.preventDefault();
-      $(this).parents('.inline-slider').addClass('grow');
 
-      $(document).find('.close').removeClass('hide');
-  });
 
-   
 });
 
 

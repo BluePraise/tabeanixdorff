@@ -30,3 +30,7 @@
 ### 2022-06-19
 - Flexslider is now functioning
 - Styling of the slider
+
+### 2022-07-04
+- Added colorbox
+- Updated ACF fields to have better names

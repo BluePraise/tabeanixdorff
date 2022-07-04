@@ -116,6 +116,13 @@ input.search-field {
 	display: none !important;
 }
 
+.fade {
+  opacity:  0;
+}
+.d-flex {
+  display:  flex;
+}
+
 /* Gutenberg Block overrides */
 .project-additional-info.wp-container-3 {
 	align-items: initial !important;
@@ -130,11 +137,7 @@ input.search-field {
 .inline-slider {
 	transition: all .2s ease-in-out;
 }
-.grow {
-	position: relative;
-	z-index: 1;
-	display:  block;
-}
+
 .flexslider {
 	max-width: 60%;
 }
@@ -172,20 +175,8 @@ input.search-field {
 	margin-left:  15px;
 }
 
-.grow .custom-navigation-container {
-	
-	position: absolute;
-	z-index:  2;
-	bottom: -50px;
-	right: 0;
-	width:  100%;
-}
 .custom-navigation-container .close {
 	display:  none;
-}
-.grow .custom-navigation-container .close {
-	display: block;
-	margin-left: 20px;
 }
 
 .project-additional-info {
