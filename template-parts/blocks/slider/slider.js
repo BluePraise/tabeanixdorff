@@ -26,15 +26,21 @@ jQuery(document).ready(function($){
       onOpen: function() {
         $('.flex-container').addClass('fade');
         // $('body').css('overflow', 'hidden');
-        $('#cboxPrevious, #cboxNext, #cboxCurrent').wrapAll("<div class='d-flex cboxCaption' />");
+        var $cboxCaption = $('#colorbox').find('.cboxCaption');
+        if ($cboxCaption.length === 0) { 
+          $('#cboxCurrent').wrapAll("<div class='d-flex cboxCaption' />");
+          $('#cboxPrevious, #cboxNext, #cboxClose').wrapAll("<div class='cboxCaption-controls' />"); 
+          $('.cboxCaption-controls').appendTo('.cboxCaption');
+
+        }
       },
       onLoad: function() {
-        $('#cboxClose').addClass('cloned').appendTo('.d-flex');
-
+        setTimeout(function(){
+          $('#cboxClose').appendTo('.cboxCaption-controls');
+        }, 500)
       },
       onCleanup: function() {
         $('.flex-container').removeClass('fade');
-        // $('body').css('overflow', 'initial');
       }
   });
 

@@ -343,18 +343,22 @@ html[xmlns] .flexslider .slides {
 }
 #cboxPrevious, #cboxNext, #cboxClose {
   font-size: xx-large;
+  font-weight: 100;
+  display:  inline-block;
+}
+#cboxPrevious, #cboxNext {
+  margin-right:  10px;
 }
 .cboxCaption {
   background-color: white;
   position: absolute;
   bottom:  0;
   width:  100%;
-}
-#cboxNext {
-  left:  20px;
+  justify-content: space-between;
 }
 
+
 /*turn off any other #cboxClose that may exist*/
-#cboxClose:not(.cloned) {
+/*#cboxClose:not(.cloned) {
   display: none;
-}
+}*/

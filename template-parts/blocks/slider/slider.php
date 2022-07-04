@@ -67,13 +67,3 @@ if( have_rows('images') ): ?>
 else : echo 'No images. Yet.'; ?>
 
 <?php endif; ?>
-
-
-<?php
-// To do
-// 1. figure out why hovertext//caption isn't showing in modal
-// 2. styling van de popup 
-    // A. caption text tonen
-    // B. kleine slider verbergen
-
- ?>
