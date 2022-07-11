@@ -31,8 +31,8 @@
                     <li class="main-menu__item">
                         <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Tabea Nixdorff</a>
                         <ul class="submenu">
-                            <li class=""><a href="#">artist's statement</a></li>
-                            <li><a href="#">bio / CV</a></li>
+                            <li class="submenu__item"><a href="#">artist's statement</a></li>
+                            <li class="submenu__item"><a href="#">bio / CV</a></li>
                         </ul>
                     </li>
                     <li class="main-menu__item">
@@ -45,6 +45,7 @@
                         <a href="/">Sorting Thread</a>
                     </li>
                 </ul>     
+                </nav>
             </div>
 
     </header> 

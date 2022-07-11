@@ -34,3 +34,6 @@
 ### 2022-07-04
 - Added colorbox
 - Updated ACF fields to have better names
+
+### 2022-07-11
+- Static nav is now as design
