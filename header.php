@@ -26,27 +26,9 @@
 <body <?php body_class(); ?>>
     <header>
         <div class="container">
-            <nav>
-                <ul class="main-menu">
-                    <li class="main-menu__item">
-                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Tabea Nixdorff</a>
-                        <ul class="submenu">
-                            <li class="submenu__item"><a href="#">artist's statement</a></li>
-                            <li class="submenu__item"><a href="#">bio / CV</a></li>
-                        </ul>
-                    </li>
-                    <li class="main-menu__item">
-                        <a href="/">Texture</a>
-                    </li>
-                    <li class="main-menu__item">
-                        <span class="screen-reader-text"><?php _e( 'Searching', 'tabeanixdorff' ); // phpcs:ignore: WordPress.Security.EscapeOutput.UnsafePrintingFunction -- core trusts translations ?></span>
-                    </li>
-                    <li class="main-menu__item">
-                        <a href="/">Sorting Thread</a>
-                    </li>
-                </ul>     
-                </nav>
+                <?php tn_nav(); ?>
             </div>
+
 
     </header> 
     <main class="main-container">

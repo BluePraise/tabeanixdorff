@@ -37,3 +37,4 @@
 
 ### 2022-07-11
 - Static nav is now as design
+- Static nav is now dynamic
