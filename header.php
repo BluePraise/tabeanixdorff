@@ -26,11 +26,18 @@
 <body <?php body_class(); ?>>
     <header>
         <div class="container">
-                <?php tn_nav(); ?>
-            </div>
+            <?php 
+                tn_nav(); 
+                
+                // show filters
+                echo get_template_part( 'template-parts/filters' );
+            ?>
+            
+        </div>
 
 
     </header> 
+    
     <main class="main-container">
         <?php if(is_front_page()): ?>
         <div class="form-control">
