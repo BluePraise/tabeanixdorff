@@ -37,7 +37,7 @@ header ul {
 	padding:  0;
 }
 
-header ul li a: hover {
+header ul li a:hover {
 	text-decoration: none;
 } 
 .main-menu {
@@ -190,3 +190,7 @@ input.search-field {
 	z-index:  0;
 }
 
+.leftover-projects {
+    position: absolute;
+    bottom: 0;
+}

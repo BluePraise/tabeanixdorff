@@ -7,14 +7,28 @@ const renderThreads = function (threads, filters) {
     const filteredThreads = threads.filter(function (thread) {
         return thread.textContent.toLowerCase().includes(filters.searchText.toLowerCase())
     })
+
+    const nonfilteredThreads = threads.filter(function (thread) {
+        return !thread.textContent.toLowerCase().includes(filters.searchText.toLowerCase())
+    })
+
+     //console.log(nonfilteredThreads);
      document.querySelector('.projects').innerHTML = ''
     
-    filteredThreads.forEach(function (thread) {
-        const threadDiv = document.createElement('div')
-        threadDiv.classList.add('project');
-        document.querySelector('.projects').appendChild(threadDiv)
-        document.querySelector('.project').appendChild(thread)
+     const threadDiv = document.createElement('div')
+     threadDiv.classList.add('project');
+
+    filteredThreads.forEach(function (thread) {  
+        // document.querySelector('.projects').appendChild(threadDiv)
+        // document.querySelector('.project').appendChild(thread)
+        document.querySelector('.projects').appendChild(thread)
     })
+
+    nonfilteredThreads.forEach(function (thread) {  
+        document.querySelector('.leftover-projects').appendChild(thread)
+    })
+
+    
 }   
 
 
