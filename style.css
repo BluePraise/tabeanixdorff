@@ -59,7 +59,7 @@ header ul li a:hover {
 	
 }
 .sub-menu {
-	visibility: hidden;
+	display: none;
 	margin-left: 30px;
   padding-top: 20px;
   background-color: white;
@@ -74,7 +74,7 @@ header ul li a:hover {
 }
 
 .main-menu__item:hover .sub-menu {
-	visibility: visible;
+	display:  block;
 }
 
 main {
@@ -188,6 +188,11 @@ input.search-field {
 .project-additional-info {
 	position: relative;
 	z-index:  0;
+}
+
+.js-filters {
+	position: absolute;
+	margin-top: 20px;
 }
 
 .leftover-projects {
