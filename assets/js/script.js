@@ -34,10 +34,32 @@ document.querySelectorAll('.filter__link').forEach(link => {
             
             
         });
+       if(filterList.getElementsByClassName('active').length > 0) {
+        document.querySelector('.clear-active').classList.remove("hide-this");
+       }
+       else {
+        document.querySelector('.clear-active').classList.add("hide-this");
+       }
 
         if(!sortKeywords.length) document.querySelectorAll(`.projects .project-line`).forEach(a => a.classList.remove('hide'));
     });
 });
+
+document.querySelector('.clear-active').addEventListener('click', e => {
+  
+    document.querySelectorAll('.filter__link').forEach(link => {
+           
+            link.classList.remove('active');
+        });
+
+    document.querySelectorAll(`.projects .project-line`).forEach(project => {
+            project.classList.remove('hide');
+    });
+
+    e.target.classList.add("hide-this");
+    
+});
+
 
 if(document.querySelector('.search-field.js-search-field') !== null) {
 

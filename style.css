@@ -210,6 +210,28 @@ input.search-field {
 	margin-top: 20px;
 }
 
+.filter__link.active {
+    position: relative;
+}
+
+a.filter__link.active:before {
+	content: "×";
+    font-style: normal;
+    font-size: 75%;
+    position: absolute;
+    left: -20px;
+    top: 7px;
+}
+
+a.clear-active {
+	margin-bottom: 20px;
+    display: block;
+}
+
+a.clear-active.hide-this {
+	display: none;
+}
+
 .leftover-projects {
     position: absolute;
     bottom: 0;
