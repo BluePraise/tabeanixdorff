@@ -1,3 +1,4 @@
+const header = document.querySelector('.menu-header-menu-container');
 // 1st three lines position the filters to the right
 const filterList = document.querySelector('.js-filters'); 
 const lastMenuItem = document.querySelector('.main-menu').lastElementChild;
@@ -38,6 +39,8 @@ document.querySelectorAll('.filter__link').forEach(link => {
     });
 });
 
+if(document.querySelector('.search-field.js-search-field') !== null) {
+
 
 document.querySelector('.search-field.js-search-field').addEventListener('input', e => {
     const userInput = e.currentTarget.value.trim().toLowerCase(); 
@@ -54,4 +57,21 @@ document.querySelector('.search-field.js-search-field').addEventListener('input'
     });
     
 });
+}
+
+var lastScrollTop = 0;
+
+window.addEventListener("scroll", function(){
+
+    var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+
+  if (st > lastScrollTop && lastScrollTop > 100){
+     //console.log("scrolling down");
+     document.querySelector('header').classList.add("down-cut-half");
+   } else {
+    //console.log("scrolling up");
+    document.querySelector('header').classList.remove("down-cut-half");
+   }
+   lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+}, false);
 
