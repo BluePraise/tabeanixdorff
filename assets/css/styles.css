@@ -1,0 +1,4 @@
+.filter__link.active {
+    font-weight: bold;
+    font-style: italic;
+}
