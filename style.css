@@ -217,7 +217,7 @@ input.search-field {
 
 .js-filters {
 	position: absolute;
-	margin-top: 20px;
+	margin-top: 14px;
 }
 
 .filter__link.active {
@@ -234,12 +234,14 @@ a.filter__link.active:before {
 }
 
 a.clear-active {
-	margin-bottom: 20px;
+	margin-bottom: 5px;
     display: block;
+    font-size: 80%;
+    font-style: italic;
 }
 
 a.clear-active.hide-this {
-	display: none;
+	opacity: 0;
 }
 
 .leftover-projects {

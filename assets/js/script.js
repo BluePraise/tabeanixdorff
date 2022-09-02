@@ -33,8 +33,8 @@ document.querySelectorAll('.filter__link').forEach(link => {
                 } 
             });
             
-            
         });
+        
        if(filterList.getElementsByClassName('active').length > 0) {
         document.querySelector('.clear-active').classList.remove("hide-this");
        }
