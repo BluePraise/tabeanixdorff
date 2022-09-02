@@ -121,10 +121,20 @@ input.search-field {
 
 
 /* projects */
+.projects {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
 .project-line {
 	display:  block;
 	margin: 8px 0;
+	flex: 0 0 100%;
+	order: 1;
 }
+  
+  .project-line.hide {
+	order: 2;
+  }
 .project-hover { display: none; }
 /* todo:  if you hover over .project-line show project-hover maybe with js?*/
 
@@ -134,7 +144,7 @@ input.search-field {
 }
 /* helpers */
 .hide {
-	display: none !important;
+	/*display: none !important;*/
 }
 
 .fade {

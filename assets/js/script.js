@@ -3,6 +3,7 @@ const header = document.querySelector('.menu-header-menu-container');
 const filterList = document.querySelector('.js-filters'); 
 const lastMenuItem = document.querySelector('.main-menu').lastElementChild;
 lastMenuItem.append(filterList);
+const left_over = document.querySelector('.leftover-projects');
 
 const sortKeywords = [];
 
@@ -77,8 +78,18 @@ document.querySelector('.search-field.js-search-field').addEventListener('input'
             project.classList.remove('hide');
         }
     });
-    
+    if(document.querySelectorAll('.projects .hide') !== null) {
+        let first_hide = document.querySelectorAll('.projects .hide');
+        document.querySelectorAll('.projects .project-line').forEach(b => {
+            b.style.marginTop = "8px";
+            }
+        )
+             first_hide[0].style.marginTop = "50px";
+        
+    }
 });
+
+
 }
 
 var lastScrollTop = 0;
