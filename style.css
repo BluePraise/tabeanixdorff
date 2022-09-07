@@ -121,10 +121,7 @@ input.search-field {
 
 
 /* projects */
-.projects {
-    display: inline-flex;
-    flex-wrap: wrap;
-}
+
 .project-line {
 	display:  block;
 	margin: 8px 0;
@@ -247,4 +244,7 @@ a.clear-active.hide-this {
 .leftover-projects {
     position: absolute;
     bottom: 0;
+	max-height: 200px;
+    overflow-y: auto;
+    width: 94%;
 }

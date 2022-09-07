@@ -13,10 +13,11 @@
 		echo 'no projects right now'; ?>
 	
 	<?php endif; ?>
-	</div>
 	<div class="leftover-projects">
 
 	</div>
+	</div>
+	
 
 <?php
 	get_footer();

@@ -3,6 +3,7 @@ const header = document.querySelector('.menu-header-menu-container');
 const filterList = document.querySelector('.js-filters'); 
 const lastMenuItem = document.querySelector('.main-menu').lastElementChild;
 lastMenuItem.append(filterList);
+const all_projects = document.querySelector('.projects');
 const left_over = document.querySelector('.leftover-projects');
 
 const sortKeywords = [];
@@ -10,6 +11,8 @@ const sortKeywords = [];
 document.querySelectorAll('.filter__link').forEach(link => {
     link.addEventListener('click', e => {
         e.preventDefault();
+        document.querySelector('.search-field.js-search-field').value = "";
+
         const filter = e.currentTarget;
         filter.classList.toggle('active');
 
@@ -23,70 +26,65 @@ document.querySelectorAll('.filter__link').forEach(link => {
         
         document.querySelectorAll(`.projects .project-line a`).forEach(a => {
             const project = a.closest('.project-line');
-            project.classList.add('hide');
-            project.classList.remove('sort'); 
+            left_over.appendChild(project);
 
             sortKeywords.forEach(sort => {
                 if(a.getAttribute('data-tag').trim().split(/\s+/).includes(sort)) {
-                    project.classList.remove('hide'); 
-                    project.classList.add('sort');
+                    all_projects.appendChild(project);
                 } 
             });
             
         });
-        
+       // console.log(filterList.getElementsByClassName('active').length);
        if(filterList.getElementsByClassName('active').length > 0) {
         document.querySelector('.clear-active').classList.remove("hide-this");
        }
        else {
         document.querySelector('.clear-active').classList.add("hide-this");
        }
-
-        if(!sortKeywords.length) document.querySelectorAll(`.projects .project-line`).forEach(a => a.classList.remove('hide'));
-    });
-});
-
-document.querySelector('.clear-active').addEventListener('click', e => {
-  
-    document.querySelectorAll('.filter__link').forEach(link => {
-           
-            link.classList.remove('active');
+      // console.log(sortKeywords.length);
+        if(!sortKeywords.length) document.querySelectorAll(`.projects .project-line`).forEach(project => {
+            all_projects.appendChild(project);
         });
 
-    document.querySelectorAll(`.projects .project-line`).forEach(project => {
-            project.classList.remove('hide');
     });
-
-    e.target.classList.add("hide-this");
-    
 });
+
+function clear_all() {
+    
+        document.querySelectorAll('.filter__link').forEach(link => {
+                link.classList.remove('active');
+            });
+
+        document.querySelectorAll(`.projects .project-line`).forEach(project => {
+            all_projects.appendChild(project);
+        });
+
+        document.querySelector(".js-filters .clear-active").classList.add("hide-this");
+        
+        
+}
 
 
 if(document.querySelector('.search-field.js-search-field') !== null) {
 
 
 document.querySelector('.search-field.js-search-field').addEventListener('input', e => {
+   
+    clear_all();
+   
     const userInput = e.currentTarget.value.trim().toLowerCase(); 
 
-    const sortedLinks = document.querySelector('.filter__link.active');
-    document.querySelectorAll(`.projects .project-line${sortedLinks ? '.sort' : ''}`).forEach(project => {
+   
+    document.querySelectorAll(`.projects .project-line`).forEach(project => {
         const text = project.textContent.toLowerCase();
         if(!text.includes(userInput)) {
-            project.classList.add('hide');
+            left_over.appendChild(project);
         }
         else {
-            project.classList.remove('hide');
+            all_projects.appendChild(project);
         }
     });
-    if(document.querySelectorAll('.projects .hide') !== null) {
-        let first_hide = document.querySelectorAll('.projects .hide');
-        document.querySelectorAll('.projects .project-line').forEach(b => {
-            b.style.marginTop = "8px";
-            }
-        )
-             first_hide[0].style.marginTop = "50px";
-        
-    }
 });
 
 
