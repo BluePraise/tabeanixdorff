@@ -248,3 +248,10 @@ a.clear-active.hide-this {
     overflow-y: auto;
     width: 94%;
 }
+.leftover-projects h2.project-line {
+    height: 20px;
+    overflow: hidden;
+    margin: 4px 0;
+    align-items: flex-end;
+    display: flex;
+}
