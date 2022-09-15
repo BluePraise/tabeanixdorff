@@ -214,7 +214,6 @@ input.search-field {
 
 .js-filters {
 	position: absolute;
-	margin-top: 14px;
 }
 
 .filter__link.active {
@@ -254,4 +253,35 @@ a.clear-active.hide-this {
     margin: 4px 0;
     align-items: flex-end;
     display: flex;
+}
+
+span#mobile-menu {
+    font-size: 35px;
+    position: absolute;
+    right: 35px;
+    top: 10px;
+	display: none;
+}
+
+
+@media only screen and (max-width:767px) {
+	span#mobile-menu {display: block;}
+	header .container {
+		margin: 0;
+	}
+	nav.menu-header-menu-container {
+		position: absolute;
+		top: 46px;
+		max-width: 94%;
+		display: none;
+	}
+	nav.menu-header-menu-container.active {
+		display: block;
+	}
+	.main-menu {
+		flex-wrap: wrap;
+	}
+	.main-menu__item{
+		flex-basis: 100%;
+	}
 }

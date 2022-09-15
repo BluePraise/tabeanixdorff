@@ -1,4 +1,4 @@
-<div class="js-filters">
+<div class="js-filters sub-menu">
 	<ul>
 	<li><a class=" hide-this clear-active" href="javascript:clear_all()" title="clear all filters"><?php echo esc_html( "clear all filters" ); ?></a></li>
 	    <?php

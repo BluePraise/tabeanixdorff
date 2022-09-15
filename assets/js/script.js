@@ -5,7 +5,8 @@ const lastMenuItem = document.querySelector('.main-menu').lastElementChild;
 lastMenuItem.append(filterList);
 const all_projects = document.querySelector('.projects');
 const left_over = document.querySelector('.leftover-projects');
-
+const mobile_menu_trigger = document.querySelector('#mobile-menu');
+const main_menu = document.querySelector(".menu-header-menu-container");
 const sortKeywords = [];
 
 document.querySelectorAll('.filter__link').forEach(link => {
@@ -106,3 +107,9 @@ window.addEventListener("scroll", function(){
    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
 }, false);
 
+
+mobile_menu_trigger.addEventListener('click', e => {
+   
+    main_menu.classList.toggle('active');
+
+})
