@@ -74,14 +74,13 @@ header ul li a:hover {
 	
 }
 .sub-menu {
-	display: none;
-	padding: 20px;
-  background-color: white;
+	/* display: none; */
+  	background-color: white;
 }
 .sub-menu li {
 	display: block;
-	line-height: 1;
 }
+
 .sub-menu li a {	
 	display: inline-block;
 	text-decoration: none;
@@ -217,27 +216,24 @@ input.search-field {
 }
 
 .filter__link.active {
-    position: relative;
+
 }
 
 a.filter__link.active:before {
+	display: inline-block;
 	content: "×";
     font-style: normal;
     font-size: 75%;
-    position: absolute;
-    left: -20px;
-    top: 7px;
+    margin-right: 10px;
+	padding-bottom: 2px;
+	/* TODO: fix this - maybe put before on li */
+	position: relative;
+	top: -3px;
 }
 
 a.clear-active {
-	margin-bottom: 5px;
     display: block;
-    font-size: 80%;
-    font-style: italic;
-}
-
-a.clear-active.hide-this {
-	opacity: 0;
+    padding: 20px 0;
 }
 
 .leftover-projects {
