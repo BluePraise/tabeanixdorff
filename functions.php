@@ -88,6 +88,10 @@ function tn_styles_scripts() {
 	wp_enqueue_script('tn_script');
     wp_enqueue_script('tn_slider');
     wp_enqueue_script('tn_modal');
+    
+     wp_localize_script('tn_script', 'settings', array(
+            'ajax_url' => admin_url('admin-ajax.php')
+        ));
 }
 
 add_action( 'wp_enqueue_scripts', 'tn_styles_scripts' );
@@ -248,3 +252,18 @@ remove_action( 'wp_head', 'wlwmanifest_link' ); // Display the link to the Windo
 remove_action( 'wp_head', 'wp_generator' ); // Display the XHTML generator that is generated on the wp_head hook, WP version
 remove_action( 'wp_head', 'rel_canonical' );
 remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
+
+add_action('wp_ajax_search-posts', 'search_posts' );
+add_action('wp_ajax_nopriv_search-posts', 'search_posts' );
+
+function search_posts() {
+    global $wpdb;
+    
+    $search_string = sanitize_text_field(filter_input(INPUT_POST, 'search'));
+    
+    $posts = $wpdb->get_results( $wpdb->prepare("SELECT post_title, id FROM $wpdb->posts WHERE post_type = 'post' AND post_title LIKE '%s'", '%'. $wpdb->esc_like( $search_string ) .'%') );
+    foreach ($posts as $post) {
+        $post->url = get_permalink($post->id);
+    }
+    wp_send_json_success(json_encode($posts));
+}

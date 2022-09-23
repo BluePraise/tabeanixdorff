@@ -112,4 +112,54 @@ mobile_menu_trigger.addEventListener('click', e => {
    
     main_menu.classList.toggle('active');
 
-})
+});
+
+(function ($) {
+    $(document).ready(function ($) {
+        $('#search-posts').on('keyup', searchPosts);
+    });
+    
+    var searchPosts = (e) => {
+      let searchString = $(e.target).val(), ajaxData = {}, results, resultsHtml = '',
+            noResultsText = 'No results ...';
+       
+        if (searchString === '') {
+            $('.search-form .search-results').html('');
+            return;
+        }
+       
+       ajaxData['action'] = 'search-posts';
+       ajaxData['search'] = searchString;
+       
+       $.ajax({
+            url: settings.ajax_url,
+            method: 'POST',
+            data: ajaxData,
+            contentType: "application/x-www-form-urlencoded",
+            success: function (response) {
+                if (response.success) {
+                    try {
+                        results = JSON.parse(response.data);
+                        if (results.length == 0) {
+                            $('.search-form .search-results').html(noResultsText);
+                        } else {
+                            for (var i=0; i < results.length; i++) {
+                                resultsHtml += `<div class="post-title"><a href="${results[i].url}">${results[i].post_title}</a></div>`;
+                            }
+                            $('.search-form .search-results').html(resultsHtml);
+                        }
+                    } catch (e) {
+                        $('.search-form .search-results').html(noResultsText);
+                    }
+                } else {
+                    $('.search-form .search-results').html(noResultsText);
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                $('.search-form .search-results').html(noResultsText);
+                console.log(jqXHR);
+            }
+        });
+    };
+    
+})(jQuery);
