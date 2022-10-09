@@ -41,7 +41,7 @@ header {
 }
 
 header.down-cut-half {
-    top: -18px;
+    top: -28px;
 }
 
 header ul {
@@ -79,6 +79,7 @@ header ul li a:hover {
 .sub-menu {
 	display: none;
   	background-color: white;
+	padding-left: 23px;
 }
 .sub-menu li {
 	display: block;
