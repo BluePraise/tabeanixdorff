@@ -28,12 +28,9 @@ if( !empty($block['align']) ) {
 
 $hover_text = get_field('project_hover_text') ?: 'Your correction line here...'; 
 $project_meta = get_field('project_meta'); 
-$categories = get_the_category();
+$categories = get_the_category(); ?>
  
+<p class="project-detail-meta-info"><i><?= $hover_text; ?></i> (<?php if ( ! empty( $categories ) ): echo esc_html( $categories[0]->name ); endif; ?>, <?php echo $project_meta; ?>)</p>
 
-if (is_single()) : ?>
-    <?php //var_dump(get_the_category()); ?>
-    <p class="project-detail-meta-info"><i><?= $hover_text; ?></i> (<?php if ( ! empty( $categories ) ): echo esc_html( $categories[0]->name ); endif; ?>, <?php echo $project_meta; ?>)</p>
-<?php endif; ?>
     
 

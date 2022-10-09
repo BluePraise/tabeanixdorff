@@ -5,7 +5,7 @@ Version: 0.2
 */
 
 body {
-	font-size:  xx-large;
+	font-size: xx-large;
 }
 
 /* Shared Typografie  */
@@ -20,7 +20,9 @@ h1.project-detail-title,
 	margin: 0 60px;
 }
 .main-container {
-	max-width: 83rem;
+	overflow: hidden;
+	max-width: 75vw;
+
 }
 a {
 	color:  black;
@@ -32,10 +34,10 @@ header {
 	width: 100%;
 	top: 0;
 	-webkit-transition: all 0.3s ease-in-out;
--moz-transition: all 0.3s ease-in-out;
--ms-transition: all 0.3s ease-in-out;
--o-transition: all 0.3s ease-in-out;
-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out; 
 }
 
 header.down-cut-half {
@@ -61,7 +63,8 @@ header ul li a:hover {
 .main-menu__item {
 	display:  block;
 	background-color: white;
-	flex-basis: 15%;
+	margin-top: 10px;
+	flex-basis: 17%;
     min-width: 0;
 }
 .main-menu__item > a {
@@ -70,11 +73,11 @@ header ul li a:hover {
 	color:  black;
 	border-bottom:  1px solid;
 	position: relative;
-	padding: 2px 5px;
-	
+	padding: 2px 0px;
 }
+
 .sub-menu {
-	/* display: none; */
+	display: none;
   	background-color: white;
 }
 .sub-menu li {
@@ -84,6 +87,12 @@ header ul li a:hover {
 .sub-menu li a {	
 	display: inline-block;
 	text-decoration: none;
+}
+
+@media only screen and (max-width: 809px) {
+	#nav-menu-item-154 {
+		display: none;
+	}
 }
 
 .main-menu__item:hover .sub-menu {
@@ -118,19 +127,23 @@ input.search-field {
 }
 
 
-
 /* projects */
-
+.projects {
+	overflow: visible;
+	width: 1000%;
+}
 .project-line {
 	display:  block;
 	margin: 8px 0;
 	flex: 0 0 100%;
 	order: 1;
+	overflow: visible;
+	width: 230%;
 }
-  
-  .project-line.hide {
+
+.project-line.hide {
 	order: 2;
-  }
+}
 .project-hover { display: none; }
 /* todo:  if you hover over .project-line show project-hover maybe with js?*/
 
@@ -139,10 +152,6 @@ input.search-field {
     font-size: smaller;
 }
 /* helpers */
-.hide {
-	/*display: none !important;*/
-}
-
 .fade {
   opacity:  0;
 }
@@ -157,8 +166,6 @@ input.search-field {
 
 /*custom flexslider styling*/
 .flex-container {
-	display:  flex;
-	align-content: flex-end;
 	margin-top: 100px;
 }
 .inline-slider {
@@ -179,6 +186,10 @@ input.search-field {
 	margin:  0;
 	padding:  0;
 }
+.flexslider .slides .slide {
+	left: -1px;
+	position: relative;
+}
 .flexslider .slides .slide a {
 	display:  block;
 }
@@ -186,20 +197,23 @@ input.search-field {
   margin:  0;
 }
 .custom-navigation-container {
-		display: inline-flex;
-		background-color: #fff;
-		align-content: flex-end;
+	display: inline-flex;
+	background-color: #fff;
+	align-content: flex-end;
 }
 .custom-navigation {
 	display:  inline-flex;
-	margin-left: 20px;
-	align-self: flex-end;
+	justify-content: flex-end;
 }
 .custom-navigation a {
-	display:  inline-flex;
+	line-height: 48px;
 }
 .custom-navigation a.flex-next {
 	margin-left:  15px;
+}
+.magnify {
+	margin-left: 10px;
+	font-size: 36px;
 }
 
 .custom-navigation-container .close {
@@ -213,10 +227,6 @@ input.search-field {
 
 .js-filters {
 	position: absolute;
-}
-
-.filter__link.active {
-
 }
 
 a.filter__link.active:before {
@@ -246,7 +256,7 @@ a.clear-active {
 .leftover-projects h2.project-line {
     height: 20px;
     overflow: hidden;
-    margin: 4px 0;
+    margin: -1px 0;
     align-items: flex-end;
     display: flex;
 }
@@ -281,3 +291,12 @@ span#mobile-menu {
 		flex-basis: 100%;
 	}
 }
+
+/* font correction */
+@media only screen and (min-width: 800px) and (max-width: 1327.9px) {
+	h1.project-detail-title,
+	.project-line,
+	.main-menu__item > a {
+		font-size: 2.3vw;
+	}
+}  

@@ -7,7 +7,12 @@ jQuery(document).ready(function($){
     controlNav: false,
     animationLoop: true,
     controlsContainer: $(".custom-controls-container"),
-    customDirectionNav: $(".custom-navigation a")
+    customDirectionNav: $(".custom-navigation a"),
+    prevText: "<",           //String: Set the text for the "previous" directionNav item
+    nextText: ">", 
+    start: function() {
+      $('.flex-next').after('<a class="magnify">□</a>');
+    }
   });
 
   $('a.gallery').colorbox({
@@ -43,6 +48,9 @@ jQuery(document).ready(function($){
         $('.flex-container').removeClass('fade');
       }
   });
+
+  var controlContainerWidth = $('.flex-viewport').css('width');
+  $('.custom-navigation').css('width', controlContainerWidth);
 
 
 });
