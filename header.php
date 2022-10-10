@@ -27,18 +27,17 @@
 
 <body <?php body_class(); ?>>
     <header>
-        <div class="container">
+        
            
-            <span id="mobile-menu" class="dashicons dashicons-menu"></span>
+            <span class="dashicons dashicons-menu mobile-menu js-toggle-mobile-menu"></span>
            
             <?php 
                 tn_nav(); 
-                
                 // show filters
                 echo get_template_part( 'template-parts/filters' );
             ?>
             
-        </div>
+        
 
 
     </header> 

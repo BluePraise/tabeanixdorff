@@ -5,7 +5,7 @@ const lastMenuItem = document.querySelector('.main-menu').lastElementChild;
 lastMenuItem.append(filterList);
 const all_projects = document.querySelector('.projects');
 const left_over = document.querySelector('.leftover-projects');
-const mobile_menu_trigger = document.querySelector('#mobile-menu');
+const mobile_menu_trigger = document.querySelector('.mobile-menu');
 const main_menu = document.querySelector(".menu-header-menu-container");
 const sortKeywords = [];
 
@@ -36,7 +36,6 @@ document.querySelectorAll('.filter__link').forEach(link => {
             });
             
         });
-       // console.log(filterList.getElementsByClassName('active').length);
        if(filterList.getElementsByClassName('active').length > 0) {
         document.querySelector('.clear-active').classList.remove("hide-this");
        }
@@ -51,73 +50,64 @@ document.querySelectorAll('.filter__link').forEach(link => {
     });
 });
 
+/* Filters: Clear All  */
 function clear_all() {
-    
-        document.querySelectorAll('.filter__link').forEach(link => {
-                link.classList.remove('active');
-            });
+    document.querySelectorAll('.filter__link').forEach(link => {
+        link.classList.remove('active');
+    });
 
-        document.querySelectorAll(`.projects .project-line`).forEach(project => {
-            all_projects.appendChild(project);
-        });
+    document.querySelectorAll(`.projects .project-line`).forEach(project => {
+        all_projects.appendChild(project);
+    });
 
-        document.querySelector(".js-filters .clear-active").classList.add("hide-this");
-        
-        
+    document.querySelector(".js-filters .clear-active").classList.add("hide-this");
 }
 
-
+/* Filters: Clear All  */
 if(document.querySelector('.search-field.js-search-field') !== null) {
 
-
-document.querySelector('.search-field.js-search-field').addEventListener('input', e => {
+    document.querySelector('.search-field.js-search-field').addEventListener('input', e => {
+        clear_all();
    
-    clear_all();
-   
-    const userInput = e.currentTarget.value.trim().toLowerCase(); 
-
-   
-    document.querySelectorAll(`.projects .project-line`).forEach(project => {
-        const text = project.textContent.toLowerCase();
-        if(!text.includes(userInput)) {
-            left_over.appendChild(project);
-        }
-        else {
-            all_projects.appendChild(project);
-        }
+        const userInput = e.currentTarget.value.trim().toLowerCase(); 
+        document.querySelectorAll(`.projects .project-line`).forEach(project => {
+            const text = project.textContent.toLowerCase();
+            if(!text.includes(userInput)) {
+                left_over.appendChild(project);
+            }
+            else {
+                all_projects.appendChild(project);
+            }
+        });
     });
-});
-
-
 }
 
+/* Mobile Menu: Scroll */
 var lastScrollTop = 0;
-
-window.addEventListener("scroll", function(){
+window.addEventListener("scroll", function() {
 
     var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
 
-  if (st > lastScrollTop && lastScrollTop > 100){
-     //console.log("scrolling down");
-     document.querySelector('header').classList.add("down-cut-half");
-   } else {
-    //console.log("scrolling up");
-    document.querySelector('header').classList.remove("down-cut-half");
-   }
-   lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+    if (st > lastScrollTop && lastScrollTop > 100){
+        document.querySelector('header').classList.add("down-cut-half");
+    } else {
+
+        document.querySelector('header').classList.remove("down-cut-half");
+    }
+    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
 }, false);
-
-
-mobile_menu_trigger.addEventListener('click', e => {
-   
-    main_menu.classList.toggle('active');
-
-});
 
 (function ($) {
     $(document).ready(function ($) {
         $('#search-posts').on('keyup', searchPosts);
+        
+        /* Mobile Menu: open mobile */
+        $('.js-toggle-mobile-menu').on('click', function(e) {
+            e.preventDefault();
+            $('.menu-main-menu-container').toggleClass('open');
+        })
     });
+    
     
     var searchPosts = (e) => {
       let searchString = $(e.target).val(), ajaxData = {}, results, resultsHtml = '',

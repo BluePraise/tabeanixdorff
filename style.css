@@ -5,7 +5,16 @@ Version: 0.2
 */
 
 body {
+	--breakpoint-1: 400px;
+	--breakpoint-2: 700px;
+	--breakpoint-3: 1328px;
+
 	font-size: xx-large;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+
 }
 
 /* Shared Typografie  */
@@ -15,13 +24,10 @@ h1.project-detail-title,
 	font-weight: normal;
 }
 
-.container,
-.main-container {
-	margin: 0 60px;
-}
 .main-container {
 	overflow: hidden;
 	max-width: 75vw;
+	margin: 0 16px;
 
 }
 a {
@@ -29,6 +35,7 @@ a {
 	text-decoration: none;
 }
 
+/* Header */
 header {
 	position: fixed;
 	width: 100%;
@@ -38,6 +45,7 @@ header {
 	-ms-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out; 
+	text-align: center;
 }
 
 header.down-cut-half {
@@ -90,10 +98,8 @@ header ul li a:hover {
 	text-decoration: none;
 }
 
-@media only screen and (max-width: 809px) {
-	#nav-menu-item-154 {
-		display: none;
-	}
+span.mobile-menu {
+	display: none;
 }
 
 .main-menu__item:hover .sub-menu {
@@ -145,8 +151,8 @@ input.search-field {
 .project-line.hide {
 	order: 2;
 }
-.project-hover { display: none; }
 /* todo:  if you hover over .project-line show project-hover maybe with js?*/
+.project-hover { display: none; }
 
 .project-detail-meta-info {
 	font-weight: bolder;
@@ -262,42 +268,96 @@ a.clear-active {
     display: flex;
 }
 
-span#mobile-menu {
-    font-size: 35px;
-    position: absolute;
-    right: 35px;
-    top: 10px;
-	display: none;
-}
 
-
-@media only screen and (max-width:767px) {
-	span#mobile-menu {display: block;}
-	header .container {
-		margin: 0;
-	}
-	nav.menu-header-menu-container {
-		position: absolute;
-		top: 46px;
-		max-width: 94%;
-		display: none;
-	}
-	nav.menu-header-menu-container.active {
-		display: block;
-	}
-	.main-menu {
-		flex-wrap: wrap;
-	}
-	.main-menu__item{
-		flex-basis: 100%;
-	}
-}
 
 /* font correction */
-@media only screen and (min-width: 800px) and (max-width: 1327.9px) {
+
+/* @media only screen and (max-width:767px) {
+	.main-container {
+		max-width: 100%;
+	}
+} */
+
+/* 
+--breakpoint-1: 399.9px;
+--breakpoint-2: 400px;
+--breakpoint-3: 699.9px;
+--breakpoint-4: 700px;
+--breakpoint-5: 1327.9px; 
+*/
+
+@media only screen and (max-width: 1328px) {
 	h1.project-detail-title,
 	.project-line,
-	.main-menu__item > a {
+	.main-menu__item > a,
+	.sub-menu a {
 		font-size: 2.3vw;
 	}
 }  
+
+
+@media only screen and (max-width: 700px ) {
+	h1.project-detail-title,
+	.project-line,
+	.main-menu__item > a {
+		font-size: 16px;
+	}
+}
+@media only screen and (max-width: 600px ) {
+	h1.project-detail-title,
+	.project-line,
+	.main-menu__item > a {
+		font-size: 14px;
+	}
+
+	span.mobile-menu {
+		display: block;
+		font-size: 35px;
+		position: absolute;
+		left: 13px;
+		top: 16px;
+		width: 35px;
+		height: 35px;
+	}
+	.menu-main-menu-container {
+		display: none;
+	}
+	header .container {
+		margin: 70px 16px;
+	}
+	nav.menu-header-menu-container {
+		display: none;
+	}
+	.menu-main-menu-container.open {
+		display: flex;
+		height: 100vh;
+		background-color: #fff;
+		margin-top: 70px;
+	}
+	.main-menu {
+		display: block;
+		width: 100%;
+		text-align: left;
+		margin: 0 20px;
+	}
+	.menu-link {
+		flex-basis: 100%;
+	}
+	.menu-main-menu-container.open .sub-menu {
+		display: block;
+	}
+	.main-menu__item:hover .sub-menu {
+		position: relative;
+	}
+
+	.main-menu__item:last-child {
+		display: none;
+	}
+	h1.project-detail-title,
+	.project-line,
+	.main-menu__item > a,
+	.sub-menu a {
+		font-size: 32px;
+	}
+}
+
