@@ -45,7 +45,9 @@ header {
 	-ms-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out; 
-	text-align: center;
+	margin-left: 16px;
+	margin-right: 16px;
+	
 }
 
 header.down-cut-half {
@@ -268,7 +270,15 @@ a.clear-active {
     display: flex;
 }
 
+.project-detail-meta-info {
+	display: none;
+	margin-top: 6px;
+	margin-bottom: 6px;
+}
+.project-line:hover .project-detail-meta-info {
+	display: block;
 
+}
 
 /* font correction */
 
@@ -304,6 +314,9 @@ a.clear-active {
 	}
 }
 @media only screen and (max-width: 600px ) {
+	header {
+		text-align: center;
+	}
 	h1.project-detail-title,
 	.project-line,
 	.main-menu__item > a {
@@ -314,7 +327,7 @@ a.clear-active {
 		display: block;
 		font-size: 35px;
 		position: absolute;
-		left: 13px;
+		left: 0px;
 		top: 16px;
 		width: 35px;
 		height: 35px;

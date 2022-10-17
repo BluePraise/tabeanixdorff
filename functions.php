@@ -30,7 +30,7 @@ function tn_acf_init_block_types() {
             'name'              => 'project',
             'title'             => __('Portfolio Project'),
             'description'       => __('A custom portfolio entry.'),
-            'render_template'   => 'template-parts/blocks/projects.php',
+            'render_template'   => get_template_directory() . '/template-parts/blocks/projects.php',
             'category'          => 'formatting',
             'icon'              => 'admin-comments',
             'is_preview'        => true,
@@ -43,7 +43,7 @@ function tn_acf_init_block_types() {
             'name'              => 'imageslider',
             'title'             => __('Image Slider'),
             'description'       => __('A custom image slider.'),
-            'render_template'   => 'template-parts/blocks/slider/slider.php',
+            'render_template'   => get_template_directory() . '/template-parts/blocks/slider/slider.php',
             'enqueue_style'     => get_template_directory_uri() . '/template-parts/blocks/slider/slider.css',
             'enqueue_script'    => get_template_directory_uri() . '/template-parts/blocks/slider/slider.js', array('tn_slider'), '', true,
             'category'          => 'formatting',
@@ -54,7 +54,7 @@ function tn_acf_init_block_types() {
         ));
     }
 }
-add_action('acf/init', 'tn_acf_init_block_types', 20);
+add_action('acf/init', 'tn_acf_init_block_types', 10);
 
 add_theme_support( 'post-thumbnails' );
 
@@ -266,4 +266,19 @@ function search_posts() {
         $post->url = get_permalink($post->id);
     }
     wp_send_json_success(json_encode($posts));
+}
+
+
+// inspired by: https://www.billerickson.net/access-gutenberg-block-data/
+function parse_ACF_block( $blockname ) {
+    global $post;
+    $blocks = parse_blocks( $post->post_content );
+    
+    foreach( $blocks as $block ) {
+
+        if( $blockname === $block['blockName'] ) {
+            echo render_block( $block );
+        break;
+        }
+    }
 }

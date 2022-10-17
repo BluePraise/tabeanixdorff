@@ -27,10 +27,10 @@ if( !empty($block['align']) ) {
 // Load values and assign defaults.
 
 $hover_text = get_field('project_hover_text') ?: 'Your correction line here...'; 
-$project_meta = get_field('project_meta'); 
+$year = get_field('year'); 
 $categories = get_the_category(); ?>
  
-<p class="project-detail-meta-info"><i><?= $hover_text; ?></i> (<?php if ( ! empty( $categories ) ): echo esc_html( $categories[0]->name ); endif; ?>, <?php echo $project_meta; ?>)</p>
+<p class="project-detail-meta-info"><i><?php echo $hover_text; ?></i> (<?php if ( ! empty( $categories ) ): echo esc_html( $categories[0]->name ); endif; ?>, <?php echo $year; ?>)</p>
 
     
 
