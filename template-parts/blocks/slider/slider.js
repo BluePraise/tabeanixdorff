@@ -1,27 +1,27 @@
 
 jQuery(document).ready(function($){
-  // options: https://gist.githubusercontent.com/warrendholmes/9481310/raw/e7815da6e2cb1420dafd67665283ddc669f11242/Flexslider%20Options
-  
-  $('.flexslider').flexslider({
-    animation: "slide",
-    controlNav: false,
-    animationLoop: true,
-    controlsContainer: $(".custom-controls-container"),
-    customDirectionNav: $(".custom-navigation a"),
-    prevText: "<",           //String: Set the text for the "previous" directionNav item
-    nextText: ">", 
-    start: function() {
-      $('.flex-next').after('<a class="magnify">□</a>');
-    }
+ $('.slides').slick({
+    
   });
 
-  $('a.gallery').colorbox({
+$('.slide-image').on('click', function(event, slick, currentSlide, nextSlide){
+    var $this = $(this);
+    console.log($this.parents('.js-gallery-item'));
+    // console.log($this.eq(currentSlide));
+    var currentCaption = $this.eq(currentSlide).find('.js-gallery-item').data('caption');
+    // console.log(currentCaption);
+    // $('#cboxCurrent').innerT('yesy');
+    $('#cboxCurrent').textContent = currentCaption;
+});
+
+
+
+    $('a.gallery').colorbox({
       rel:'gal',
-      current: '',
       maxWidth: '90%',
       maxHeight: '90%',
       slideshow: false,
-      current: $caption,
+      current: '',
       previous: "<",
       next: ">",
       close: "×",
@@ -29,6 +29,7 @@ jQuery(document).ready(function($){
       left: 60,
       scrolling: false,
       onOpen: function() {
+        
         $('.flex-container').addClass('fade');
         // $('body').css('overflow', 'hidden');
         var $cboxCaption = $('#colorbox').find('.cboxCaption');
@@ -36,10 +37,11 @@ jQuery(document).ready(function($){
           $('#cboxCurrent').wrapAll("<div class='d-flex cboxCaption' />");
           $('#cboxPrevious, #cboxNext, #cboxClose').wrapAll("<div class='cboxCaption-controls' />"); 
           $('.cboxCaption-controls').appendTo('.cboxCaption');
-
         }
+        // console.log($(this).length);
       },
       onLoad: function() {
+        
         setTimeout(function(){
           $('#cboxClose').appendTo('.cboxCaption-controls');
         }, 500)
@@ -49,9 +51,9 @@ jQuery(document).ready(function($){
       }
   });
 
+
   var controlContainerWidth = $('.flex-viewport').css('width');
   $('.custom-navigation').css('width', controlContainerWidth);
-
 
 });
 

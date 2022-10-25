@@ -25,5 +25,8 @@ My aim is to make this the most streamlined - slimmed WP theme ever.
 - Added flexslider
 - Flexslider is an ACF block
  
+# October 2022 - V0.3
+- Fixed meta info in acf. Can now see correctionlines
+- 
 
 

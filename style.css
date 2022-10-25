@@ -24,6 +24,11 @@ h1.project-detail-title,
 	font-weight: normal;
 }
 
+h1.project-detail-title {
+	margin: 0;
+	width: 2300%; /* temp hack or maybe forever */
+}
+
 .main-container {
 	overflow: hidden;
 	max-width: 75vw;
@@ -142,6 +147,7 @@ input.search-field {
 	width: 1000%;
 }
 .project-line {
+	position: relative;
 	display:  block;
 	margin: 8px 0;
 	flex: 0 0 100%;
@@ -153,12 +159,36 @@ input.search-field {
 .project-line.hide {
 	order: 2;
 }
+.project-line a {
+	position: relative;
+	z-index: 1;
+}
 /* todo:  if you hover over .project-line show project-hover maybe with js?*/
 .project-hover { display: none; }
 
 .project-detail-meta-info {
 	font-weight: bolder;
     font-size: smaller;
+}
+.home.blog .project-detail-meta-info {
+	display: none;
+	width: 100%;
+	background-color: white;
+	font-size: 23px;
+	line-height: 19.7px;
+	/* margin-top: 6px;
+	margin-bottom: 6px; */
+	position: absolute;
+	top: -16px;
+	z-index: 2;
+}
+.single .project-detail-meta-info {
+	margin: 0;
+}
+
+.home.blog .project-line:hover .project-detail-meta-info {
+	display: block;
+
 }
 /* helpers */
 .fade {
@@ -259,7 +289,7 @@ a.clear-active {
     position: absolute;
     bottom: 0;
 	max-height: 200px;
-    overflow-y: auto;
+    overflow: hidden;
     width: 94%;
 }
 .leftover-projects h2.project-line {
@@ -270,15 +300,6 @@ a.clear-active {
     display: flex;
 }
 
-.project-detail-meta-info {
-	display: none;
-	margin-top: 6px;
-	margin-bottom: 6px;
-}
-.project-line:hover .project-detail-meta-info {
-	display: block;
-
-}
 
 /* font correction */
 
@@ -297,6 +318,7 @@ a.clear-active {
 */
 
 @media only screen and (max-width: 1328px) {
+	.home.blog .project-detail-meta-info, 
 	h1.project-detail-title,
 	.project-line,
 	.main-menu__item > a,
@@ -371,6 +393,9 @@ a.clear-active {
 	.main-menu__item > a,
 	.sub-menu a {
 		font-size: 32px;
+	}
+	.main-container {
+		max-width: 100vw;
 	}
 }
 
