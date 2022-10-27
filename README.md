@@ -27,6 +27,7 @@ My aim is to make this the most streamlined - slimmed WP theme ever.
  
 # October 2022 - V0.3
 - Fixed meta info in acf. Can now see correctionlines
-- 
+- Flexslider caption is now a wysiwyg
+- Caption is shown in colorbox
 
 

@@ -1,27 +1,25 @@
 
 jQuery(document).ready(function($){
- $('.slides').slick({
-    
+  // options: https://gist.githubusercontent.com/warrendholmes/9481310/raw/e7815da6e2cb1420dafd67665283ddc669f11242/Flexslider%20Options
+  
+  $('.flexslider').flexslider({
+    animation: "slide",
+    controlNav: false,
+    animationLoop: true,
+    controlsContainer: $(".custom-controls-container"),
+    customDirectionNav: $(".custom-navigation a")
   });
 
-$('.slide-image').on('click', function(event, slick, currentSlide, nextSlide){
-    var $this = $(this);
-    console.log($this.parents('.js-gallery-item'));
-    // console.log($this.eq(currentSlide));
-    var currentCaption = $this.eq(currentSlide).find('.js-gallery-item').data('caption');
-    // console.log(currentCaption);
-    // $('#cboxCurrent').innerT('yesy');
-    $('#cboxCurrent').textContent = currentCaption;
-});
-
-
-
-    $('a.gallery').colorbox({
+  $('a.gallery').colorbox({
       rel:'gal',
+      current: '',
       maxWidth: '90%',
       maxHeight: '90%',
       slideshow: false,
-      current: '',
+      current: function() {
+        var caption = $(this).find('figcaption').html();
+        return caption;
+      },
       previous: "<",
       next: ">",
       close: "×",
@@ -29,7 +27,6 @@ $('.slide-image').on('click', function(event, slick, currentSlide, nextSlide){
       left: 60,
       scrolling: false,
       onOpen: function() {
-        
         $('.flex-container').addClass('fade');
         // $('body').css('overflow', 'hidden');
         var $cboxCaption = $('#colorbox').find('.cboxCaption');
@@ -37,11 +34,10 @@ $('.slide-image').on('click', function(event, slick, currentSlide, nextSlide){
           $('#cboxCurrent').wrapAll("<div class='d-flex cboxCaption' />");
           $('#cboxPrevious, #cboxNext, #cboxClose').wrapAll("<div class='cboxCaption-controls' />"); 
           $('.cboxCaption-controls').appendTo('.cboxCaption');
+
         }
-        // console.log($(this).length);
       },
       onLoad: function() {
-        
         setTimeout(function(){
           $('#cboxClose').appendTo('.cboxCaption-controls');
         }, 500)
@@ -52,10 +48,6 @@ $('.slide-image').on('click', function(event, slick, currentSlide, nextSlide){
   });
 
 
-  var controlContainerWidth = $('.flex-viewport').css('width');
-  $('.custom-navigation').css('width', controlContainerWidth);
-
 });
-
 
 

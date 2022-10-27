@@ -39,15 +39,13 @@ if( have_rows('images') ): ?>
                     $image          = get_sub_field('flexslider_image'); 
                     $image_caption  = get_sub_field('flexslider_caption'); 
                 ?>
-                <script>
-                   // dynamically load captions and pass it on to jQuery 
-                   var $caption = '<?php echo($image_caption); ?>';
-                </script>
+                
 
             	<li class="slide item">
-                    <a class="gallery" href="<?php echo $image; ?>" data-caption="<?= $image_caption; ?>">
+                    <a class="gallery" href="<?php echo $image; ?>">
                         <figure>
-                            <img class="slide-image" src="<?php echo $image; ?>" />
+                            <img src="<?php echo $image; ?>" >
+                            <figcaption class="d-none"><?php echo $image_caption; ?></figcaption>
                         </figure>
                     </a>
                 </li>
