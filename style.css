@@ -249,16 +249,18 @@ input.search-field {
 }
 .custom-navigation a {
 	font-family: sans-serif;
-  	font-size: 20px;
-  	font-weight: 100;
-	line-height: 48px;
+  	font-weight: 100;	
 }
 .custom-navigation a.flex-next {
 	margin-left:  15px;
 }
+.custom-navigation a.flex-prev, 
+.custom-navigation a.flex-next { 
+	font-size: 20px;
+}
 .magnify {
 	margin-left: 10px;
-	font-size: 36px;
+	font-size: 26px;
 }
 
 .custom-navigation-container .close {
