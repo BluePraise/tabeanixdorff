@@ -161,6 +161,7 @@ input.search-field {
 }
 .project-line a {
 	position: relative;
+	display: block;
 	z-index: 1;
 }
 /* todo:  if you hover over .project-line show project-hover maybe with js?*/
@@ -174,12 +175,12 @@ input.search-field {
 	display: none;
 	width: 100%;
 	background-color: white;
-	font-size: 23px;
+	font-size: 22px;
 	line-height: 19.7px;
 	/* margin-top: 6px;
 	margin-bottom: 6px; */
 	position: absolute;
-	top: -16px;
+	top: -19px;
 	z-index: 2;
 }
 .single .project-detail-meta-info {
@@ -188,7 +189,7 @@ input.search-field {
 
 .home.blog .project-line:hover .project-detail-meta-info {
 	display: block;
-
+	top: -40%;
 }
 /* helpers */
 .fade {
@@ -315,27 +316,19 @@ a.clear-active {
 
 /* font correction */
 
-/* @media only screen and (max-width:767px) {
-	.main-container {
-		max-width: 100%;
-	}
-} */
-
-/* 
---breakpoint-1: 399.9px;
---breakpoint-2: 400px;
---breakpoint-3: 699.9px;
---breakpoint-4: 700px;
---breakpoint-5: 1327.9px; 
-*/
 
 @media only screen and (max-width: 1328px) {
-	.home.blog .project-detail-meta-info, 
 	h1.project-detail-title,
 	.project-line,
 	.main-menu__item > a,
 	.sub-menu a {
 		font-size: 2.3vw;
+	}
+	.home.blog .project-detail-meta-info { 
+		/* display: block; */
+		font-size: 1.4vw;
+		line-height: 0.9;
+		top: -44%;
 	}
 }  
 
@@ -343,9 +336,16 @@ a.clear-active {
 @media only screen and (max-width: 700px ) {
 	h1.project-detail-title,
 	.project-line,
+	.project-detail-meta-info,
 	.main-menu__item > a {
 		font-size: 16px;
 	}
+	/* .home.blog .project-detail-meta-info { 
+		display: block;
+		font-size: 1.4vw;
+		line-height: 0.9;
+		top: -44%;
+	} */
 }
 @media only screen and (max-width: 600px ) {
 	header {

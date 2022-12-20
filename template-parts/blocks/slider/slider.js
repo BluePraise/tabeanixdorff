@@ -9,7 +9,14 @@ jQuery(document).ready(function($){
     controlsContainer: $(".custom-controls-container"),
     customDirectionNav: $(".custom-navigation a"),
     start: function() {
+      var addMagnify = function() {
+        return ;
+      };
+
       $('.flex-next').after('<a class="magnify">□</a>');
+    },
+    after: function() {
+       
     }
   });
 
@@ -31,7 +38,6 @@ jQuery(document).ready(function($){
       scrolling: false,
       onOpen: function() {
         $('.flex-container').addClass('fade');
-        // $('body').css('overflow', 'hidden');
         var $cboxCaption = $('#colorbox').find('.cboxCaption');
         if ($cboxCaption.length === 0) { 
           $('#cboxCurrent').wrapAll("<div class='d-flex cboxCaption' />");
@@ -51,6 +57,14 @@ jQuery(document).ready(function($){
   });
 var controlContainerWidth = $('.flex-viewport').css('width');
 $('.custom-navigation').css('width', controlContainerWidth);
+
+
+ $('.magnify').on('click', function(event){
+    event.preventDefault();
+    console.log($(this).find('.slides'));
+    // $(this).closest('.flex-active-slide').trigger('click');
+});
+
 
 });
 
