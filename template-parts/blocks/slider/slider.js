@@ -36,6 +36,7 @@ jQuery(document).ready(function($){
       bottom: 40,
       left: 60,
       scrolling: false,
+      open: true,
       onOpen: function() {
         $('.flex-container').addClass('fade');
         var $cboxCaption = $('#colorbox').find('.cboxCaption');
