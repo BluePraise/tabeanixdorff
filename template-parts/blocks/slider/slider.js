@@ -8,16 +8,6 @@ jQuery(document).ready(function($){
     animationLoop: true,
     controlsContainer: $(".custom-controls-container"),
     customDirectionNav: $(".custom-navigation a"),
-    start: function() {
-      // var addMagnify = function() {
-      //   return ;
-      // };
-
-      // $('.flex-next').after('<a class="magnify">□</a>');
-    },
-    after: function() {
-       
-    }
   });
 
   $('a.gallery').colorbox({
@@ -59,17 +49,19 @@ jQuery(document).ready(function($){
   var controlContainerWidth = $('.flex-viewport').css('width');
   $('.custom-navigation').css('width', controlContainerWidth);
 
-if($('.magnify')) {
-    $('.magnify').on('click', function(event){
-        // find the parent element
-        $parent = $(this).parent().parent();
-        // find the active slide
-        $activeSlide = $parent.find('.gallery.cboxElement');
-        $activeSlide.trigger('click');
-    }); 
-}
+  if($('.magnify')) {
+      $('.magnify').on('click', function(event){
+          // find the parent element
+          $parent = $(this).parent().parent();
+          // find the active slide
+          $activeSlide = $parent.find('.gallery.cboxElement');
+          $activeSlide.trigger('click');
+      }); 
+  }
+
+document.addEventListener("mouseover", function() {
+  setTimeout(function() {$.colorbox.close();}, 1200);
+},{once : true});
 
 
 });
-
-
