@@ -9,11 +9,11 @@ jQuery(document).ready(function($){
     controlsContainer: $(".custom-controls-container"),
     customDirectionNav: $(".custom-navigation a"),
     start: function() {
-      var addMagnify = function() {
-        return ;
-      };
+      // var addMagnify = function() {
+      //   return ;
+      // };
 
-      $('.flex-next').after('<a class="magnify">□</a>');
+      // $('.flex-next').after('<a class="magnify">□</a>');
     },
     after: function() {
        
@@ -56,15 +56,18 @@ jQuery(document).ready(function($){
         $('.flex-container').removeClass('fade');
       }
   });
-var controlContainerWidth = $('.flex-viewport').css('width');
-$('.custom-navigation').css('width', controlContainerWidth);
+  var controlContainerWidth = $('.flex-viewport').css('width');
+  $('.custom-navigation').css('width', controlContainerWidth);
 
-
- $('.magnify').on('click', function(event){
-    event.preventDefault();
-    console.log($(this).find('.slides'));
-    // $(this).closest('.flex-active-slide').trigger('click');
-});
+if($('.magnify')) {
+    $('.magnify').on('click', function(event){
+        // find the parent element
+        $parent = $(this).parent().parent();
+        // find the active slide
+        $activeSlide = $parent.find('.gallery.cboxElement');
+        $activeSlide.trigger('click');
+    }); 
+}
 
 
 });

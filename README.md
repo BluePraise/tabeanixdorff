@@ -30,4 +30,9 @@ My aim is to make this the most streamlined - slimmed WP theme ever.
 - Flexslider caption is now a wysiwyg
 - Caption is shown in colorbox
 
+# December 2022 - V0.4
+- Clickable correction lines
+- on single colorbox opens big
 
+# December 2022 - V0.5
+- Added functionality for magnify on colorbox

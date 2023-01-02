@@ -57,6 +57,7 @@ if( have_rows('images') ): ?>
           <a href="#" class="flex-prev"><</a>
           <div class="custom-controls-container"></div>
           <a href="#" class="flex-next">></a>
+          <a class="magnify">□</a>         
         </div>
     <!-- <a href="#" class="close">×</a> -->
     </div> <!-- .flex-container -->
