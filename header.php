@@ -28,18 +28,16 @@
 <body <?php body_class(); ?>>
     <header>
         
-           
-            <span class="dashicons dashicons-menu mobile-menu js-toggle-mobile-menu"></span>
-           
-            <?php 
-                tn_nav(); 
-                // show filters
-                echo get_template_part( 'template-parts/filters' );
-            ?>
+    
+    <span class="dashicons dashicons-menu mobile-menu js-toggle-mobile-menu"></span>
+    
+    <?php 
+        tn_nav(); 
+        // show filters
+        echo get_template_part( 'template-parts/filters' );
+    ?>
             
-        
-
-
+      
     </header> 
     
     <main class="main-container">
