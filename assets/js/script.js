@@ -1,6 +1,6 @@
 const header = document.querySelector('.menu-header-menu-container');
 // 1st three lines position the filters to the right
-const filterList = document.querySelector('.js-filters'); 
+const filterList = document.querySelector('.js-filters');
 const lastMenuItem = document.querySelector('.main-menu').lastElementChild;
 lastMenuItem.append(filterList);
 const all_projects = document.querySelector('.projects');
@@ -19,12 +19,12 @@ document.querySelectorAll('.filter__link').forEach(link => {
 
         const filterText = filter.textContent.toLowerCase();
         if(sortKeywords.includes(filterText)) {
-            sortKeywords.splice(sortKeywords.indexOf(filterText), 1); 
+            sortKeywords.splice(sortKeywords.indexOf(filterText), 1);
         }
         else {
-            sortKeywords.push(filterText); 
+            sortKeywords.push(filterText);
         }
-        
+
         document.querySelectorAll(`.projects .project-line a`).forEach(a => {
             const project = a.closest('.project-line');
             left_over.appendChild(project);
@@ -32,9 +32,9 @@ document.querySelectorAll('.filter__link').forEach(link => {
             sortKeywords.forEach(sort => {
                 if(a.getAttribute('data-tag').trim().split(/\s+/).includes(sort)) {
                     all_projects.appendChild(project);
-                } 
+                }
             });
-            
+
         });
        if(filterList.getElementsByClassName('active').length > 0) {
         document.querySelector('.clear-active').classList.remove("hide-this");
@@ -68,8 +68,8 @@ if(document.querySelector('.search-field.js-search-field') !== null) {
 
     document.querySelector('.search-field.js-search-field').addEventListener('input', e => {
         clear_all();
-   
-        const userInput = e.currentTarget.value.trim().toLowerCase(); 
+
+        const userInput = e.currentTarget.value.trim().toLowerCase();
         document.querySelectorAll(`.projects .project-line`).forEach(project => {
             const text = project.textContent.toLowerCase();
             if(!text.includes(userInput)) {
@@ -100,27 +100,27 @@ window.addEventListener("scroll", function() {
 (function ($) {
     $(document).ready(function ($) {
         $('#search-posts').on('keyup', searchPosts);
-        
+
         /* Mobile Menu: open mobile */
         $('.js-toggle-mobile-menu').on('click', function(e) {
             e.preventDefault();
             $('.menu-main-menu-container').toggleClass('open');
         })
     });
-    
-    
+
+
     var searchPosts = (e) => {
       let searchString = $(e.target).val(), ajaxData = {}, results, resultsHtml = '',
             noResultsText = 'No results ...';
-       
+
         if (searchString === '') {
             $('.search-form .search-results').html('');
             return;
         }
-       
+
        ajaxData['action'] = 'search-posts';
        ajaxData['search'] = searchString;
-       
+
        $.ajax({
             url: settings.ajax_url,
             method: 'POST',
@@ -151,5 +151,5 @@ window.addEventListener("scroll", function() {
             }
         });
     };
-    
+
 })(jQuery);

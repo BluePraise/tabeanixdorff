@@ -1,16 +1,38 @@
-
 jQuery(document).ready(function($){
-  // options: https://gist.githubusercontent.com/warrendholmes/9481310/raw/e7815da6e2cb1420dafd67665283ddc669f11242/Flexslider%20Options
-  
-  $('.flexslider').flexslider({
-    animation: "slide",
-    controlNav: false,
-    animationLoop: true,
-    controlsContainer: $(".custom-controls-container"),
-    customDirectionNav: $(".custom-navigation a"),
+  /**
+  To-Do
+    maybe replace owlCarousel with swiper.js or tinyslider.js
+   */
+  $(".slides").owlCarousel({
+    items: 1,
+    loop: true,
+    dots: false,
+    nav: true,
+    autoplay: true,
+    video:true,
+    autoplayHoverPause: true,
+    navContainer: $(".custom-navigation"),
+    videoHeight: 100,
+    navElement: 'a',
+    navText: ['<', '>'],
+    autoHeight: true,
+    autoHeightClass: 'owl-height'
   });
 
-  $('a.gallery').colorbox({
+  $('.custom-navigation').append('<div class="magnify">☐</div>');
+  const magnify = $('.magnify')
+  if (magnify) {
+    magnify.on('click', function(e) {
+      e.preventDefault();
+      const $parentContainer = $(this).parent();
+      const $slides = $parentContainer.prev('.slides');
+      $slides.toggleClass('grow');
+      let $caption = $slides.find('figcaption').html();
+      console.log($caption);
+    })
+  }
+
+  $('.magnify').colorbox({
       rel:'gal',
       current: '',
       maxWidth: '90%',
@@ -28,11 +50,11 @@ jQuery(document).ready(function($){
       scrolling: false,
       open: true,
       onOpen: function() {
-        $('.flex-container').addClass('fade');
+        $('.slides').addClass('fade');
         var $cboxCaption = $('#colorbox').find('.cboxCaption');
-        if ($cboxCaption.length === 0) { 
+        if ($cboxCaption.length === 0) {
           $('#cboxCurrent').wrapAll("<div class='d-flex cboxCaption' />");
-          $('#cboxPrevious, #cboxNext, #cboxClose').wrapAll("<div class='cboxCaption-controls' />"); 
+          $('#cboxPrevious, #cboxNext, #cboxClose').wrapAll("<div class='cboxCaption-controls' />");
           $('.cboxCaption-controls').appendTo('.cboxCaption');
 
         }
@@ -43,25 +65,8 @@ jQuery(document).ready(function($){
         }, 500)
       },
       onCleanup: function() {
-        $('.flex-container').removeClass('fade');
+        $('.slides').removeClass('fade');
       }
-  });
-  var controlContainerWidth = $('.flex-viewport').css('width');
-  $('.custom-navigation').css('width', controlContainerWidth);
-
-  if($('.magnify')) {
-      $('.magnify').on('click', function(event){
-          // find the parent element
-          $parent = $(this).parent().parent();
-          // find the active slide
-          $activeSlide = $parent.find('.gallery.cboxElement');
-          $activeSlide.trigger('click');
-      }); 
-  }
-
-document.addEventListener("mouseover", function() {
-  setTimeout(function() {$.colorbox.close();}, 1200);
-},{once : true});
-
+});
 
 });

@@ -30,39 +30,44 @@ if( !empty($block['align']) ) {
 
 if( have_rows('images') ): ?>
 
-    <div class="flex-container">
-        <div class="flexslider">
-            <ul class="slides">
-                <?php // Loop through rows.
-                while( have_rows('images') ) : the_row(); 
-                    
-                    $image          = get_sub_field('flexslider_image'); 
-                    $image_caption  = get_sub_field('flexslider_caption'); 
-                ?>
-                
+    <div class="owl-carousel slides">
+        <?php // Loop through rows.
+        while( have_rows('images') ) : the_row();
+            $image          = get_sub_field('slider_media');
+            $image_caption  = get_sub_field('flexslider_caption');
+            $checkbox_video = get_sub_field('checkbox_video');
 
-            	<li class="slide item">
-                    <a class="gallery" href="<?php echo $image; ?>">
-                        <figure>
-                            <img src="<?php echo $image; ?>" >
-                            <figcaption class="d-none"><?php echo $image_caption; ?></figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <?php endwhile; ?>
-            
-            </ul> <!-- !ul.slides -->
+        ?>
+
+
+        <div class="slide item">
+            <a class="gallery" href="">
+                <?php if ( $checkbox_video ):
+                    foreach($checkbox_video as $checkbox):
+                        if( $checkbox === 'Yes'): ?>
+                            <video controls>
+                                <source src="<?php echo $image; ?>" type="video/mp4">
+                            </video>
+                <?php
+                    endif;
+                    endforeach;
+                    else: ?>
+                            <figure>
+                                <img src="<?php echo $image; ?>" >
+                                <figcaption class="d-none"><?php echo $image_caption; ?></figcaption>
+                            </figure>
+                <?php endif; ?>
+            </a>
         </div>
-        <div class="custom-navigation">
-          <a href="#" class="flex-prev"><</a>
-          <div class="custom-controls-container"></div>
-          <a href="#" class="flex-next">></a>
-          <a class="magnify">□</a>         
-        </div>
+        <?php endwhile; ?>
+
+    </div> <!-- !ul.slides -->
+
+<div class="custom-navigation"></div>
     <!-- <a href="#" class="close">×</a> -->
-    </div> <!-- .flex-container -->
 
 <?php // No value.
 else : echo 'No images. Yet.'; ?>
 
 <?php endif; ?>
+

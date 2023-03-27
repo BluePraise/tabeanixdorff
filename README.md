@@ -1,21 +1,21 @@
 # tabeanixdorff
 
-## To whomever it may concern. 
+## To whomever it may concern.
 Currently it is April 2022.
 This project was designed by Tabea Nixdorff.
 The developer is Magalie Chetrit.
-The project is built with WordPress and has it's own custom theme. 
+The project is built with WordPress and has it's own custom theme.
 
 ### ACF BLOCKS - How it works
 Posts are used for the projects. So if T wants to upload a project she needs to add a new post. These are then sent to index.php
 
 ## Project Specifics.
-- Filters 
+- Filters
 - ACF
-- Search 
+- Search
 
 ### May 2022 - V0.1
-My aim is to make this the most streamlined - slimmed WP theme ever. 
+My aim is to make this the most streamlined - slimmed WP theme ever.
 
 - Uses ACF Blocks to render templates - V0.1
 - Custom search filter added - V0.1
@@ -24,7 +24,7 @@ My aim is to make this the most streamlined - slimmed WP theme ever.
 - Single styling
 - Added flexslider
 - Flexslider is an ACF block
- 
+
 # October 2022 - V0.3
 - Fixed meta info in acf. Can now see correctionlines
 - Flexslider caption is now a wysiwyg
@@ -36,3 +36,9 @@ My aim is to make this the most streamlined - slimmed WP theme ever.
 
 # December 2022 - V0.5
 - Added functionality for magnify on colorbox
+- On project page added a one time event listener to close colorbox
+
+# February 2023 - V0.6
+- Replaced flexslider with owlslider - flexslider does not support video
+- Removed colorbox support.
+- Magnify functionality is now simply an event listener that adds a class.

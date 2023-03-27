@@ -1,4 +1,4 @@
-<?php 
+<?php
 function theme_features() {
     add_theme_support(
         'title-tag',
@@ -24,7 +24,6 @@ function tn_acf_init_block_types() {
     // Check function exists.
     if( function_exists('acf_register_block_type') ) {
 
-        
         // register project block.
         acf_register_block_type(array(
             'name'              => 'project',
@@ -65,7 +64,7 @@ function check_jquery() {
     global $wp_scripts;
 
     foreach ( $wp_scripts->registered as $wp_script ) {
-        $handles[] = $wp_script->handle; 
+        $handles[] = $wp_script->handle;
     }
 
     if(  in_array( 'jquery', $handles ) ) :
@@ -80,13 +79,15 @@ function tn_styles_scripts() {
 	wp_register_style( 'tn_style', get_template_directory_uri() . '/style.css');
     wp_enqueue_script("jquery");
 	wp_register_script( 'tn_script', get_template_directory_uri() . '/assets/js/script.js', array(), '1.0.0', true);
-    wp_register_script( 'tn_slider', get_template_directory_uri() . '/assets/js/flexslider.js', array('jquery'), '1.0.0', true);
+    wp_register_script( 'tn_slider', get_template_directory_uri() . '/assets/js/owlslider/owlslider.js', array('jquery'), '1.0.0', true);
     wp_register_script( 'tn_modal', get_template_directory_uri() . '/assets/js/lightbox.js', array('jquery'), '1.0.0', true);
+    wp_register_script( 'tn_lightbox', get_template_directory_uri() . '/assets/js/simple-lightbox/simple-lightbox.js', array(''), '1.0.0', true);
 	wp_enqueue_style('tn_style');
 	wp_enqueue_script('tn_script');
     wp_enqueue_script('tn_slider');
     wp_enqueue_script('tn_modal');
-    
+    wp_enqueue_script('tn_lightbox');
+
      wp_localize_script('tn_script', 'settings', array(
             'ajax_url' => admin_url('admin-ajax.php')
         ));
@@ -94,7 +95,7 @@ function tn_styles_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'tn_styles_scripts' );
 
- // Navigation 
+ // Navigation
 function tn_nav() {
     wp_nav_menu(
     array(
@@ -130,7 +131,7 @@ add_action('init', 'register_tn_menu');
  * Custom walker class.
  */
 class WPDocs_Walker_Nav_Menu extends Walker_Nav_Menu {
- 
+
     /**
      * Starts the list before the elements are added.
      *
@@ -151,11 +152,11 @@ class WPDocs_Walker_Nav_Menu extends Walker_Nav_Menu {
             'menu-depth-' . $display_depth
         );
         $class_names = implode( ' ', $classes );
- 
+
         // Build HTML for output.
         $output .= "\n" . $indent . '<ul class="' . $class_names . '">' . "\n";
     }
- 
+
     /**
      * Start the element output.
      *
@@ -170,7 +171,7 @@ class WPDocs_Walker_Nav_Menu extends Walker_Nav_Menu {
     function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
         global $wp_query;
         $indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent
- 
+
         // Depth-dependent classes.
         $depth_classes = array(
             ( $depth == 0 ? 'main-menu__item' : 'sub-menu__item' ),
@@ -179,21 +180,21 @@ class WPDocs_Walker_Nav_Menu extends Walker_Nav_Menu {
             'menu-item-depth-' . $depth
         );
         $depth_class_names = esc_attr( implode( ' ', $depth_classes ) );
- 
+
         // Passed classes.
         $classes = empty( $item->classes ) ? array() : (array) $item->classes;
         $class_names = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) );
- 
+
         // Build HTML.
         $output .= $indent . '<li id="nav-menu-item-'. $item->ID . '" class="' . $depth_class_names . ' ' . $class_names . '">';
- 
+
         // Link attributes.
         $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
         $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
         $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
         $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
         $attributes .= ' class="menu-link ' . ( $depth > 0 ? 'sub-menu-link' : 'main-menu-link' ) . '"';
- 
+
         // Build HTML output and pass through the proper filter.
         $item_output = sprintf( '%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
             $args->before,
@@ -219,7 +220,7 @@ function custom_theme_setup() {
     add_image_size( 'sliver-size', 100 , 50, true );
 }
 add_action( 'after_setup_theme', 'custom_theme_setup' );
- 
+
 // Make custom sizes selectable from WordPress admin.
 function custom_image_sizes( $size_names ) {
     $new_sizes = array(
@@ -256,9 +257,9 @@ add_action('wp_ajax_nopriv_search-posts', 'search_posts' );
 
 function search_posts() {
     global $wpdb;
-    
+
     $search_string = sanitize_text_field(filter_input(INPUT_POST, 'search'));
-    
+
     $posts = $wpdb->get_results( $wpdb->prepare("SELECT post_title, id FROM $wpdb->posts WHERE post_type = 'post' AND post_title LIKE '%s'", '%'. $wpdb->esc_like( $search_string ) .'%') );
     foreach ($posts as $post) {
         $post->url = get_permalink($post->id);
@@ -271,7 +272,7 @@ function search_posts() {
 function parse_ACF_block( $blockname ) {
     global $post;
     $blocks = parse_blocks( $post->post_content );
-    
+
     foreach( $blocks as $block ) {
 
         if( $blockname === $block['blockName'] ) {
