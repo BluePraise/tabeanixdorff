@@ -14,31 +14,5 @@ Posts are used for the projects. So if T wants to upload a project she needs to 
 - ACF
 - Search
 
-### May 2022 - V0.1
-My aim is to make this the most streamlined - slimmed WP theme ever.
-
-- Uses ACF Blocks to render templates - V0.1
-- Custom search filter added - V0.1
-
-### June 2022 - V0.2
-- Single styling
-- Added flexslider
-- Flexslider is an ACF block
-
-# October 2022 - V0.3
-- Fixed meta info in acf. Can now see correctionlines
-- Flexslider caption is now a wysiwyg
-- Caption is shown in colorbox
-
-# December 2022 - V0.4
-- Clickable correction lines
-- on single colorbox opens big
-
-# December 2022 - V0.5
-- Added functionality for magnify on colorbox
-- On project page added a one time event listener to close colorbox
-
-# February 2023 - V0.6
-- Replaced flexslider with owlslider - flexslider does not support video
-- Removed colorbox support.
-- Magnify functionality is now simply an event listener that adds a class.
+## Use short code blocks
+```[snippet full-image="#.png" snippet-image="#.png"]test word[/snippet]```

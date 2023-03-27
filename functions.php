@@ -281,3 +281,5 @@ function parse_ACF_block( $blockname ) {
         }
     }
 }
+
+include('shortcode-snippet.php');

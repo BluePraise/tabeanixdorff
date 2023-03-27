@@ -11,7 +11,7 @@
 - ACF Blocks have been set up
 - functions.php have necessary functionality and style.css is loaded
 - Most of styling has been copied from the correct PDF
-- Added menu 
+- Added menu
 
 ### 2022-05-30
 - Added simple search functionality
@@ -20,8 +20,19 @@
 - Added a conditional to the projects block for single view
 - Navigation: improved positioning on hover
 
+### May 2022 - V0.1
+My aim is to make this the most streamlined - slimmed WP theme ever.
+
+- Uses ACF Blocks to render templates - V0.1
+- Custom search filter added - V0.1
+
+### June 2022 - V0.2
+- Single styling
+- Added flexslider
+- Flexslider is an ACF block
+
 ### 2022-06-07
-- Moved js folder to assets folder 
+- Moved js folder to assets folder
 - Single: now has improved markup
 - Index: now has improved markup
 - Decided to do overrides on Gutenberg blocks until I understand them
@@ -38,3 +49,25 @@
 ### 2022-07-11
 - Static nav is now as design
 - Static nav is now dynamic
+
+# October 2022 - V0.3
+- Fixed meta info in acf. Can now see correctionlines
+- Flexslider caption is now a wysiwyg
+- Caption is shown in colorbox
+
+# December 2022 - V0.4
+- Clickable correction lines
+- on single colorbox opens big
+
+# December 2022 - V0.5
+- Added functionality for magnify on colorbox
+- On project page added a one time event listener to close colorbox
+
+# February 2023 - V0.6
+- Replaced flexslider with owlslider - flexslider does not support video
+- Removed colorbox support.
+- Magnify functionality is now simply an event listener that adds a class.
+
+### 2023-03-27 - V0.7
+- Added shortcode support for snippets
+- Strips html to avoid problems with url escaping

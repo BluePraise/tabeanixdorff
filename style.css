@@ -243,6 +243,30 @@ a.clear-active {
     align-items: flex-end;
     display: flex;
 }
+.snippet-container {
+	position: relative;
+}
+.snippet-text {
+	display: inline-block;
+}
+.snippet-image {
+	position: absolute;
+	position: absolute;
+	overflow: hidden;
+	clip: rect;
+	left: 0px;
+	max-height: 19px;
+	top: 4px;
+	width: 100%;
+}
+.snippet-full-image {
+	display: none;
+}
+.snippet-full-image[data-show] {
+	display: block;
+	z-index: 1000;
+	width: 300px;
+}
 
 @media only screen and (max-width: 1328px) {
 	h1.project-detail-title,
