@@ -27,6 +27,13 @@ jQuery(document).ready(function($){
         $slideContainer.toggleClass('grow');
         //https://stackoverflow.com/questions/32347919/refreshing-owl-carousel-2
         $owl.trigger('refresh.owl.carousel');
+        if( $slideContainer.hasClass('grow') ) {
+          $(this).text('✕');
+        }
+        else {
+          $(this).text('☐');
+        }
       });
   }
+
 });
