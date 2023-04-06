@@ -9,5 +9,4 @@
 else:
 endif;
 ?>
-<script src="https://unpkg.com/@popperjs/core@2"></script>
 <?php get_footer(); ?>

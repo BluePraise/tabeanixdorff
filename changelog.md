@@ -71,3 +71,7 @@ My aim is to make this the most streamlined - slimmed WP theme ever.
 ### 2023-03-27 - V0.7
 - Added shortcode support for snippets
 - Strips html to avoid problems with url escaping
+
+### 2023-04-06 - V0.8
+- Fixed slider. Slider now opens and closes when clicked
+- Removed unnecessary libraries and clode

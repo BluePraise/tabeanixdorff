@@ -29,7 +29,7 @@ if( !empty($block['align']) ) {
 // Check rows exists.
 
 if( have_rows('images') ): ?>
-
+<div class="slides-container">
     <div class="owl-carousel slides">
         <?php // Loop through rows.
         while( have_rows('images') ) : the_row();
@@ -54,7 +54,7 @@ if( have_rows('images') ): ?>
                     else: ?>
                             <figure>
                                 <img src="<?php echo $image; ?>" >
-                                <figcaption class="d-none"><?php echo $image_caption; ?></figcaption>
+                                <figcaption><?php echo $image_caption; ?></figcaption>
                             </figure>
                 <?php endif; ?>
             </a>
@@ -62,9 +62,8 @@ if( have_rows('images') ): ?>
         <?php endwhile; ?>
 
     </div> <!-- !ul.slides -->
-
-<div class="custom-navigation"></div>
-    <!-- <a href="#" class="close">×</a> -->
+    <div class="custom-navigation"></div>
+</div>
 
 <?php // No value.
 else : echo 'No images. Yet.'; ?>
