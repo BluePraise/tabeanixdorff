@@ -75,3 +75,4 @@ My aim is to make this the most streamlined - slimmed WP theme ever.
 ### 2023-04-06 - V0.8
 - Fixed slider. Slider now opens and closes when clicked
 - Removed unnecessary libraries and clode
+- Fixed navigation bar. It was inaccessible because of relative positioning of the main container.

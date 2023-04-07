@@ -54,7 +54,7 @@ if( have_rows('images') ): ?>
                     else: ?>
                             <figure>
                                 <img src="<?php echo $image; ?>" >
-                                <figcaption><?php echo $image_caption; ?></figcaption>
+                                <figcaption class="d-none"><?php echo $image_caption; ?></figcaption>
                             </figure>
                 <?php endif; ?>
             </a>

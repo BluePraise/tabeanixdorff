@@ -33,7 +33,7 @@ h1.project-detail-title {
 	z-index: 0;
 	overflow: hidden;
 	max-width: 75vw;
-	margin: 0 16px;
+	margin-top: 50px;
 }
 
 a {
@@ -116,7 +116,9 @@ span.mobile-menu {
 }
 
 main {
-    padding-top: 180px;
+    padding-top: 130px;
+	margin-left: 16px;
+	margin-right: 16px;
 }
 
 /* Search  */
