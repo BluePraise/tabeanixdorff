@@ -279,5 +279,13 @@ function parse_ACF_block( $blockname ) {
         }
     }
 }
+//11 = hidden
+//13 = page_home
+function pre_get_posts_filtered( $query ) {
+	if ( ! is_admin() && $query->is_main_query() ) {
+			$query->set( 'cat', '-11' );
+	}
+}
+add_action( 'pre_get_posts', 'pre_get_posts_filtered' );
 
 include('shortcode-snippet.php');

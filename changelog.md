@@ -76,3 +76,7 @@ My aim is to make this the most streamlined - slimmed WP theme ever.
 - Fixed slider. Slider now opens and closes when clicked
 - Removed unnecessary libraries and clode
 - Fixed navigation bar. It was inaccessible because of relative positioning of the main container.
+
+### 2023-04-07 - V0.9
+- On various pages the project is preceded by two or three fixed posts. Added functionality to assign
+those posts by category. `page-home` and `page-texture`.

@@ -28,6 +28,13 @@ if( !empty($block['align']) ) {
 
 $hover_text = get_field('project_hover_text') ?: 'Your correction line here...';
 $year = get_field('year');
-$categories = get_the_category(); ?>
+$categories = get_the_category();
 
-<p class="project-detail-meta-info"><i><?php echo $hover_text; ?></i> (<?php if ( ! empty( $categories ) ): echo esc_html( $categories[0]->name ); endif; ?>, <?php echo $year; ?>)</p>
+?>
+
+<p class="project-detail-meta-info">
+    <i><?php echo $hover_text; ?></i>
+    <?php if ( ! empty( $categories ) && $categories[0]->name !== 'hidden' ): ?>
+        (<?php echo esc_html( $categories[0]->name ); ?>, <?php echo $year ?>)
+    <?php endif; ?>
+</p>
