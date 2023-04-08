@@ -1,7 +1,7 @@
 /*
 Theme Name: Tabea Nixdorff 2022 - Portfolio
 Author: Magalie Chetrit
-Version: 0.8
+Version: 0.9.2
 */
 
 body {
@@ -95,11 +95,12 @@ header ul li a:hover {
 	cursor: pointer;
 }
 .main-menu__item > a {
+	position: relative;
+	z-index: 3;
 	display:  inline-block;
 	line-height: 29px;
 	color:  black;
 	border-bottom:  1px solid;
-	position: relative;
 	padding: 2px 0px;
 }
 
@@ -138,6 +139,21 @@ header ul li a:hover {
 	text-decoration: none;
 }
 
+.sub-menu li.current-menu-item:before {
+	content: "×";
+ 	font-style: normal;
+    font-size: 75%;
+    margin-right: 10px;
+	padding-bottom: 2px;
+	/* TODO: fix this - maybe put before on li */
+	line-height: 38px;
+	display: inline-block;
+	position: absolute;
+	left: -20px;
+
+
+}
+
 span.mobile-menu {
 	display: none;
 }
@@ -146,7 +162,7 @@ span.mobile-menu {
 	position: relative;
 	display: block;
 	z-index: 1;
-	right: -35px;
+	right: -21px;
 	opacity: 1;
 	transition: opacity .15s linear,transform .15s linear;
 }
@@ -193,6 +209,7 @@ input.search-field {
 	order: 1;
 	overflow: visible;
 	width: 230%;
+	line-height: 30px;
 }
 
 .project-line.hide {

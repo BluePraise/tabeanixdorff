@@ -83,3 +83,6 @@ those posts by category. `page-home` and `page-texture`.
 
 ### 2023-04-07 - V0.9.1
 - Fixed hover on menu items
+
+### 2023-04-08 - V0.9.2
+- Added active indicator for menu items
