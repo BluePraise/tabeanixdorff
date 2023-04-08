@@ -80,3 +80,6 @@ My aim is to make this the most streamlined - slimmed WP theme ever.
 ### 2023-04-07 - V0.9
 - On various pages the project is preceded by two or three fixed posts. Added functionality to assign
 those posts by category. `page-home` and `page-texture`.
+
+### 2023-04-07 - V0.9.1
+- Fixed hover on menu items
