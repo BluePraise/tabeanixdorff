@@ -86,3 +86,4 @@ those posts by category. `page-home` and `page-texture`.
 
 ### 2023-04-08 - V0.9.2
 - Added active indicator for menu items
+- Updated rhythm of project-line to reflect design
