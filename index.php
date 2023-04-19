@@ -4,7 +4,7 @@
 		// these are the two posts that belong to this page
 		//13 = page_home
 
-		$page_posts = get_posts( array('category_name' => 'page-home') );
+		$page_posts = get_posts( array('category_name' => 'page-home', 'order', 'ASC') );
 		$hover_text = get_field('hover_text', $post->ID);
 		foreach($page_posts as $post):
 			$block = parse_blocks( $post->post_content );
@@ -12,7 +12,11 @@
 		?>
 
 			<h2 class="project-line top-menu-line">
-				<a href="<?php the_permalink(); ?>"><?php echo $hover_text['project_hover_text']; ?></a>
+				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" alt="Project of Tabea Nixdorff: <?php the_title(); ?>"> <?php the_title(); ?>
+					<p class="project-detail-meta-info">
+    					<i><?php echo $hover_text['project_hover_text']; ?></i>
+					</p>
+				</a>
 			</h2>
 		<?php endforeach; ?>
 	<?php
@@ -22,7 +26,7 @@
 	?>
     	<h2 class="project-line">
 			<a href="<?php the_permalink(); ?>
-				"title="<?php the_title(); ?>"
+				title=<?php the_title(); ?>"
 				alt="Project of Tabea Nixdorff: <?php the_title(); ?>"
 				data-tag="<?php if ($posttags):
 					foreach($posttags as $tag): echo $tag->name . ' ';
@@ -34,7 +38,7 @@
 		</h2>
   	<?php endwhile;
 	else:
-		echo 'no projects right now'; ?>
+		echo '<p>no projects right now</p>'; ?>
 
 	<?php endif; ?>
 	<div class="leftover-projects"></div>
