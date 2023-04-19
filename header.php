@@ -12,7 +12,6 @@
 
     <link href="//www.google-analytics.com" rel="dns-prefetch" />
     <link href="<?php echo get_template_directory_uri(); ?>/img/favicon.ico" type="image/png" rel="icon" />
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="<?php bloginfo('description'); ?>" />
@@ -26,7 +25,12 @@
     <header>
 
 
-    <span class="dashicons dashicons-menu mobile-menu js-toggle-mobile-menu"></span>
+    <div class="mobile-menu js-toggle-mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
     <?php
         tn_nav();
