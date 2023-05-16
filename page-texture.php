@@ -2,7 +2,7 @@
 <div class="projects">
 	<?php
 		// these are the two posts that belong to this page
-		//13 = page_home
+		//13 = <<page_home></page_home></page_home>
 
 		$page_posts = get_posts( array('category_name' => 'page-texture') );
 		$hover_text = get_field('hover_text', $post->ID);

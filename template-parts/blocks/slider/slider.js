@@ -17,6 +17,7 @@ jQuery(document).ready(function($){
     autoplayHoverPause: true,
     navContainer: $(".custom-navigation"),
     navElement: 'a',
+    // autoHeight: true,
     navText: ['<', '>']
   });
 

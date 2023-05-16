@@ -105,6 +105,8 @@ window.addEventListener("scroll", function() {
         $('.js-toggle-mobile-menu').on('click', function(e) {
             e.preventDefault();
             $('.menu-main-menu-container').toggleClass('open');
+            $('.js-toggle-mobile-menu').toggleClass('open');
+
         })
     });
 

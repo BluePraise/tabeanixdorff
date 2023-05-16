@@ -42,7 +42,7 @@
 
 	<?php endif; ?>
 	<div class="leftover-projects"></div>
-</div>
+</div><!-- .end-of-projects -->
 
 
 <?php

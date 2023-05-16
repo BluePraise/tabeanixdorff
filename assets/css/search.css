@@ -1,0 +1,25 @@
+.main-container .form-control {
+	/* display: none; */
+}
+
+/* Search  */
+.search-container {
+	margin-top: 20px;
+	margin-left:  60px;
+	margin-right: 60px;
+}
+input.search-field {
+	outline:  none;
+	border: none;
+	width: 100%;
+    height: 50px;
+    font-size: 3rem;
+    font-family: 'Times New Roman';
+}
+.searchwp-live-search-results {
+	box-shadow:  none !important;
+}
+.searchwp-live-search-result p {
+	padding: 0 !important;
+	border-bottom: 1px transparent solid !important;
+}

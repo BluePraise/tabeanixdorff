@@ -39,7 +39,6 @@ if( have_rows('images') ): ?>
 
         ?>
 
-
         <div class="slide item">
             <a class="gallery" href="">
                 <?php if ( $checkbox_video ):
@@ -53,7 +52,7 @@ if( have_rows('images') ): ?>
                     endforeach;
                     else: ?>
                             <figure>
-                                <img src="<?php echo $image; ?>" >
+                                <img src="<?php echo $image; ?>">
                                 <figcaption class="d-none"><?php echo $image_caption; ?></figcaption>
                             </figure>
                 <?php endif; ?>

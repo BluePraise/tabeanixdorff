@@ -42,9 +42,3 @@
     </header>
 
     <main class="main-container">
-        <?php if(is_front_page()): ?>
-        <div class="form-control">
-            <input type="search" id="<?php echo esc_attr( $tabeanixdorff_unique_id ); ?>" class="search-field js-search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'tabeanixdorff' ); ?>" value="<?php //echo //get_search_query(); ?>" name="s" />
-        </div>
-        <div class="result-container"></div>
-        <?php endif; ?>
