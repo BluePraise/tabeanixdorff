@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<div class="result-container"></div>
 <div class="projects">
 	<?php
 		// these are the two posts that belong to this page

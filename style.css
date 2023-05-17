@@ -1,7 +1,7 @@
 /*
 Theme Name: Tabea Nixdorff 2022 - Portfolio
 Author: Magalie Chetrit
-Version: 0.9.3
+Version: 0.9.4
 */
 
 html {
@@ -22,6 +22,8 @@ body {
 	padding: 0;
 	overflow-x: hidden;
 	color:  black;
+
+	height: 100%;
 }
 
 h1.project-detail-title {
@@ -36,6 +38,10 @@ h1.project-detail-title {
 	z-index: 0;
 	overflow: hidden;
 	max-width: 75vw;
+	min-height: calc(100% - 168px);/* height of page minus the padding on the main container */
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	grid-template-columns: 100%;
 }
 
 a {
@@ -263,6 +269,7 @@ a.clear-active {
 	max-height: 200px;
     overflow: hidden;
     width: 94%;
+	padding: 10px 0;
 }
 .leftover-projects h2.project-line {
     height: 20px;

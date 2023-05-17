@@ -1,7 +1,3 @@
-.main-container .form-control {
-	/* display: none; */
-}
-
 /* Search  */
 .search-container {
 	margin-top: 20px;
@@ -13,7 +9,7 @@ input.search-field {
 	border: none;
 	width: 100%;
     height: 50px;
-    font-size: 3rem;
+    font-size: 24px;
     font-family: 'Times New Roman';
 }
 .searchwp-live-search-results {

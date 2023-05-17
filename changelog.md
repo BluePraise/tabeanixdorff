@@ -93,3 +93,10 @@ those posts by category. `page-home` and `page-texture`.
 
 ### 2023-04-08 - V0.9.3
 - Improved navigation on mobile devices
+
+### 2023-05-16 - V0.9.4
+- Search functionality has moved to the search page
+    - added a search css to support styling.
+
+### 2023-05-16 - V0.9.4
+- Improved positioning of unsearched projects.
