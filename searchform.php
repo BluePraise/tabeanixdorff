@@ -10,8 +10,9 @@ get_header();
 ?>
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/search.css" type="text/css" media="screen" />
 
-	<div class="form-control">
+	<div class="form-control cursor">
 		<input type="search" class="search-field js-search-field" placeholder="<?php echo esc_attr_x( '', 'placeholder', 'tabeanixdorff' ); ?>" value="<?php echo get_search_query(); ?>" name="s" autofocus />
+		<i></i>
 	</div>
 	<div class="projects">
 

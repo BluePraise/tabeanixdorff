@@ -11,6 +11,7 @@ input.search-field {
     height: 50px;
     font-size: 24px;
     font-family: 'Times New Roman';
+	padding: 0;
 }
 .searchwp-live-search-results {
 	box-shadow:  none !important;
@@ -18,4 +19,35 @@ input.search-field {
 .searchwp-live-search-result p {
 	padding: 0 !important;
 	border-bottom: 1px transparent solid !important;
+}
+
+.cursor {
+	position: relative;
+}
+
+.cursor i {
+	position: absolute;
+	width: 1px;
+	height: 80%;
+	background-color: gray;
+	left: 5px;
+	top: 10%;
+	animation-name: blink;
+	animation-duration: 800ms;
+	animation-iteration-count: infinite;
+	opacity: 1;
+}
+
+.cursor input:focus+i {
+	display: none;
+}
+
+@keyframes blink {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+	}
 }
