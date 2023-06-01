@@ -3,11 +3,11 @@
 <div class="projects">
 	<?php
 		// these are the two posts that belong to this page
-		//13 = page_home
+		// 16 = top-posts
 
-		$page_posts = get_posts( array('category_name' => 'page-home', 'order', 'ASC') );
-		$hover_text = get_field('hover_text', $post->ID);
-		foreach($page_posts as $post):
+		$top_posts = get_posts( array('category_name' => 'top-posts', 'order', 'ASC') );
+		// $hover_text = get_field('hover_text', $post->ID);
+		foreach($top_posts as $post):
 			$block = parse_blocks( $post->post_content );
 			$hover_text = $block[0]['attrs']['data'];
 		?>
@@ -26,8 +26,8 @@
 		$posttags = get_the_tags();
 	?>
     	<h2 class="project-line">
-			<a href="<?php the_permalink(); ?>
-				title=<?php the_title(); ?>"
+			<a href="<?php the_permalink(); ?>"
+				title="<?php the_title(); ?>"
 				alt="Project of Tabea Nixdorff: <?php the_title(); ?>"
 				data-tag="<?php if ($posttags):
 					foreach($posttags as $tag): echo $tag->name . ' ';

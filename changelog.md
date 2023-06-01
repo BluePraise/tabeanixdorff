@@ -3,6 +3,7 @@
 ### 2023-05-16 - V0.9.5
 - Changed search functionality: first retrieve posts, hide them with CSS and then apply JS to filter through it
 - Changelog date ascending. Newest on top.
+- Cat name `top-posts` changed to `top-post`
 
 ### 2023-05-16 - V0.9.4
 - Improved positioning of unsearched projects.

@@ -17,32 +17,46 @@ get_header();
 	<div class="projects">
 
 		<?php
-			// get all posts with category project
-			$allProjectPosts = get_posts( array('numberposts' => -1,
-												'order', 'ASC') );
-			// $allProjectPosts = get_posts();
+			// if the post has a category "top-posts" show those first
+			$top_posts = get_posts( array('category_name' => 'top-post', 'order', 'ASC') );
+			var_dump($top_posts);
 			// if there's more than one result
-			if (count($allProjectPosts) > 1):
-			// loop through all the project posts
-			foreach($allProjectPosts as $post):
-			$postTags = get_the_tags();
+			if (count($top_posts) > 1):
+				// loop through all the project posts
+				foreach($top_posts as $post):
+				if (has_category('top-post', $post->ID)):
+					$block = parse_blocks( $post->post_content );
+					$hover_text = $block[0]['attrs']['data'];
 		?>
-			<h2 class="project-line">
-				<a href="<?php the_permalink(); ?>"
-					title="<?php the_title(); ?>"
-					alt="Project of Tabea Nixdorff: <?php the_title(); ?>"
-					data-tag="<?php
-					if ($postTags):
-						foreach($postTags as $tag):
-							echo $tag->name . ' ';
-						endforeach;
-					endif;?>"
-				>
-				<?php the_title(); ?>
-				<?php parse_ACF_block( 'acf/project' ); ?>
+
+			<h2 class="project-line top-menu-line">
+				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" alt="Project of Tabea Nixdorff: <?php the_title(); ?>"> <?php the_title(); ?>
+					<p class="project-detail-meta-info">
+						<i><?php echo $hover_text['project_hover_text']; ?></i>
+					</p>
 				</a>
 			</h2>
-		<?php endforeach; endif; ?>
+
+		<?php endif; endforeach; endif; ?>
+
+		<?php
+				// this is filtered by pre-get-posts
+				if (have_posts()): while (have_posts()) : the_post();
+			?>
+				<h2 class="project-line">
+					<a href="<?php the_permalink(); ?>"
+						title="<?php the_title(); ?>"
+						alt="Project of Tabea Nixdorff: <?php the_title(); ?>"
+					>
+					<?php the_title(); ?>
+					<?php parse_ACF_block( 'acf/project' ); ?>
+					</a>
+				</h2>
+			<?php endwhile;
+			else:
+				echo '<p>no projects right now</p>'; ?>
+
+			<?php endif; ?>
 
 	</div><!-- .end-of-projects -->
 
