@@ -11,14 +11,15 @@ get_header();
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/search.css" type="text/css" media="screen" />
 
 	<div class="form-control cursor">
-		<input type="search" class="search-field js-search-field" placeholder="<?php echo esc_attr_x( '', 'placeholder', 'tabeanixdorff' ); ?>" value="<?php echo get_search_query(); ?>" name="s" autofocus />
+		<input type="search" id="search-posts" class="search-field js-search-field" placeholder="<?php echo esc_attr_x( '', 'placeholder', 'tabeanixdorff' ); ?>" value="<?php echo get_search_query(); ?>" name="s" autofocus />
 		<i></i>
 	</div>
 	<div class="projects">
 
 		<?php
 			// get all posts with category project
-			$allProjectPosts = get_posts( array('category_name' => 'project', 'order', 'ASC') );
+			$allProjectPosts = get_posts( array('numberposts' => -1,
+												'order', 'ASC') );
 			// $allProjectPosts = get_posts();
 			// if there's more than one result
 			if (count($allProjectPosts) > 1):
@@ -43,7 +44,6 @@ get_header();
 			</h2>
 		<?php endforeach; endif; ?>
 
-		<div class="leftover-projects"></div>
 	</div><!-- .end-of-projects -->
 
 

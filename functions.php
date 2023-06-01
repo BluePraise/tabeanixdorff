@@ -250,20 +250,6 @@ remove_action( 'wp_head', 'wp_generator' ); // Display the XHTML generator that 
 remove_action( 'wp_head', 'rel_canonical' );
 remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
 
-add_action('wp_ajax_search-posts', 'search_posts' );
-add_action('wp_ajax_nopriv_search-posts', 'search_posts' );
-
-function search_posts() {
-    global $wpdb;
-
-    $search_string = sanitize_text_field(filter_input(INPUT_POST, 'search'));
-
-    $posts = $wpdb->get_results( $wpdb->prepare("SELECT post_title, id FROM $wpdb->posts WHERE post_type = 'post' AND post_title LIKE '%s'", '%'. $wpdb->esc_like( $search_string ) .'%') );
-    foreach ($posts as $post) {
-        $post->url = get_permalink($post->id);
-    }
-    wp_send_json_success(json_encode($posts));
-}
 
 
 // inspired by: https://www.billerickson.net/access-gutenberg-block-data/
