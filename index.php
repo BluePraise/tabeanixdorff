@@ -2,46 +2,11 @@
 <div class="result-container"></div>
 <div class="projects">
 	<?php
-		// these are the two posts that belong to this page
-		// 16 = top-posts
-
-		$top_posts = get_posts( array('category_name' => 'top-posts', 'order', 'ASC') );
-		// $hover_text = get_field('hover_text', $post->ID);
-		foreach($top_posts as $post):
-			$block = parse_blocks( $post->post_content );
-			$hover_text = $block[0]['attrs']['data'];
+		// get template part passing an argument to the template part
+		get_template_part( 'template-parts/loops/top-posts', null,  array('page-name' => 'page-home') );
+		// get template part projects
+		get_template_part( 'template-parts/loops/projects' );
 		?>
-
-			<h2 class="project-line top-menu-line">
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" alt="Project of Tabea Nixdorff: <?php the_title(); ?>"> <?php the_title(); ?>
-					<p class="project-detail-meta-info">
-    					<i><?php echo $hover_text['project_hover_text']; ?></i>
-					</p>
-				</a>
-			</h2>
-		<?php endforeach; ?>
-	<?php
-		// this is filtered by pre-get-posts
-		if (have_posts()): while (have_posts()) : the_post();
-		$posttags = get_the_tags();
-	?>
-    	<h2 class="project-line">
-			<a href="<?php the_permalink(); ?>"
-				title="<?php the_title(); ?>"
-				alt="Project of Tabea Nixdorff: <?php the_title(); ?>"
-				data-tag="<?php if ($posttags):
-					foreach($posttags as $tag): echo $tag->name . ' ';
-					endforeach; endif;?>"
-			>
-			<?php the_title(); ?>
-			<?php parse_ACF_block( 'acf/project' ); ?>
-			</a>
-		</h2>
-  	<?php endwhile;
-	else:
-		echo '<p>no projects right now</p>'; ?>
-
-	<?php endif; ?>
 	<div class="leftover-projects"></div>
 </div><!-- .end-of-projects -->
 

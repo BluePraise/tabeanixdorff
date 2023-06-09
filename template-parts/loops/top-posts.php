@@ -1,0 +1,22 @@
+<?php
+/**
+* Template part for displaying top posts
+* This template part can only be used by passing a variable. It is not meant to be used on its own.
+*
+**/
+		$top_posts = get_posts( array('category_name' => $args['page-name'], 'order', 'ASC') );
+		// if there's more than one result
+        if (count($top_posts) > 1):
+            foreach($top_posts as $post):
+                $block = parse_blocks( $post->post_content );
+                $hover_text = $block[0]['attrs']['data'];
+            ?>
+
+                <h2 class="project-line top-menu-line">
+                    <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" alt="Project of Tabea Nixdorff: <?php the_title(); ?>"> <?php the_title(); ?>
+                        <p class="project-detail-meta-info">
+                            <i><?php echo $hover_text['project_hover_text']; ?></i>
+                        </p>
+                    </a>
+                </h2>
+		<?php endforeach; endif;  ?>

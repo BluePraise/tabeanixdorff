@@ -1,10 +1,14 @@
 # Changelog
 
-### 2023-05-16 - V0.9.6
+### 2023-06-09 - V0.9.6
 - Responsive font in search input
 - Removed x in search input for webkit browsers
+- Cat name `top-posts` changed to `page-`{variable}
+- Adapted search functionality to new cat names
+- Adapted texture template to new cat names
+- Updated template part to allow passing of variables
 
-### 2023-05-16 - V0.9.5
+### 2023-06-01 - V0.9.5
 - Changed search functionality: first retrieve posts, hide them with CSS and then apply JS to filter through it
 - Changelog date ascending. Newest on top.
 - Cat name `top-posts` changed to `top-post`
