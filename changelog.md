@@ -7,6 +7,8 @@
 - Adapted search functionality to new cat names
 - Adapted texture template to new cat names
 - Updated template part to allow passing of variables
+- Accurate query filtering. Removes posts that don't have the category 'hidden'
+
 
 ### 2023-06-01 - V0.9.5
 - Changed search functionality: first retrieve posts, hide them with CSS and then apply JS to filter through it
