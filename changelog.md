@@ -1,5 +1,9 @@
 # Changelog
 
+### 2023-05-16 - V0.9.6
+- Responsive font in search input
+- Removed x in search input for webkit browsers
+
 ### 2023-05-16 - V0.9.5
 - Changed search functionality: first retrieve posts, hide them with CSS and then apply JS to filter through it
 - Changelog date ascending. Newest on top.
