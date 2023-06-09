@@ -3,8 +3,11 @@
  * Template Name: Search Page
  */
 /*
- * Generate a unique ID for each form and a string containing an aria-label
- * if one was passed to get_search_form() in the args array.
+ * The template for displaying search results pages.
+ * gets all the posts and projects and displays them in a list
+ * Displays all posts with category 'hidden' on top of the list
+ *
+ * @package tabeanixdorff
  */
 get_header();
 ?>
@@ -15,6 +18,9 @@ get_header();
 		<i></i>
 	</div>
 	<div class="projects">
+		<?php get_template_part( 'template-parts/loops/top-projects', NULL, array(
+			'page-name' => 'hidden'
+		) ); ?>
 		<?php get_template_part( 'template-parts/loops/projects', NULL, array(
 			'set-data-tag' => false
 		) ); ?>
