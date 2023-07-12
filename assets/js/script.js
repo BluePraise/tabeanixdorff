@@ -9,13 +9,20 @@ const mobile_menu_trigger = document.querySelector('.mobile-menu');
 const main_menu = document.querySelector(".menu-header-menu-container");
 const sortKeywords = [];
 
+/* when clicking on js-sorting-threads-toggle toggle a class show/hide */
+const sortingThreadsToggle = document.querySelector('.js-sorting-threads-toggle')
+sortingThreadsToggle.addEventListener('click', e => {
+    e.preventDefault()
+    e.target.nextSibling.classList.toggle('show')
+})
+
+
 document.querySelectorAll('.filter__link').forEach(link => {
     link.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector('.search-field.js-search-field').value = "";
+        e.preventDefault()
 
-        const filter = e.currentTarget;
-        filter.classList.toggle('active');
+        const filter = e.currentTarget
+        filter.classList.toggle('active')
 
         const filterText = filter.textContent.toLowerCase();
         if(sortKeywords.includes(filterText)) {
@@ -30,7 +37,8 @@ document.querySelectorAll('.filter__link').forEach(link => {
             left_over.appendChild(project);
 
             sortKeywords.forEach(sort => {
-                if(a.getAttribute('data-tag').trim().split(/\s+/).includes(sort)) {
+                // if (a.getAttribute('data-tag') == null) return;
+                if (a.getAttribute('data-tag').trim().split(/\s+/).includes(sort) ) {
                     all_projects.appendChild(project);
                 }
             });
@@ -95,34 +103,35 @@ window.addEventListener("scroll", function() {
     // function searchPosts(e) {
 
     // };
-
-    document.querySelector('#search-posts').addEventListener("input", (e) => {
-        e.preventDefault()
-        if (e.which == 13) {
-            return
-        }
-        let countChar = e.target.value.length
-        if (countChar > 2) {
-            // get the search string and make sure it is lowercase and has no spaces
-            let searchString = e.currentTarget.value.trim().toLowerCase()
-            // loop over the projects and see if the search string is in the title content
-            document.querySelectorAll('.projects .project-line').forEach( project => {
-                let title = project.textContent.toLowerCase()
-                if (!title.includes(searchString) ) {
-                    project.classList.add('d-none')
-                } else {
+    const searchPosts = document.querySelector('#search-posts');
+    if (searchPosts) {
+        document.querySelector('#search-posts').addEventListener("input", (e) => {
+            e.preventDefault()
+            if (e.which == 13) {
+                return
+            }
+            let countChar = e.target.value.length
+            if (countChar > 2) {
+                // get the search string and make sure it is lowercase and has no spaces
+                let searchString = e.currentTarget.value.trim().toLowerCase()
+                // loop over the projects and see if the search string is in the title content
+                document.querySelectorAll('.projects .project-line').forEach( project => {
+                    let title = project.textContent.toLowerCase()
+                    if (!title.includes(searchString) ) {
+                        project.classList.add('d-none')
+                    } else {
+                        project.classList.remove('d-none')
+                    }
+                })
+            }
+            // else if the search string is less than 3 characters, show all projects
+            else {
+                document.querySelectorAll('.projects .project-line').forEach( project => {
                     project.classList.remove('d-none')
-                }
-            })
-        }
-        // else if the search string is less than 3 characters, show all projects
-        else {
-            document.querySelectorAll('.projects .project-line').forEach( project => {
-                project.classList.remove('d-none')
-            })
-        }
-    });
-
+                })
+            }
+        });
+    }
 
 })(jQuery);
 

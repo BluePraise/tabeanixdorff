@@ -17,9 +17,12 @@
 				)
 			);
 		endif;
-		$posttags = get_the_tags();
+
+
 		if (count($project_posts) > 1):
-			foreach($project_posts as $post):
+		foreach($project_posts as $post):
+		$posttags = get_the_tags();
+
 	?>
     	<h2 class="project-line">
 			<a href="<?php the_permalink(); ?>"

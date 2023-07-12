@@ -1,4 +1,9 @@
 # Changelog
+### 2023-07-10 - V0.9.8
+- Fixed filter (sorting threads) functionality
+
+### 2023-07-10 - V0.9.7
+- Added click event on Sorting Threads
 
 ### 2023-06-09 - V0.9.6
 - Responsive font in search input

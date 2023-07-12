@@ -112,12 +112,12 @@ header ul li a:hover {
 	z-index: 1;
   	background-color: white;
 	opacity: 0;
-	right: 9999rem;
+	/* right: 9999rem; */
 	top: calc(100% - 12px);
 	transition: opacity .15s linear, transform .15s linear;
 	transform: translateY(calc(var(--base-rhythm-value) - 14px ));
 }
-.sub-menu:before {
+/* .sub-menu:before {
 	content: "";
 	display: block;
 	position: absolute;
@@ -131,7 +131,7 @@ header ul li a:hover {
 	display: block;
 	position: absolute;
 	bottom: 100%;
-}
+} */
 
 .sub-menu li {
 	display: block;
@@ -157,10 +157,9 @@ span.mobile-menu {
 }
 
 .main-menu__item:hover .sub-menu {
-	position: relative;
+	position: absolute;
 	display: block;
 	z-index: 1;
-	right: -21px;
 	opacity: 1;
 	transition: opacity .15s linear,transform .15s linear;
 }
@@ -245,17 +244,26 @@ p.project-detail-meta-info {
 }
 
 /* Filter Styling*/
+.js-filters.sub-menu.show {
+	display: block;
+	opacity: 1;
+}
+a.filter__link {
+	display: block;
+}
+a.filter__link:before {
+	display: inline-block;
+	content: " ";
+	width: 22px;
+	line-height: calc(var(--base-rhythm-value) + 8px);
+	top: -3px;
+	position: relative;
+}
 
 a.filter__link.active:before {
-	display: inline-block;
 	content: "×";
     font-style: normal;
     font-size: 75%;
-    margin-right: 10px;
-	padding-bottom: 2px;
-	/* TODO: fix this - maybe put before on li */
-	position: relative;
-	top: -3px;
 }
 
 a.clear-active {
