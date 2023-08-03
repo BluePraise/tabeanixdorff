@@ -1,4 +1,8 @@
 # Changelog
+
+### 2023-07-10 - V0.9.9
+- Fixed issues with navigation alignment of submenu.
+
 ### 2023-07-10 - V0.9.8
 - Fixed filter (sorting threads) functionality
 

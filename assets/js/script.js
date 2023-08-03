@@ -37,7 +37,6 @@ document.querySelectorAll('.filter__link').forEach(link => {
             left_over.appendChild(project);
 
             sortKeywords.forEach(sort => {
-                // if (a.getAttribute('data-tag') == null) return;
                 if (a.getAttribute('data-tag').trim().split(/\s+/).includes(sort) ) {
                     all_projects.appendChild(project);
                 }
