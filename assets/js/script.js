@@ -13,7 +13,7 @@ const sortKeywords = [];
 const sortingThreadsToggle = document.querySelector('.js-sorting-threads-toggle')
 sortingThreadsToggle.addEventListener('click', e => {
     e.preventDefault()
-    e.target.nextSibling.classList.toggle('show')
+    // e.target.nextSibling.classList.toggle('show')
 })
 
 
@@ -25,29 +25,35 @@ document.querySelectorAll('.filter__link').forEach(link => {
         filter.classList.toggle('active')
 
         const filterText = filter.textContent.toLowerCase();
+        // if the filterText is in the sortKeywords array, remove it
         if(sortKeywords.includes(filterText)) {
             sortKeywords.splice(sortKeywords.indexOf(filterText), 1);
         }
+        // else add it to the array
         else {
             sortKeywords.push(filterText);
         }
+
 
         document.querySelectorAll('.projects .project-line a').forEach(a => {
             const project = a.closest('.project-line');
             left_over.appendChild(project);
 
+            // loop over the sortKeywords array and see if the project has any of the keywords
             sortKeywords.forEach(sort => {
-                if (a.getAttribute('data-tag').trim().split(/\s+/).includes(sort) ) {
-                    all_projects.appendChild(project);
-                }
-            });
+                if (a.dataset.tag === undefined) return
 
-        });
+                if (a.dataset.tag.trim().split(/\s+/).includes(sort) ) {
+                    all_projects.appendChild(project)
+                }
+            })
+
+        })
        if(filterList.getElementsByClassName('active').length > 0) {
-        document.querySelector('.clear-active').classList.remove("hide-this");
+            document.querySelector('.clear-active').classList.remove("hide-this");
        }
        else {
-        document.querySelector('.clear-active').classList.add("hide-this");
+            document.querySelector('.clear-active').classList.add("hide-this");
        }
         if(!sortKeywords.length) document.querySelectorAll(`.projects .project-line`).forEach(project => {
             all_projects.appendChild(project);
@@ -62,11 +68,11 @@ function clear_all() {
         link.classList.remove('active');
     });
 
-    document.querySelectorAll(`.projects .project-line`).forEach(project => {
+    document.querySelectorAll('.projects .project-line').forEach(project => {
         all_projects.appendChild(project);
     });
 
-    document.querySelector(".js-filters .clear-active").classList.add("hide-this");
+    document.querySelector('.js-filters .clear-active').classList.add('hide-this');
 }
 
 

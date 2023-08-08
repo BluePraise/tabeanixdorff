@@ -22,7 +22,7 @@ get_header();
 			'page-name' => 'hidden'
 		) ); ?>
 		<?php get_template_part( 'template-parts/loops/projects', NULL, array(
-			'set-data-tag' => false
+			'set-data-tag' => true
 		) ); ?>
 	</div><!-- end of .projects -->
 

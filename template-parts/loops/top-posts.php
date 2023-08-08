@@ -10,10 +10,21 @@
             foreach($top_posts as $post):
                 $block = parse_blocks( $post->post_content );
                 $hover_text = $block[0]['attrs']['data'];
+
+		        $posttags = get_the_tags();
             ?>
 
                 <h2 class="project-line top-menu-line">
-                    <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" alt="Project of Tabea Nixdorff: <?php the_title(); ?>"> <?php the_title(); ?>
+                    <a href="<?php the_permalink(); ?>"
+                       title="<?php the_title(); ?>"
+                       alt="Project of Tabea Nixdorff: <?php the_title(); ?>"
+                        <?php if (isset($args['set-data-tag']) && $args['set-data-tag'] == true): ?>
+                        data-tag="<?php if ($posttags):
+                            foreach($posttags as $tag): echo $tag->name . ' ';
+                            endforeach; endif;?>"
+                        <?php endif; ?>
+                    >
+                    <?php the_title(); ?>
                         <p class="project-detail-meta-info">
                             <i><?php echo $hover_text['project_hover_text']; ?></i>
                         </p>
