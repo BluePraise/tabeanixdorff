@@ -136,7 +136,10 @@ header ul li a:hover {
  	font-style: normal;
 }
 /* Filter Styling*/
-
+li.clear-button {
+	left: 0px;
+	position: relative;
+}
 
 a.filter__link {
 	display: block;

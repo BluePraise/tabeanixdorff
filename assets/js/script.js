@@ -10,7 +10,7 @@ const main_menu = document.querySelector(".menu-header-menu-container");
 const sortKeywords = [];
 
 /* when clicking on js-sorting-threads-toggle toggle a class show/hide */
-const sortingThreadsToggle = document.querySelector('.js-sorting-threads-toggle')
+const sortingThreadsToggle = document.querySelector('.js-sorting-threads-toggle a')
 sortingThreadsToggle.addEventListener('click', e => {
     e.preventDefault()
     e.target.nextSibling.classList.toggle('pinned')
