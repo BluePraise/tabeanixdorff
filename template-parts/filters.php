@@ -1,6 +1,6 @@
 
 <ul class="js-filters sub-menu">
-	<li><a class=" hide-this clear-active" href="javascript:clear_all()" title="clear all filters"><?php echo esc_html( "clear all filters" ); ?></a></li>
+	<li class="clear-button"><a class="hide-this clear-active" href="javascript:clear_all()" title="clear all filters"><?php echo esc_html( "clear all filters" ); ?></a></li>
 	    <?php
 	    $tags = get_tags();
 	    if ( $tags ) :

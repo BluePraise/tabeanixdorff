@@ -124,7 +124,6 @@ header ul li a:hover {
 
 .sub-menu li a {
 	font-size: var(--base-rhythm-value);
-	line-height: calc(var(--base-rhythm-value) + 8px);
 	display: block;
 	text-decoration: none;
 }
@@ -137,28 +136,19 @@ header ul li a:hover {
  	font-style: normal;
 }
 /* Filter Styling*/
-.js-filters.sub-menu {
-	transform: translateY(0);
-}
 
-.js-filters.sub-menu.show {
-	display: block;
-	opacity: 1;
-}
 
 a.filter__link {
 	display: block;
 }
 
 a.filter__link:before {
-	display: inline-block;
+	position: absolute;
 	content: " ";
 	font-size: 75%;
 	width: 23px;
-	height: 100%;
-	line-height: 32px;
-	top: 0px;
-	position: relative;
+	left: -20px;
+
 }
 
 a.filter__link.active:before {
@@ -173,8 +163,8 @@ a.clear-active {
 span.mobile-menu {
 	display: none;
 }
-
-.main-menu__item:hover .sub-menu {
+/* .js-filters.sub-menu.show, */
+.main-menu__item:not(.js-sorting-threads-toggle):hover .sub-menu {
 	position: relative;
 	right: 0px;
 	margin-left: 21px;
@@ -182,6 +172,12 @@ span.mobile-menu {
 	z-index: 1;
 	opacity: 1;
 	transition: opacity .15s linear, transform .15s linear;
+}
+
+.js-sorting-threads-toggle .js-filters.sub-menu.pinned {
+	opacity: 1;
+	right: 83px;
+	transform: translateY(0);
 }
 
 main {

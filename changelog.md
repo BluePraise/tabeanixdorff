@@ -1,5 +1,10 @@
 # Changelog
 
+### 2023-08-08 - V0.9.10
+- Fixed issue with submenu of sorting threads jumping when clicking on it.
+- Sorting threads is pinned when clicked.
+- Removed hover styling for sorting thread.
+
 ### 2023-07-10 - V0.9.9
 - Fixed issues with navigation alignment of submenu.
 

@@ -13,7 +13,7 @@ const sortKeywords = [];
 const sortingThreadsToggle = document.querySelector('.js-sorting-threads-toggle')
 sortingThreadsToggle.addEventListener('click', e => {
     e.preventDefault()
-    // e.target.nextSibling.classList.toggle('show')
+    e.target.nextSibling.classList.toggle('pinned')
 })
 
 
@@ -55,7 +55,7 @@ document.querySelectorAll('.filter__link').forEach(link => {
        else {
             document.querySelector('.clear-active').classList.add("hide-this");
        }
-        if(!sortKeywords.length) document.querySelectorAll(`.projects .project-line`).forEach(project => {
+        if(!sortKeywords.length) document.querySelectorAll('.projects .project-line').forEach(project => {
             all_projects.appendChild(project);
         });
 
