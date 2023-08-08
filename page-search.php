@@ -19,11 +19,13 @@ get_header();
 	</div>
 	<div class="projects">
 		<?php get_template_part( 'template-parts/loops/top-projects', NULL, array(
-			'page-name' => 'hidden'
+			'page-name' => 'hidden',
+			'set-data-tag' => true
 		) ); ?>
 		<?php get_template_part( 'template-parts/loops/projects', NULL, array(
 			'set-data-tag' => true
 		) ); ?>
+		<div class="leftover-projects"></div>
 	</div><!-- end of .projects -->
 
 
