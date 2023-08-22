@@ -21,6 +21,7 @@ body {
 	margin: 0;
 	padding: 0;
 	overflow-x: hidden;
+	overflow-y: scroll;
 	color:  black;
 
 	height: 100%;
@@ -115,7 +116,7 @@ header ul li a:hover {
 	right: 9999rem;
 	top: calc(100% - 12px);
 	transition: opacity .15s linear, transform .15s linear;
-	transform: translateY(var(--base-rhythm-value));
+	transform: translateY(8px);
 }
 
 .sub-menu li {
@@ -184,7 +185,7 @@ span.mobile-menu {
 .js-sorting-threads-toggle .js-filters.sub-menu.pinned {
 	opacity: 1;
 	right: 83px;
-	transform: translateY(40px);
+	transform: translateY(20px);
 }
 
 main {

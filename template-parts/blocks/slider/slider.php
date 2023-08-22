@@ -29,8 +29,10 @@ if( !empty($block['align']) ) {
 // Check rows exists.
 
 if( have_rows('images') ): ?>
-<div class="slides-container">
-    <div class="owl-carousel slides">
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/slider-vendor.css" type="text/css" media="screen" />
+<div class="slider-container">
+    <div class="swiper">
+        <div class="swiper-wrapper">
         <?php // Loop through rows.
         while( have_rows('images') ) : the_row();
             $image          = get_sub_field('slider_media');
@@ -39,7 +41,7 @@ if( have_rows('images') ): ?>
 
         ?>
 
-        <div class="slide item">
+        <div class="swiper-slide item">
             <a class="gallery" href="">
                 <?php if ( $checkbox_video ):
                     foreach($checkbox_video as $checkbox):
@@ -57,10 +59,12 @@ if( have_rows('images') ): ?>
                             </figure>
                 <?php endif; ?>
             </a>
-        </div>
+        </div> <!-- !swiper-slide -->
         <?php endwhile; ?>
 
-    </div> <!-- !ul.slides -->
+        </div> <!-- !swiper-wrapper -->
+    </div> <!-- !swiper -->
+</div> <!-- !slider-container -->
     <div class="custom-navigation"></div>
 </div>
 

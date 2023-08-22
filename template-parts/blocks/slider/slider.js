@@ -7,50 +7,50 @@ jQuery(document).ready(function($){
   * - On each change event in the slider the caption is copied to the custom navigation
   */
 
-  let $owl = $(".slides").owlCarousel({
-    items: 1,
-    loop: true,
-    dots: false,
-    nav: true,
-    autoplay: true,
-    video:true,
-    autoplayHoverPause: true,
-    navContainer: $(".custom-navigation"),
-    navElement: 'a',
-    // autoHeight: true,
-    navText: ['<', '>']
-  });
+  // let $owl = $(".slides").owlCarousel({
+  //   items: 1,
+  //   loop: true,
+  //   dots: false,
+  //   nav: true,
+  //   autoplay: false,
+  //   video:true,
+  //   autoplayHoverPause: true,
+  //   navContainer: $(".custom-navigation"),
+  //   navElement: 'a',
+  //   autoHeight: true,
+  //   navText: ['<', '>']
+  // });
 
 
-  $('.custom-navigation').append('<div class="magnify">☐</div>');
-  /**
-  * When .magnify exists, an event is dispatched to expand the entire slider.
-  * - The slider is refreshed on each click event.active
-  * - The content of the magnify icon is changed to a close icon.active
-  * - On each change event in the slider the caption is copied to the custom navigation
-  */
+  // $('.custom-navigation').append('<div class="magnify">☐</div>');
+  // /**
+  // * When .magnify exists, an event is dispatched to expand the entire slider.
+  // * - The slider is refreshed on each click event.active
+  // * - The content of the magnify icon is changed to a close icon.active
+  // * - On each change event in the slider the caption is copied to the custom navigation
+  // */
 
-  const $magnify = $('.magnify');
-  if ($magnify.length > 0) {
-    $magnify.on('click', function (e) {
-        e.preventDefault();
-        const $parentContainer = $(this).parent();
-        const $slides = $parentContainer.prev('.slides');
-        const $slideContainer = $slides.parent('.slides-container');
+  // const $magnify = $('.magnify');
+  // if ($magnify.length > 0) {
+  //   $magnify.on('click', function (e) {
+  //       e.preventDefault();
+  //       const $parentContainer = $(this).parent();
+  //       const $slides = $parentContainer.prev('.slides');
+  //       const $slideContainer = $slides.parent('.slides-container');
 
-        $slideContainer.toggleClass('grow');
-        //https://stackoverflow.com/questions/32347919/refreshing-owl-carousel-2
-        $owl.trigger('refresh.owl.carousel');
+  //       $slideContainer.toggleClass('grow');
+  //       //https://stackoverflow.com/questions/32347919/refreshing-owl-carousel-2
+  //       $owl.trigger('refresh.owl.carousel');
 
-        if( $slideContainer.hasClass('grow') ) {
-          $(this).text('✕');
-        }
-        else {
-          $(this).text('☐');
-        }
+  //       if( $slideContainer.hasClass('grow') ) {
+  //         $(this).text('✕');
+  //       }
+  //       else {
+  //         $(this).text('☐');
+  //       }
 
-    });
-  }
+  //   });
+  // }
   // $owl.on('change.owl.carousel', function (e) {
   // });
   // $owl.on('changed.owl.carousel', function (e) {
@@ -66,4 +66,15 @@ jQuery(document).ready(function($){
   //   }
   // });
 
+});
+
+
+const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  slidesPerView: 1,
+  centeredSlides: true,
+  autoplay: false,
+  setWrapperSize: true,
 });
