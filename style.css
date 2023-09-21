@@ -1,7 +1,7 @@
 /*
 Theme Name: Tabea Nixdorff 2022 - Portfolio
 Author: Magalie Chetrit
-Version: 0.9.5
+Version: 0.10
 */
 
 html {
@@ -192,7 +192,7 @@ span.mobile-menu {
 
 .js-sorting-threads-toggle .js-filters.sub-menu.pinned {
 	opacity: 1;
-	right: 83px;
+	right: 128px;
 	transform: translateY(40px);
 }
 
@@ -264,7 +264,7 @@ p.project-detail-meta-info {
   display:  flex;
 }
 .d-none {
-	display: none
+	display: none !important;
 }
 .v-hidden {
 	visibility: hidden;

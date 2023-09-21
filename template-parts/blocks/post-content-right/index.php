@@ -7,6 +7,6 @@ if (have_rows('post_blocks_right')) :
             <div class="content"><?php echo $content_editor; ?></div>
         <?php endif; ?>
 
-        <?php get_template_part('slider');
+        <?php get_template_part('template-parts/blocks/post-content-right/slider');
     endwhile;
 endif;

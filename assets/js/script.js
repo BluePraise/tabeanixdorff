@@ -150,8 +150,8 @@ window.addEventListener("scroll", function() {
             pauseAutoPlayOnHover: true,
             cellSelector: '.slide',
             pageDots: false,
-            fade: true
-            // adaptiveHeight: true
+            fade: true,
+            adaptiveHeight: true,
         });
 
         /**
@@ -168,6 +168,19 @@ window.addEventListener("scroll", function() {
             let $caption = flkty.selectedElement.dataset.caption;
             $('.js-caption').text($caption);
         });
+
+        $slider.on('ready.flickity', function () {
+            $sliderNav.addClass('show');
+        });
+
+        /**
+        * Fix for positioning of sliderNav above slider
+        * This has to do with the load order of the DOM.
+        */
+        if ($sliderNav.length) {
+            $sliderNav.detach();
+            $slider.append($sliderNav);
+        }
 
         /**
         * On click of the custom slider navigation

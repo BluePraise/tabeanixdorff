@@ -10,7 +10,6 @@
                 $checkbox_video = get_sub_field('checkbox_video');
             ?>
 
-
                 <a class="slide item gallery" href="#" data-caption="<?php echo $image_caption; ?>">
                     <?php if ( $checkbox_video ):
                         foreach($checkbox_video as $checkbox):
