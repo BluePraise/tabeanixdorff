@@ -6,6 +6,7 @@
 - Moved all slider and content to ACF
 - Removed Gutenberg functionality for slider
 - Removed redundant files
+- Added ACF JSON
 
 ### 2023-08-08 - V0.9.10
 - Fixed issue with submenu of sorting threads jumping when clicking on it.

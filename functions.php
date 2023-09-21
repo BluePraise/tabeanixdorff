@@ -229,6 +229,24 @@ function my_myme_types($mime_types){
 }
 add_filter('upload_mimes', 'my_myme_types');
 
+
+
+
+function tn_acf_json_load_point( $paths ) {
+    // remove original path (optional)
+    unset($paths[0]);
+
+    // append path
+    $paths[] = get_stylesheet_directory() . '/acf-json';
+
+    // return
+    return $paths;
+}
+// ACF JSON https://www.advancedcustomfields.com/resources/local-json/
+add_filter('acf/settings/load_json', 'tn_acf_json_load_point');
+
+
+
 // Remove Actions
 remove_action( 'wp_head', 'feed_links_extra', 3 ); // Display the links to the extra feeds such as category feeds
 remove_action( 'wp_head', 'feed_links', 2 ); // Display the links to the general feeds: Post and Comment Feed
