@@ -1,38 +1,11 @@
-<?php
+<h1>Slider right</h1>
 
-/**
- * Slider Block Template.
- *
- * @param   array $block The block settings and attributes.
- * @param   string $content The block inner HTML (empty).
- * @param   bool $is_preview True during AJAX preview.
- * @param   (int|string) $post_id The post ID this block is saved to.
- */
-global $post;
-
-// Create id attribute allowing for custom "anchor" value.
-$id = 'slider-' . $block['id'];
-if( !empty($block['anchor']) ) {
-    $id = $block['anchor'];
-}
-
-// Create class attribute allowing for custom "className" and "align" values.
-$className = 'slider';
-if( !empty($block['className']) ) {
-    $className .= ' ' . $block['className'];
-}
-if( !empty($block['align']) ) {
-    $className .= ' align' . $block['align'];
-}
-
-
-// Check rows exists.
-
-if( have_rows('images') ): ?>
+<?php if( have_rows('slider_fields') ): ?>
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/slider.css" type="text/css" media="screen" />
 <div class="slides-container">
     <div class="owl-carousel slides">
         <?php // Loop through rows.
-        while( have_rows('images') ) : the_row();
+        while( have_rows('slider_fields') ) : the_row();
             $image          = get_sub_field('slider_media');
             $image_caption  = get_sub_field('flexslider_caption');
             $checkbox_video = get_sub_field('checkbox_video');
@@ -65,7 +38,7 @@ if( have_rows('images') ): ?>
 </div>
 
 <?php // No value.
-else : echo 'No images. Yet.'; ?>
+else : echo 'No slides. Yet.'; ?>
 
 <?php endif; ?>
 

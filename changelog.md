@@ -1,5 +1,12 @@
 # Changelog
 
+### 2023-08-08 - V0.10
+- Switched from Owlslider to Flickity
+- Fixed slider
+- Moved all slider and content to ACF
+- Removed Gutenberg functionality for slider
+- 
+
 ### 2023-08-08 - V0.9.10
 - Fixed issue with submenu of sorting threads jumping when clicking on it.
 - Sorting threads is pinned when clicked.

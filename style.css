@@ -44,6 +44,15 @@ h1.project-detail-title {
 	grid-template-columns: 100%;
 }
 
+figure,
+img,
+video {
+	max-width: 100%;
+	height: auto;
+	margin: 0;
+	padding: 0;
+}
+
 a {
 	color:  black;
 	text-decoration: none;
@@ -259,6 +268,14 @@ p.project-detail-meta-info {
 }
 .v-hidden {
 	visibility: hidden;
+}
+.cols-2 {
+	gap: 2%;
+}
+
+.cols-2 .col-1,
+.cols-2 .col-2 {
+	width: 49%;
 }
 
 /* Gutenberg Block overrides */
