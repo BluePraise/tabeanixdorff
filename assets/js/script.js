@@ -11,11 +11,12 @@ const sortKeywords = [];
 
 /* when clicking on js-sorting-threads-toggle toggle a class show/hide */
 const sortingThreadsToggle = document.querySelector('.js-sorting-threads-toggle a')
-sortingThreadsToggle.addEventListener('click', e => {
-    e.preventDefault()
-    e.target.nextSibling.classList.toggle('pinned')
-})
-
+if (sortingThreadsToggle) {
+    sortingThreadsToggle.addEventListener('click', e => {
+        e.preventDefault()
+        e.target.nextSibling.classList.toggle('pinned')
+    })
+}
 
 document.querySelectorAll('.filter__link').forEach(link => {
     link.addEventListener('click', e => {
@@ -129,7 +130,6 @@ window.addEventListener("scroll", function() {
 (function ($) {
     $(document).ready(function ($) {
 
-
         /* Mobile Menu: open mobile */
         $('.js-toggle-mobile-menu').on('click', function(e) {
             e.preventDefault();
@@ -145,13 +145,13 @@ window.addEventListener("scroll", function() {
 
         $slider.flickity({
             prevNextButtons: false,
-            wrapAround: true,
+            wrapAround: true, // infinite scroll
             autoPlay: true,
             pauseAutoPlayOnHover: true,
             cellSelector: '.slide',
             pageDots: false,
-            fade: true,
-            adaptiveHeight: true,
+            // fade: true,
+            adaptiveHeight: false,
         });
 
         /**
@@ -161,16 +161,14 @@ window.addEventListener("scroll", function() {
         let $caption = flkty.selectedElement.dataset.caption;
         $('.js-caption').text($caption);
 
+
+
         /**
         * On slide change, update the caption with data from 'data-caption' attribute
         */
         $slider.on('change.flickity', function () {
             let $caption = flkty.selectedElement.dataset.caption;
             $('.js-caption').text($caption);
-        });
-
-        $slider.on('ready.flickity', function () {
-            $sliderNav.addClass('show');
         });
 
         /**
@@ -194,17 +192,20 @@ window.addEventListener("scroll", function() {
         }
 
         /**
-        * On click .magnify class, open the lightbox
+        * On click .magnify class, toggle the lightbox
         */
         const $magnify = $('.magnify');
-        if ($magnify.length) {
+        // if the slider exists
+        if ($slider.length) {
             $magnify.on('click', function () {
                 $slider.toggleClass('grow');
                 $slider.flickity('resize');
                 if ($slider.hasClass('grow')) {
                     $(this).text('✕');
+                    $(this).addClass('close-big-slider');
                 }
                 else {
+                    $slider.flickity('resize');
                     $(this).text('☐');
                 }
             });
@@ -212,3 +213,19 @@ window.addEventListener("scroll", function() {
 
     });
 })(jQuery);
+
+
+
+
+Flickity.prototype._createResizeClass = function () {
+    this.element.classList.add('flickity-resize');
+};
+
+Flickity.createMethods.push('_createResizeClass');
+
+var resize = Flickity.prototype.resize;
+Flickity.prototype.resize = function () {
+    this.element.classList.remove('flickity-resize');
+    resize.call(this);
+    this.element.classList.add('flickity-resize');
+};

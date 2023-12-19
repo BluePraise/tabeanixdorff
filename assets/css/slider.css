@@ -148,10 +148,13 @@ https://flickity.metafizzy.co
 
 .flickity-viewport {
     /* transition: height 0.2s; */
+    /* min-height: 475px; */
+}
+.flickity-resize .carousel-cell {
+    min-height: 100%;
 }
 
-
-/*custom owlslider styling*/
+/*custom flickity styling*/
 .slides-container:not(.grow) .slides {
     margin: 0;
     padding: 0;
@@ -210,6 +213,7 @@ https://flickity.metafizzy.co
 }
 .grow .magnify {
     font-size: 16px;
+    padding-top: 3px;
 }
 
 .magnify:hover {

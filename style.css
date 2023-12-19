@@ -189,10 +189,13 @@ span.mobile-menu {
 	opacity: 1;
 	transition: opacity .15s linear, transform .15s linear;
 }
-
+.js-sorting-threads-toggle .js-filters.sub-menu{
+	margin-left: 20px;
+}
 .js-sorting-threads-toggle .js-filters.sub-menu.pinned {
 	opacity: 1;
-	right: 128px;
+	left: 0px;
+	width: 100%;
 	transform: translateY(40px);
 }
 
