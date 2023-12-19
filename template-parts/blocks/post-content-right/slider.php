@@ -1,7 +1,7 @@
 <?php if( have_rows('slider_fields') ): ?>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/slider.css" type="text/css" media="screen" />
 
-    <div class="slides-container">
+    <div class="slides-container grow">
 
             <?php // Loop through rows.
             while( have_rows('slider_fields') ) : the_row();
