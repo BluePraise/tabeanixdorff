@@ -146,30 +146,31 @@ https://flickity.metafizzy.co
     z-index: 1;
 }
 
-.flickity-viewport {
-    /* transition: height 0.2s; */
-    /* min-height: 475px; */
-}
 .flickity-resize .carousel-cell {
     min-height: 100%;
 }
 
 /*custom flickity styling*/
-.slides-container:not(.grow) .slides {
+.slides-container:not(.grow) {
     margin: 0;
     padding: 0;
     max-width: 928px;
 }
+.slides-container .slide.video-slide {
+    bottom: 20px;
+}
+.slides-container video {
+    display: block;
+    width: 100%;
+    height: 100%;
 
-.slides .slide {
-    position: relative;
 }
 
-.slides .slide a {
+.slides-container .slide a {
     display: block;
 }
 
-.slides figure {
+.slides-container figure {
     margin: 0;
 }
 

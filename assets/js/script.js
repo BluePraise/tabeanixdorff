@@ -144,23 +144,57 @@ window.addEventListener("scroll", function() {
         $slider.flickity({
             prevNextButtons: false,
             wrapAround: true, // infinite scroll
-            autoPlay: true,
+            autoPlay: false,
+            cellAlign: 'center',
+            contain: true,
             pauseAutoPlayOnHover: true,
             cellSelector: '.slide',
             pageDots: false,
             adaptiveHeight: false,
-        });
 
+        });
+        /**
+        * Flickity had a few issues and I had to add some custom code
+        * to fix them. I'm not sure why these issues are happening.
+        * - the sliderNav is not positioned correctly
+        * - the video element doesn't get the correct height
+        * - the slider doesn't reposition correctly when the lightbox is opened
+        *
+        * Functions added:
+        * - custom nav buttons
+        * - Updated captions on slide change
+        */
 
         if ($slider.length) {
-            let flkty = $slider.data('flickity');
+            let flkty        = $slider.data('flickity');
             const $sliderNav = $('.custom-navigation');
-            let $caption = flkty.selectedElement.dataset.caption;
+            let flktyHeight  = flkty.maxCellHeight;
+            let $caption     = flkty.selectedElement.dataset.caption;
+            const $magnify   = $('.magnify');
 
             /**
             * Add the caption to the first slide on page load
             */
             $('.js-caption').text($caption);
+
+            /**
+            * Add height to video element. Video doesn't get the correct height and therefore isn't shown in the slider.
+            * Resize the slider to make sure the video is shown.
+            */
+            if ($('.slide video').length) {
+
+                $('.slide video').css('height', flktyHeight).parent().addClass('video-slide');
+                $slider.flickity('resize');
+            }
+
+            /**
+            * Fix for positioning of sliderNav above slider
+            * This has to do with the load order of the DOM.
+            */
+            if ($sliderNav.length) {
+                $sliderNav.detach();
+                $slider.append($sliderNav);
+            }
 
             /**
             * On click of the custom slider navigation
@@ -176,46 +210,24 @@ window.addEventListener("scroll", function() {
 
 
             /**
-            * On slide change, update the caption with data from 'data-caption' attribute
-            */
-            $slider.on('change.flickity', function () {
-                let flkty = $slider.data('flickity');
-                let $caption = flkty.selectedElement.dataset.caption;
-                $('.js-caption').text($caption);
-            });
-
-            /**
-            * Fix for positioning of sliderNav above slider
-            * This has to do with the load order of the DOM.
-            */
-            if ($sliderNav.length) {
-                $sliderNav.detach();
-                $slider.append($sliderNav);
-            }
-
-
-            /**
             * On click .magnify class, toggle the lightbox
             */
-            const $magnify = $('.magnify');
-            // if the slider exists
-            if ($slider.length) {
-                $magnify.on('click', function () {
-                    $slider.toggleClass('grow');
-                    $slider.flickity('resize');
-                    // $slider.flickity('reposition');
-                    if ($slider.hasClass('grow')) {
-                        $(this).text('✕');
-                        $(this).addClass('close-big-slider');
-                    }
-                    else {
-                        $slider.removeClass('grow');
-                        $slider.flickity('reposition');
-                        $(this).text('☐');
 
-                    }
-                });
-            }
+            // if the slider exists, add the click event
+            $magnify.on('click', function () {
+                $slider.toggleClass('grow').flickity('resize');
+                if ($slider.hasClass('grow')) {
+                    $(this).text('✕');
+                    $(this).addClass('close-big-slider');
+                }
+                else {
+                    $slider.removeClass('grow');
+                    $slider.flickity('resize');
+                    // $('video').css('height', 'unset');
+                    $(this).text('☐');
+                }
+            });
+
         }
 
     });

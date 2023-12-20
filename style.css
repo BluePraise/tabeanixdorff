@@ -45,8 +45,7 @@ h1.project-detail-title {
 }
 
 figure,
-img,
-video {
+img {
 	max-width: 100%;
 	height: auto;
 	margin: 0;
