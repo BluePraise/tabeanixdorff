@@ -140,8 +140,6 @@ window.addEventListener("scroll", function() {
 
         /* Initialise Flickity.js */
         let $slider = $('.slides-container');
-        const $sliderNav = $('.custom-navigation');
-        let $sliderNavItems = $sliderNav.find('.nav-item');
 
         $slider.flickity({
             prevNextButtons: false,
@@ -150,65 +148,74 @@ window.addEventListener("scroll", function() {
             pauseAutoPlayOnHover: true,
             cellSelector: '.slide',
             pageDots: false,
-            // fade: true,
             adaptiveHeight: false,
         });
 
-        /**
-         * Add the caption to the first slide on page load
-         */
-        let flkty = $slider.data('flickity');
-        let $caption = flkty.selectedElement.dataset.caption;
-        $('.js-caption').text($caption);
 
-
-
-        /**
-        * On slide change, update the caption with data from 'data-caption' attribute
-        */
-        $slider.on('change.flickity', function () {
-            let $caption = flkty.selectedElement.dataset.caption;
-            $('.js-caption').text($caption);
-        });
-
-        /**
-        * Fix for positioning of sliderNav above slider
-        * This has to do with the load order of the DOM.
-        */
-        if ($sliderNav.length) {
-            $sliderNav.detach();
-            $slider.append($sliderNav);
-        }
-
-        /**
-        * On click of the custom slider navigation
-        * buttons, navigate to the slide
-        */
-        if ($sliderNav.length) {
-            $sliderNavItems.on('click', function () {
-                let index = $(this).index();
-                $slider.flickity('select', index);
-            });
-        }
-
-        /**
-        * On click .magnify class, toggle the lightbox
-        */
-        const $magnify = $('.magnify');
-        // if the slider exists
         if ($slider.length) {
-            $magnify.on('click', function () {
-                $slider.toggleClass('grow');
-                $slider.flickity('resize');
-                if ($slider.hasClass('grow')) {
-                    $(this).text('✕');
-                    $(this).addClass('close-big-slider');
-                }
-                else {
-                    $slider.flickity('resize');
-                    $(this).text('☐');
-                }
+            let flkty = $slider.data('flickity');
+            const $sliderNav = $('.custom-navigation');
+            let $caption = flkty.selectedElement.dataset.caption;
+
+            /**
+            * Add the caption to the first slide on page load
+            */
+            $('.js-caption').text($caption);
+
+            /**
+            * On click of the custom slider navigation
+            * buttons, navigate to the slide
+            */
+
+            $('.nav-next').on('click', function () {
+                    $slider.flickity('next');
             });
+            $('.nav-prev').on('click', function () {
+                    $slider.flickity('previous');
+            });
+
+
+            /**
+            * On slide change, update the caption with data from 'data-caption' attribute
+            */
+            $slider.on('change.flickity', function () {
+                let flkty = $slider.data('flickity');
+                let $caption = flkty.selectedElement.dataset.caption;
+                $('.js-caption').text($caption);
+            });
+
+            /**
+            * Fix for positioning of sliderNav above slider
+            * This has to do with the load order of the DOM.
+            */
+            if ($sliderNav.length) {
+                $sliderNav.detach();
+                $slider.append($sliderNav);
+            }
+
+
+            /**
+            * On click .magnify class, toggle the lightbox
+            */
+            const $magnify = $('.magnify');
+            // if the slider exists
+            if ($slider.length) {
+                $magnify.on('click', function () {
+                    $slider.toggleClass('grow');
+                    $slider.flickity('resize');
+                    // $slider.flickity('reposition');
+                    if ($slider.hasClass('grow')) {
+                        $(this).text('✕');
+                        $(this).addClass('close-big-slider');
+                    }
+                    else {
+                        $slider.removeClass('grow');
+                        $slider.flickity('reposition');
+                        $(this).text('☐');
+
+                    }
+                });
+            }
         }
 
     });
