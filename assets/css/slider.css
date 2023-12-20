@@ -159,7 +159,6 @@ https://flickity.metafizzy.co
     margin: 0;
     padding: 0;
     max-width: 928px;
-
 }
 
 .slides .slide {
@@ -177,7 +176,7 @@ https://flickity.metafizzy.co
 .slides-container.grow {
     position: fixed;
     z-index: 2;
-    width: 75vw;
+    width: 48%;
     max-width: initial;
     height: auto;
     bottom: 10px;
