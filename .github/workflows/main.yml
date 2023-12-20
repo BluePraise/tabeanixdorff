@@ -19,4 +19,9 @@ jobs:
         server: ${{ secrets.FTPSERVER }}
         username: ${{ secrets.FTPUSERNAME }}
         password: ${{ secrets.FTPPASSWORD }}
+        server-dir: public_html/www/
         local-dir: ./tn/wp-content/themes/tabeanixdorff/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/.github/**
