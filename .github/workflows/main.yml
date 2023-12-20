@@ -12,7 +12,6 @@ jobs:
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v3
-
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
@@ -25,3 +24,6 @@ jobs:
           **/.git*/**
           **/.github/**
           .DS_Store
+    - name: 🚽 Flush SG Cache
+        run: wp sg purge https://libra.nightschool.studio/tn/
+
