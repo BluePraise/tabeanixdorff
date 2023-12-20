@@ -14,7 +14,7 @@
             <?php if ( $checkbox_video ):
                 foreach($checkbox_video as $checkbox):
                     if( $checkbox === 'Yes'): ?>
-                        <video controls>
+                        <video controls preload>
                             <source src="<?php echo $image; ?>" type="video/mp4">
 
                         </video>

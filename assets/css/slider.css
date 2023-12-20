@@ -156,18 +156,15 @@ https://flickity.metafizzy.co
     padding: 0;
     max-width: 928px;
 }
-.slides-container .slide.video-slide {
+.slides-container a.slide {
+    display: block;
     bottom: 20px;
 }
+
 .slides-container video {
     display: block;
     width: 100%;
     height: 100%;
-
-}
-
-.slides-container .slide a {
-    display: block;
 }
 
 .slides-container figure {

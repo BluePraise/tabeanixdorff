@@ -144,6 +144,7 @@ window.addEventListener("scroll", function() {
         $slider.flickity({
             prevNextButtons: false,
             wrapAround: true, // infinite scroll
+            imagesLoaded: true,
             autoPlay: false,
             cellAlign: 'center',
             contain: true,
@@ -178,14 +179,28 @@ window.addEventListener("scroll", function() {
             $('.js-caption').text($caption);
 
             /**
+            * On slide change, update the caption with data from 'data-caption' attribute
+            */
+            $slider.on('change.flickity', function () {
+                let flkty = $slider.data('flickity');
+                let $caption = flkty.selectedElement.dataset.caption;
+                $('.js-caption').text($caption);
+            });
+
+            /**
             * Add height to video element. Video doesn't get the correct height and therefore isn't shown in the slider.
             * Resize the slider to make sure the video is shown.
             */
             if ($('.slide video').length) {
-
                 $('.slide video').css('height', flktyHeight).parent().addClass('video-slide');
                 $slider.flickity('resize');
             }
+
+            $slider.on('resize.flickity', function () {
+                let flkty = $slider.data('flickity');
+                console.log('resized');
+            });
+
 
             /**
             * Fix for positioning of sliderNav above slider
@@ -213,7 +228,6 @@ window.addEventListener("scroll", function() {
             * On click .magnify class, toggle the lightbox
             */
 
-            // if the slider exists, add the click event
             $magnify.on('click', function () {
                 $slider.toggleClass('grow').flickity('resize');
                 if ($slider.hasClass('grow')) {
@@ -221,12 +235,12 @@ window.addEventListener("scroll", function() {
                     $(this).addClass('close-big-slider');
                 }
                 else {
-                    $slider.removeClass('grow');
                     $slider.flickity('resize');
                     // $('video').css('height', 'unset');
                     $(this).text('☐');
                 }
             });
+
 
         }
 
