@@ -16,10 +16,12 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        server: ftp.nightschool.studio/
+        run: echo
+        server: ftp.nightschool.studio
         username: ${{ secrets.FTPUSERNAME }}
         password: ${{ secrets.FTPPASSWORD }}
-        local-dir: ./libra.nightschool.studio/public_html/tn/wp-content/themes/tabeanixdorff/
+        server-dir: www/libra.nightschool.studio/public_html/
+        local-dir: ./tn/wp-content/themes/tabeanixdorff/
         exclude: |
           **/.git*
           **/.git*/**
