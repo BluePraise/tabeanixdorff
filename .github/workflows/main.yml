@@ -17,10 +17,11 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ftp.nightschool.studio
-        username: ${{ secrets.FTPUSERNAME }}
+        username: ftp@nightschool.studio
         password: ${{ secrets.FTPPASSWORD }}
         local-dir: /www/libra.nightschool.studio/public_html/tn/wp-content/themes/tabeanixdorff/
         exclude: |
           **/.git*
           **/.git*/**
           **/.github/**
+          .DS_Store
