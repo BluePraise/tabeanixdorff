@@ -19,8 +19,7 @@ jobs:
         server: ftp.nightschool.studio
         username: ${{ secrets.FTPUSERNAME }}
         password: ${{ secrets.FTPPASSWORD }}
-        server-dir: www/libra.nightschool.studio/public_html/
-        local-dir: ./tn/wp-content/themes/tabeanixdorff/
+        local-dir: www/libra.nightschool.studio/public_html/tn/wp-content/themes/tabeanixdorff/
         exclude: |
           **/.git*
           **/.git*/**
