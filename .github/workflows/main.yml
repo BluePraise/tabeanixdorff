@@ -16,7 +16,7 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        server: ftp.nightschool.studio
+        server: ftp.nightschool.studio/
         username: ${{ secrets.FTPUSERNAME }}
         password: ${{ secrets.FTPPASSWORD }}
         local-dir: ./libra.nightschool.studio/public_html/tn/wp-content/themes/tabeanixdorff/
