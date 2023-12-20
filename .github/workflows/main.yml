@@ -24,6 +24,3 @@ jobs:
           **/.git*/**
           **/.github/**
           .DS_Store
-    - name: 🚽 Flush SG Cache
-        run: wp sg purge https://libra.nightschool.studio/tn/
-
