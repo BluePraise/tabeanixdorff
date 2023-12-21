@@ -151,24 +151,31 @@ https://flickity.metafizzy.co
 }
 
 /*custom flickity styling*/
+.slides-container {
+    /* height: 100%; */
+}
 .slides-container:not(.grow) {
     margin: 0;
     padding: 0;
     max-width: 928px;
 }
 .slides-container a.slide {
+    background-color: blueviolet;
     display: block;
     bottom: 20px;
+    line-height: 0;
+}
+.slides-container a.slide figure {
+    line-height: 0;
+}
+
+.video-slide {
 }
 
 .slides-container video {
     display: block;
     width: 100%;
     height: 100%;
-}
-
-.slides-container figure {
-    margin: 0;
 }
 
 .slides-container.grow {

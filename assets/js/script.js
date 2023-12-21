@@ -144,6 +144,7 @@ window.addEventListener("scroll", function() {
         $slider.flickity({
             prevNextButtons: false,
             wrapAround: true, // infinite scroll
+            setGallerySize: true,
             imagesLoaded: true,
             autoPlay: true,
             cellAlign: 'center',
@@ -187,12 +188,12 @@ window.addEventListener("scroll", function() {
             });
 
             /**
-            * Add height to video element. Video doesn't get the correct height and therefore isn't shown in the slider.
-            * Resize the slider to make sure the video is shown.
+            * Add position to video element.
+            * The video is positioned to the top of the slide by default
+            * We're positioning it to the bottom of the slide by adding a class to the parent container
             */
             if ($('.slide video').length) {
-                $('.slide video').css('height', flktyHeight).parent().addClass('video-slide');
-                $slider.flickity('resize');
+                $('.slide video').parent().addClass('video-slide');
             }
 
 
@@ -224,34 +225,33 @@ window.addEventListener("scroll", function() {
 
             $magnify.on('click', function () {
                 $slider.toggleClass('grow').flickity('resize');
+
                 if ($slider.hasClass('grow')) {
                     $(this).text('✕');
                     $(this).addClass('close-big-slider');
                 }
                 else {
                     $slider.flickity('resize');
+                    $slider.flickity('reloadCells');
                     // $('video').css('height', 'unset');
                     $(this).text('☐');
                 }
             });
 
-        }
+            /**
+            * On window resize, resize the slider
+            */
+            $(window).on('resize', function () {
+
+                $('video').css('height', flktyHeight);
+
+                $slider.flickity('reposition');
+                $slider.flickity('reloadCells');
+            });
+
+
+        } // end if $slider.length
 
     });
 })(jQuery);
 
-
-
-
-Flickity.prototype._createResizeClass = function () {
-    this.element.classList.add('flickity-resize');
-};
-
-Flickity.createMethods.push('_createResizeClass');
-
-var resize = Flickity.prototype.resize;
-Flickity.prototype.resize = function () {
-    this.element.classList.remove('flickity-resize');
-    resize.call(this);
-    this.element.classList.add('flickity-resize');
-};
