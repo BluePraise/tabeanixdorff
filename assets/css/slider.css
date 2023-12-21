@@ -160,16 +160,12 @@ https://flickity.metafizzy.co
     max-width: 928px;
 }
 .slides-container a.slide {
-    background-color: blueviolet;
     display: block;
     bottom: 20px;
     line-height: 0;
 }
 .slides-container a.slide figure {
     line-height: 0;
-}
-
-.video-slide {
 }
 
 .slides-container video {
@@ -214,6 +210,7 @@ https://flickity.metafizzy.co
     font-size: 24px;
     line-height: 32px;
     padding-top: 1px;
+    padding-right: 5px;
 }
 .grow .magnify {
     font-size: 16px;
