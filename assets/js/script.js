@@ -145,7 +145,7 @@ window.addEventListener("scroll", function() {
             prevNextButtons: false,
             wrapAround: true, // infinite scroll
             imagesLoaded: true,
-            autoPlay: false,
+            autoPlay: true,
             cellAlign: 'center',
             contain: true,
             pauseAutoPlayOnHover: true,
