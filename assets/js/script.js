@@ -182,7 +182,6 @@ window.addEventListener("scroll", function() {
             * On slide change, update the caption with data from 'data-caption' attribute
             */
             $slider.on('change.flickity', function () {
-                let flkty = $slider.data('flickity');
                 let $caption = flkty.selectedElement.dataset.caption;
                 $('.js-caption').text($caption);
             });
@@ -195,11 +194,6 @@ window.addEventListener("scroll", function() {
                 $('.slide video').css('height', flktyHeight).parent().addClass('video-slide');
                 $slider.flickity('resize');
             }
-
-            $slider.on('resize.flickity', function () {
-                let flkty = $slider.data('flickity');
-                console.log('resized');
-            });
 
 
             /**
@@ -240,7 +234,6 @@ window.addEventListener("scroll", function() {
                     $(this).text('☐');
                 }
             });
-
 
         }
 
