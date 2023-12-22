@@ -224,16 +224,16 @@ window.addEventListener("scroll", function() {
             */
 
             $magnify.on('click', function () {
-                $slider.toggleClass('grow').flickity('resize');
+                $slider.toggleClass('grow');
+                $slider.flickity('reloadCells');
 
+                // if the slider is exanded (which it has on pageload)
+                // make sure the x icon is showing
                 if ($slider.hasClass('grow')) {
                     $(this).text('✕');
-                    $(this).addClass('close-big-slider');
                 }
+                // else, make sure the magnify icon is showing
                 else {
-                    $slider.flickity('resize');
-                    $slider.flickity('reloadCells');
-                    // $('video').css('height', 'unset');
                     $(this).text('☐');
                 }
             });
@@ -242,9 +242,6 @@ window.addEventListener("scroll", function() {
             * On window resize, resize the slider
             */
             $(window).on('resize', function () {
-
-                $('video').css('height', flktyHeight);
-
                 $slider.flickity('reposition');
                 $slider.flickity('reloadCells');
             });
