@@ -99,7 +99,6 @@ header ul li a:hover {
 	display:  block;
 	background-color: white;
 	margin-top: 10px;
-	flex-basis: 7%;
 }
 .main-menu__item:hover {
 	cursor: pointer;
@@ -117,6 +116,7 @@ header ul li a:hover {
 
 .sub-menu {
 	position: absolute;
+	padding: 0 4px;
 	z-index: 1;
   	background-color: white;
 	opacity: 0;
