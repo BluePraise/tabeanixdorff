@@ -151,9 +151,6 @@ https://flickity.metafizzy.co
 }
 
 /*custom flickity styling*/
-.slides-container {
-    /* height: 100%; */
-}
 .slides-container:not(.grow) {
     margin: 0;
     padding: 0;
