@@ -99,7 +99,7 @@ header ul li a:hover {
 	display:  block;
 	background-color: white;
 	margin-top: 10px;
-	flex-basis: 17%;
+	flex-basis: 7%;
 }
 .main-menu__item:hover {
 	cursor: pointer;
@@ -235,7 +235,7 @@ main {
 
 p.project-detail-meta-info {
 	margin: 0;
-	font-size: 19px;
+	font-size: 18px;
 	line-height: 18px;
 	font-weight: 800;
 }
@@ -248,7 +248,7 @@ p.project-detail-meta-info {
 	background-color: white;
 	padding: 0;
 	position: absolute;
-	top: 6px;
+	bottom: 6px;
 	z-index: 2;
 }
 .single .project-detail-meta-info {
