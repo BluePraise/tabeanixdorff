@@ -18,7 +18,11 @@ if (sortingThreadsToggle) {
     })
 }
 
-document.querySelectorAll('.filter__link').forEach(link => {
+// if any of the filters are active and sortingThreadsToggle has class pinned,
+// then add class selection to the sortingThreadsToggle
+const filters = document.querySelectorAll('.filter__link')
+
+filters.forEach(link => {
     link.addEventListener('click', e => {
         e.preventDefault()
 
