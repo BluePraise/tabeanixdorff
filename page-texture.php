@@ -14,6 +14,6 @@ get_header();
 		get_template_part( 'template-parts/loops/projects', NULL, array(
 			'page-name' => 'page-texture',
 			'set-data-tag' => false
-		) );
-	get_footer();
-?>
+		) ); ?>
+</div>
+<?php get_footer(); ?>
