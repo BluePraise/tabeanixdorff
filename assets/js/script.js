@@ -1,37 +1,54 @@
-const header = document.querySelector('.menu-header-menu-container');
-// 1st three lines position the filters to the right
+/**
+ * Custom JS for the theme.
+ * Mixed bag of JS and jQuery.
+ * - menu (jQuery)
+ * - search functionality
+ * - filter and sorting functionality
+ * - flickity.js (jQuery)
+ */
+
+/**
+ * Filter Vars
+ */
 const filterList = document.querySelector('.js-filters');
 const lastMenuItem = document.querySelector('.main-menu').lastElementChild;
 lastMenuItem.append(filterList);
-const all_projects = document.querySelector('.projects');
-const left_over = document.querySelector('.leftover-projects');
-const mobile_menu_trigger = document.querySelector('.mobile-menu');
-const main_menu = document.querySelector(".menu-header-menu-container");
+const filters = document.querySelectorAll('.filter__link');
 const sortKeywords = [];
+const allProjects = document.querySelector('.projects');
+const leftOver = document.querySelector('.leftover-projects');
+
+/**
+ * Menu Vars
+ */
+const header = document.querySelector('.menu-header-menu-container');
+
+/**
+ * Filter and Sorting Functionality.
+ */
 
 /* when clicking on js-sorting-threads-toggle toggle a class show/hide */
-const sortingThreadsToggle = document.querySelector('.js-sorting-threads-toggle a')
+const sortingThreadsToggle = document.querySelector('.js-sorting-threads-toggle a');
 if (sortingThreadsToggle) {
     sortingThreadsToggle.addEventListener('click', e => {
-        e.preventDefault()
-        e.target.nextSibling.classList.toggle('pinned')
+        e.preventDefault();
+        e.target.nextSibling.classList.toggle('pinned');
     })
 }
 
 // if any of the filters are active and sortingThreadsToggle has class pinned,
 // then add class selection to the sortingThreadsToggle
-const filters = document.querySelectorAll('.filter__link')
 
 filters.forEach(link => {
     link.addEventListener('click', e => {
-        e.preventDefault()
+        e.preventDefault();
 
-        const filter = e.currentTarget
-        filter.classList.toggle('active')
+        const filter = e.currentTarget;
+        filter.classList.toggle('active');
 
         const filterText = filter.textContent.toLowerCase();
         // if the filterText is in the sortKeywords array, remove it
-        if(sortKeywords.includes(filterText)) {
+        if (sortKeywords.includes(filterText)) {
             sortKeywords.splice(sortKeywords.indexOf(filterText), 1);
         }
         // else add it to the array
@@ -39,29 +56,28 @@ filters.forEach(link => {
             sortKeywords.push(filterText);
         }
 
-
         document.querySelectorAll('.projects .project-line a').forEach(a => {
             const project = a.closest('.project-line');
-            left_over.appendChild(project);
+            leftOver.appendChild(project);
 
             // loop over the sortKeywords array and see if the project has any of the keywords
             sortKeywords.forEach(sort => {
-                if (a.dataset.tag === undefined) return
+                if (a.dataset.tag === undefined) return;
 
-                if (a.dataset.tag.trim().split(/\s+/).includes(sort) ) {
-                    all_projects.appendChild(project)
+                if (a.dataset.tag.trim().split(/\s+/).includes(sort)) {
+                    allProjects.appendChild(project);
                 }
             })
 
         })
-       if(filterList.getElementsByClassName('active').length > 0) {
+        if (filterList.getElementsByClassName('active').length > 0) {
             document.querySelector('.clear-active').classList.remove("hide-this");
-       }
-       else {
+        }
+        else {
             document.querySelector('.clear-active').classList.add("hide-this");
-       }
-        if(!sortKeywords.length) document.querySelectorAll('.projects .project-line').forEach(project => {
-            all_projects.appendChild(project);
+        }
+        if (!sortKeywords.length) document.querySelectorAll('.projects .project-line').forEach(project => {
+            allProjects.appendChild(project);
         });
 
     });
@@ -74,54 +90,57 @@ function clear_all() {
     });
 
     document.querySelectorAll('.projects .project-line').forEach(project => {
-        all_projects.appendChild(project);
+        allProjects.appendChild(project);
     });
 
     document.querySelector('.js-filters .clear-active').classList.add('hide-this');
 }
 
+/**
+ * Search Functionality.
+ */
 
-// function searchPosts(e) {
-
-// };
 const searchPosts = document.querySelector('#search-posts');
 if (searchPosts) {
     document.querySelector('#search-posts').addEventListener("input", (e) => {
-        e.preventDefault()
+        e.preventDefault();
         if (e.which == 13) {
-            return
+            return;
         }
-        let countChar = e.target.value.length
+        let countChar = e.target.value.length;
         if (countChar > 2) {
             // get the search string and make sure it is lowercase and has no spaces
-            let searchString = e.currentTarget.value.trim().toLowerCase()
+            let searchString = e.currentTarget.value.trim().toLowerCase();
             // loop over the projects and see if the search string is in the title content
             document.querySelectorAll('.projects .project-line').forEach(project => {
-                let title = project.textContent.toLowerCase()
+                let title = project.textContent.toLowerCase();
                 if (!title.includes(searchString)) {
-                    project.classList.add('d-none')
+                    project.classList.add('d-none');
                 } else {
-                    project.classList.remove('d-none')
+                    project.classList.remove('d-none');
                 }
             })
         }
         // else if the search string is less than 3 characters, show all projects
         else {
             document.querySelectorAll('.projects .project-line').forEach(project => {
-                project.classList.remove('d-none')
-            })
+                project.classList.remove('d-none');
+            });
         }
     });
 }
 
+/**
+ * Menu Functionality.
+ */
 
 /* Mobile Menu: Scroll */
 var lastScrollTop = 0;
-window.addEventListener("scroll", function() {
+window.addEventListener("scroll", function () {
 
     var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
 
-    if (st > lastScrollTop && lastScrollTop > 100){
+    if (st > lastScrollTop && lastScrollTop > 100) {
         document.querySelector('header').classList.add("down-cut-half");
     } else {
 
@@ -135,7 +154,7 @@ window.addEventListener("scroll", function() {
     $(document).ready(function ($) {
 
         /* Mobile Menu: open mobile */
-        $('.js-toggle-mobile-menu').on('click', function(e) {
+        $('.js-toggle-mobile-menu').on('click', function (e) {
             e.preventDefault();
             $('.menu-main-menu-container').toggleClass('open');
             $('.js-toggle-mobile-menu').toggleClass('open');
@@ -159,6 +178,7 @@ window.addEventListener("scroll", function() {
             adaptiveHeight: false,
 
         });
+
         /**
         * Flickity had a few issues and I had to add some custom code
         * to fix them. I'm not sure why these issues are happening.
@@ -172,11 +192,10 @@ window.addEventListener("scroll", function() {
         */
 
         if ($slider.length) {
-            let flkty        = $slider.data('flickity');
+            let flkty = $slider.data('flickity');
             const $sliderNav = $('.custom-navigation');
-            let flktyHeight  = flkty.maxCellHeight;
-            let $caption     = flkty.selectedElement.dataset.caption;
-            const $magnify   = $('.magnify');
+            let $caption = flkty.selectedElement.dataset.caption;
+            const $magnify = $('.magnify');
 
             /**
             * Add the caption to the first slide on page load
@@ -216,10 +235,10 @@ window.addEventListener("scroll", function() {
             */
 
             $('.nav-next').on('click', function () {
-                    $slider.flickity('next');
+                $slider.flickity('next');
             });
             $('.nav-prev').on('click', function () {
-                    $slider.flickity('previous');
+                $slider.flickity('previous');
             });
 
 
