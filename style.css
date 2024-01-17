@@ -165,7 +165,7 @@ a.filter__link:before {
 	content: " ";
 	font-size: 75%;
 	width: 23px;
-	left: -10px;
+	left: 4px;
 }
 
 a.filter__link.active:before {
