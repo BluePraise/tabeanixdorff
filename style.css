@@ -97,8 +97,10 @@ header ul li a:hover {
 .main-menu__item {
 	position: relative;
 	display:  block;
+	width: 237px;
 	background-color: white;
 	margin-top: 10px;
+	padding-left: 10px;
 }
 .main-menu__item:hover {
 	cursor: pointer;
@@ -116,12 +118,15 @@ header ul li a:hover {
 
 .sub-menu {
 	position: absolute;
-	padding: 0 4px;
 	z-index: 1;
   	background-color: white;
 	opacity: 0;
-	right: 9999rem;
-	top: calc(100% - 12px);
+	left: 9999rem;
+	top: 8px;
+	padding-top: 20px;
+	padding-left: 34px;
+	padding-bottom: 4px;
+	width: calc(100% - 34px); /* 100% of parent minus padding left */
 	transition: opacity .15s linear, transform .15s linear;
 	transform: translateY(var(--base-rhythm-value));
 }
@@ -140,7 +145,7 @@ header ul li a:hover {
 	content: "×";
 	display: inline-block;
 	position: absolute;
-	left: -20px;
+	left: 15px;
  	font-style: normal;
 }
 /* Filter Styling*/
@@ -180,9 +185,8 @@ span.mobile-menu {
 }
 /* .js-filters.sub-menu.show, */
 .main-menu__item:not(.js-sorting-threads-toggle):hover .sub-menu {
-	position: relative;
-	right: 0px;
-	margin-left: 21px;
+	position: absolute;
+	left: 0px;
 	display: block;
 	z-index: 1;
 	opacity: 1;
