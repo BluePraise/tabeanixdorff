@@ -89,12 +89,13 @@ header ul li a:hover {
 }
 .main-menu {
 	display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
-    align-content: flex-start;
+	gap: 5%;
+	/* justify-content: space-between; */
+	/* align-items: flex-start; */
+    /* align-content: flex-start; */
 }
 
-.main-menu__item {
+.main-menu__item:not(.js-sorting-threads-toggle) {
 	position: relative;
 	display:  block;
 	width: 237px;
@@ -164,8 +165,7 @@ a.filter__link:before {
 	content: " ";
 	font-size: 75%;
 	width: 23px;
-	left: -20px;
-
+	left: -10px;
 }
 
 a.filter__link.active:before {
@@ -192,9 +192,12 @@ span.mobile-menu {
 	opacity: 1;
 	transition: opacity .15s linear, transform .15s linear;
 }
-.js-sorting-threads-toggle .js-filters.sub-menu{
-	margin-left: 20px;
+.js-sorting-threads-toggle {
+	position: fixed;
+	right: 80px;
+	margin-top: 10px;
 }
+
 .js-sorting-threads-toggle .js-filters.sub-menu.pinned {
 	opacity: 1;
 	left: 0px;
