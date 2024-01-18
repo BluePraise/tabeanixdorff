@@ -13,7 +13,8 @@ get_header();
 		get_template_part( 'template-parts/loops/top-posts', NULL,  array('page-name' => 'page-texture') );
 		get_template_part( 'template-parts/loops/projects', NULL, array(
 			'page-name' => 'page-texture',
-			'set-data-tag' => false
+			'set-data-tag' => true
 		) ); ?>
+		<div class="leftover-projects"></div>
 </div>
 <?php get_footer(); ?>

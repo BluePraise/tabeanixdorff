@@ -20,7 +20,7 @@ else:
 endif;
 ?>
 
-<div class="projects <?php if (is_single()):?>single-post-list<?php endif; ?>">
+<div class="projects single-post-list">
 	<?php
 		// get template part passing an argument to the template part
 		get_template_part( 'template-parts/loops/top-posts',
@@ -34,8 +34,8 @@ endif;
 			'set-data-tag' => true
 		));
 		?>
-	<div class="leftover-projects"></div>
-</div><!-- .end-of-projects -->
 
+</div><!-- .end-of-projects -->
+<div class="leftover-projects"></div>
 
 <?php get_footer(); ?>
