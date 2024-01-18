@@ -28,16 +28,17 @@ const header = document.querySelector('.menu-header-menu-container');
  */
 
 /* when clicking on js-sorting-threads-toggle toggle a class show/hide */
+// if any of the filters have class active and sortingThreadsToggle has class pinned,
+// then add class selection to the sortingThreadsToggle
 const sortingThreadsToggle = document.querySelector('.js-sorting-threads-toggle a');
 if (sortingThreadsToggle) {
     sortingThreadsToggle.addEventListener('click', e => {
-        e.preventDefault();
-        e.target.nextSibling.classList.toggle('pinned');
-    })
+            e.target.nextSibling.classList.toggle('pinned');
+        });
 }
 
-// if any of the filters are active and sortingThreadsToggle has class pinned,
-// then add class selection to the sortingThreadsToggle
+
+
 
 filters.forEach(link => {
     link.addEventListener('click', e => {
@@ -45,6 +46,18 @@ filters.forEach(link => {
 
         const filter = e.currentTarget;
         filter.classList.toggle('active');
+        // check if sortingThreadsToggle has class pinned
+        if (filterList.classList.contains('pinned')) {
+            const anchorLink = filterList.previousSibling;
+            // add class selection to the sibling before filterList
+            anchorLink.classList.toggle('link-is-active');
+            if (anchorLink.classList.contains('link-is-active')) {
+                // change the href to back to homepage
+                anchorLink.href = '/';
+            } else { // else remove class selection
+                anchorLink.href = '#';
+            }
+        }
 
         const filterText = filter.textContent.toLowerCase();
         // if the filterText is in the sortKeywords array, remove it
