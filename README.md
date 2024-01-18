@@ -10,9 +10,10 @@ The project is built with WordPress and has it's own custom theme.
 Posts are used for the projects. So if T wants to upload a project she needs to add a new post. These are then sent to index.php
 
 ## Project Specifics.
-- Filters
+- Filters and Sorting
 - ACF
 - Search
+- Flickity
 
 ## Use short code blocks
 ```[snippet full-image="#.png" snippet-image="#.png"]test word[/snippet]```
