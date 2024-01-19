@@ -427,18 +427,22 @@ p.project-detail-meta-info {
 		display: none;
 	}
 
-	nav.menu-header-menu-container {
+	nav.menu-header-menu-container	 {
 		display: none;
 	}
-	.menu-main-menu-container.open {
-		display: flex;
+	nav.menu-main-menu-container.open {
+		display: block;
 		height: 100vh;
+		padding-top: 50px;
+	}
+	.main-menu__item:not(.js-sorting-threads-toggle) {
 		background-color: #fff;
-		margin-top: 70px;
+		margin-top: 20px;
+		width: initial;
+		height: initial;
 	}
 	.main-menu {
 		display: block;
-		width: 100%;
 		text-align: left;
 		margin: 0 20px;
 	}
@@ -452,9 +456,17 @@ p.project-detail-meta-info {
 		position: relative;
 		opacity: 1;
 		right: initial;
+		left: initial;
+		margin-top: 0;
+		margin-left: 0;
+		/* padding-left: 10px; */
 		transform: unset;
-		margin-top: 8px;
-		margin-left: 22px;
+	}
+	.main-menu__item {
+		width: initial	;
+	}
+	.main-menu .sub-menu {
+
 	}
 	.main-menu__item:hover .sub-menu {
 		position: relative;
