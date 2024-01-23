@@ -308,6 +308,7 @@ p.project-detail-meta-info {
     width: 94%;
 	padding: 10px 0;
 }
+.single h2.project-line,
 .leftover-projects h2.project-line {
     height: 20px;
     overflow: hidden;
@@ -448,7 +449,7 @@ p.project-detail-meta-info {
 	}
 	.sub-menu li a,
 	.main-menu__item > a {
-		/* font-size: var(--mobile-font-size); */
+
 		flex-basis: 100%;
 	}
 	.menu-main-menu-container.open .sub-menu {
@@ -459,14 +460,10 @@ p.project-detail-meta-info {
 		left: initial;
 		margin-top: 0;
 		margin-left: 0;
-		/* padding-left: 10px; */
 		transform: unset;
 	}
 	.main-menu__item {
 		width: initial	;
-	}
-	.main-menu .sub-menu {
-
 	}
 	.main-menu__item:hover .sub-menu {
 		position: relative;
@@ -474,7 +471,6 @@ p.project-detail-meta-info {
 	.menu-main-menu-container.open .sub-menu li {
 		padding: 4px 0;
 	}
-
 
 	.main-menu__item:last-child {
 		display: none;

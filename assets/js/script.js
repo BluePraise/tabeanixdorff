@@ -35,7 +35,18 @@ const header = document.querySelector('.menu-header-menu-container');
 const sortingThreadsToggle = document.querySelector('.js-sorting-threads-toggle a');
 if (sortingThreadsToggle) {
     sortingThreadsToggle.addEventListener('click', e => {
-            e.target.nextSibling.classList.toggle('pinned');
+            // check if body class has 'single' in it
+            if (document.body.classList.contains('single')) {
+                // if it does, remove the class pinned from filterList
+                filterList.classList.remove('pinned');
+                // remove class selection from the sibling before filterList
+                anchorLink.classList.remove('link-is-active');
+                anchorLink.href = '/';
+            }
+            else {
+                e.target.nextSibling.classList.toggle('pinned');
+            }
+
         });
 }
 
