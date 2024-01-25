@@ -3,7 +3,7 @@
 
 <?php if (have_posts()):
   while (have_posts()) : the_post(); ?>
-  	<h1 class="project-detail-title"><a href="<?php echo home_url('/') ?>"><?php the_title(); ?></a></h1>
+  	<h1 class="project-detail-title"><a href="javascript:history.go(-1)"><?php the_title(); ?></a></h1>
     <article>
       <?php the_content(); ?>
       <div class="d-flex cols-2">
