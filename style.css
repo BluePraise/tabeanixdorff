@@ -185,7 +185,7 @@ span.mobile-menu {
 	display: none;
 }
 /* .js-filters.sub-menu.show, */
-.main-menu__item:not(.js-sorting-threads-toggle):hover .sub-menu {
+.main-menu__item:hover .sub-menu {
 	position: absolute;
 	left: 0px;
 	display: block;
@@ -436,7 +436,7 @@ p.project-detail-meta-info {
 		height: 100vh;
 		padding-top: 50px;
 	}
-	.main-menu__item:not(.js-sorting-threads-toggle) {
+	.main-menu__item{
 		background-color: #fff;
 		margin-top: 20px;
 		width: initial;

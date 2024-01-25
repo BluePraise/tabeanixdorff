@@ -34,14 +34,14 @@ const header = document.querySelector('.menu-header-menu-container');
 // then add class selection to the sortingThreadsToggle
 const sortingThreadsToggle = document.querySelector('.js-sorting-threads-toggle a');
 if (sortingThreadsToggle) {
-    sortingThreadsToggle.addEventListener('click', e => {
+    sortingThreadsToggle.addEventListener('mouseover', e => {
             // check if body class has 'single' in it
             if (document.body.classList.contains('single')) {
                 // if it does, remove the class pinned from filterList
                 filterList.classList.remove('pinned');
                 // remove class selection from the sibling before filterList
                 anchorLink.classList.remove('link-is-active');
-                anchorLink.href = 'https://libra.nightschool.studio/tn/';
+                // anchorLink.href = 'https://libra.nightschool.studio/tn/';
             }
             else {
                 e.target.nextSibling.classList.toggle('pinned');
@@ -63,9 +63,9 @@ filters.forEach(link => {
             anchorLink.classList.toggle('link-is-active');
             if (anchorLink.classList.contains('link-is-active')) {
                 // change the href to back to homepage
-                anchorLink.href = 'https://libra.nightschool.studio/tn/';
+                // anchorLink.href = 'https://libra.nightschool.studio/tn/';
             } else { // else remove class selection
-                anchorLink.href = '#';
+                // anchorLink.href = '#';
             }
         }
 
