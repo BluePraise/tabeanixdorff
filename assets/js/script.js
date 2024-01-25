@@ -41,7 +41,7 @@ if (sortingThreadsToggle) {
                 filterList.classList.remove('pinned');
                 // remove class selection from the sibling before filterList
                 anchorLink.classList.remove('link-is-active');
-                anchorLink.href = '/';
+                anchorLink.href = 'https://libra.nightschool.studio/tn/';
             }
             else {
                 e.target.nextSibling.classList.toggle('pinned');
@@ -63,7 +63,7 @@ filters.forEach(link => {
             anchorLink.classList.toggle('link-is-active');
             if (anchorLink.classList.contains('link-is-active')) {
                 // change the href to back to homepage
-                anchorLink.href = '/';
+                anchorLink.href = 'https://libra.nightschool.studio/tn/';
             } else { // else remove class selection
                 anchorLink.href = '#';
             }
