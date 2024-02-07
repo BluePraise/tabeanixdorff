@@ -178,7 +178,7 @@ a.clear-active {
 	/* padding: 20px 0; */
 }
 a.clear-active.hide-this {
-	opacity: 0.4;
+/*opacity: 0.4;*/
 }
 
 span.mobile-menu {
