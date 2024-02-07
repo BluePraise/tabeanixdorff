@@ -26,8 +26,6 @@
 	?>
     	<h2 class="project-line">
 			<a href="<?php the_permalink(); ?>"
-				title="<?php the_title(); ?>"
-				alt="Project of Tabea Nixdorff: <?php the_title(); ?>"
 				<?php if (isset($args['set-data-tag']) && $args['set-data-tag'] == true): ?>
 				data-tag="<?php if ($posttags):
 					foreach($posttags as $tag): echo $tag->name . ' ';
