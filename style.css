@@ -60,7 +60,6 @@ a {
 
 /* Header */
 header {
-	background-color: white;
 	position: fixed;
 	z-index: 1;
 	width: 100%;
@@ -98,11 +97,11 @@ header ul li a:hover {
 
 .main-menu__item:not(.js-sorting-threads-toggle) {
 	position: relative;
-	display:  block;
-	width: 237px;
+	display: inline-block;
 	background-color: white;
 	margin-top: 10px;
 	padding-left: 10px;
+	padding-right: 10px;
 }
 .main-menu__item:hover {
 	cursor: pointer;
