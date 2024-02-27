@@ -1,11 +1,10 @@
 /**
  * Custom JS for the theme.
- * V2.0.0.
- * Mixed bag of JS and jQuery.
- * - menu (jQuery)
+ * V2.0.0
+ *
  * - search functionality
  * - filter and sorting functionality
- * - flickity.js (jQuery)
+
  */
 
 /**

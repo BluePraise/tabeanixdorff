@@ -116,7 +116,7 @@ header ul li a:hover {
 }
 
 .sub-menu {
-	min-width: 158px;
+	width: 160px;
 	position: absolute;
 	padding: 0 4px;
 	z-index: 1;
