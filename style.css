@@ -91,6 +91,9 @@ header ul li a:hover {
 	display: flex;
 	gap: 15%;
 }
+.main-menu__item {
+	width: 158px;
+}
 
 .main-menu__item:not(.js-sorting-threads-toggle) {
 	position: relative;
@@ -113,13 +116,14 @@ header ul li a:hover {
 }
 
 .sub-menu {
+	min-width: 158px;
 	position: absolute;
 	padding: 0 4px;
 	z-index: 1;
   	background-color: white;
 	opacity: 0;
 	right: 9999rem;
-	top: calc(100% - 12px);
+	/* top: calc(100% - 12px); */
 	transition: opacity .15s linear, transform .15s linear;
 	transform: translateY(var(--base-rhythm-value));
 }
