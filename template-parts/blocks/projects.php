@@ -26,7 +26,7 @@ if( !empty($block['align']) ) {
 
 // Load values and assign defaults.
 
-$hover_text = get_field('project_hover_text') ?: 'Your correction line here...';
+$hover_text = get_field('project_hover_text') ?: '';
 $year = get_field('year');
 $categories = get_the_category();
 
