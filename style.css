@@ -92,7 +92,7 @@ header ul li a:hover {
 	gap: 15%;
 }
 .main-menu__item {
-	width: 158px;
+	width: 210px; /* This should be the same as .sub-menu width*/
 }
 
 .main-menu__item:not(.js-sorting-threads-toggle) {
@@ -116,7 +116,7 @@ header ul li a:hover {
 }
 
 .sub-menu {
-	width: 160px;
+	width: 210px;
 	position: absolute;
 	padding: 0 4px;
 	z-index: 1;
