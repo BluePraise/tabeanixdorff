@@ -89,19 +89,14 @@ header ul li a:hover {
 }
 .main-menu {
 	display: flex;
-	gap: 5%;
-	/* justify-content: space-between; */
-	/* align-items: flex-start; */
-    /* align-content: flex-start; */
+	gap: 15%;
 }
 
 .main-menu__item:not(.js-sorting-threads-toggle) {
 	position: relative;
-	display: inline-block;
+	display:  block;
 	background-color: white;
 	margin-top: 10px;
-	padding-left: 10px;
-	padding-right: 10px;
 }
 .main-menu__item:hover {
 	cursor: pointer;
@@ -119,15 +114,12 @@ header ul li a:hover {
 
 .sub-menu {
 	position: absolute;
+	padding: 0 4px;
 	z-index: 1;
   	background-color: white;
 	opacity: 0;
-	left: 9999rem;
-	top: 8px;
-	padding-top: 20px;
-	padding-left: 34px;
-	padding-bottom: 4px;
-	width: calc(100% - 34px); /* 100% of parent minus padding left */
+	right: 9999rem;
+	top: calc(100% - 12px);
 	transition: opacity .15s linear, transform .15s linear;
 	transform: translateY(var(--base-rhythm-value));
 }
@@ -146,7 +138,7 @@ header ul li a:hover {
 	content: "×";
 	display: inline-block;
 	position: absolute;
-	left: 15px;
+	left: -20px;
  	font-style: normal;
 }
 /* Filter Styling*/
@@ -184,9 +176,10 @@ span.mobile-menu {
 	display: none;
 }
 /* .js-filters.sub-menu.show, */
-.main-menu__item:hover .sub-menu {
-	position: absolute;
-	left: 0px;
+.main-menu__item:not(.js-sorting-threads-toggle):hover .sub-menu {
+	position: relative;
+	right: 0px;
+	margin-left: 21px;
 	display: block;
 	z-index: 1;
 	opacity: 1;
@@ -251,6 +244,7 @@ p.project-detail-meta-info {
 .project-detail-meta-info i {
 	font-weight: 600;
 }
+
 .project-detail-meta-info {
 	display: none;
 	width: 100%;
