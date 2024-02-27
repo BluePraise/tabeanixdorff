@@ -1,9 +1,22 @@
 <?php
-	get_header(); ?>
+	get_header();
+	$block = parse_blocks( $post->post_content );
+	$hover_text = $block[0]['attrs']['data']['project_hover_text'];
+	$categories = get_the_category();
+	$year = $block[0]['attrs']['data']['year'];
+?>
 
 <?php if (have_posts()):
   while (have_posts()) : the_post(); ?>
-  	<h1 class="project-detail-title"><a href="javascript:history.go(-1)"><?php the_title(); ?></a></h1>
+  	<div class="article-header">
+  		<h1 class="project-detail-title"><a href="javascript:history.go(-1)"><?php the_title(); ?></a></h1>
+		<p class="project-detail-meta-info">
+			<i><?php echo $hover_text; ?></i>
+			<?php if ( ! empty( $categories ) && $categories[0]->name !== 'hidden' ): ?>
+				(<?php echo esc_html( $categories[0]->name ); ?>, <?php echo $year ?>)
+			<?php endif; ?>
+		</p>
+	</div>
     <article>
       <?php the_content(); ?>
       <div class="d-flex cols-2">

@@ -258,6 +258,12 @@ p.project-detail-meta-info {
 	margin: 0;
 }
 
+.single .article-header .project-detail-meta-info {
+	display: block;
+	position: relative;
+	margin-top: 10px;
+}
+
 .single .leftover-projects {
 	position: relative;
 }

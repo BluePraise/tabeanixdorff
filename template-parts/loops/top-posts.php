@@ -10,7 +10,6 @@
             foreach($top_posts as $post):
                 $block = parse_blocks( $post->post_content );
                 $hover_text = $block[0]['attrs']['data'];
-
 		        $posttags = get_the_tags();
             ?>
 
